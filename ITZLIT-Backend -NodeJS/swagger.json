@@ -1,0 +1,123 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "ITZLit API Docs",
+		"description": "ITZLit Social Media - Private API Documentation",
+		"license": {
+			"name": "Copyright ITZLit - 2017"
+		}
+	},
+	"host": "localhost:3000",
+	"basePath": "/api/v1",
+	"tags": [
+		{
+			"name": "Users",
+			"description": "API for users in the system"
+		}
+	],
+	"schemes": [
+		"http",
+		"https"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/user/create": {
+			"post": {
+				"tags": [
+					"User"
+				],
+				"description": "Create new user in system",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/User"
+						}
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "New user is created",
+						"schema": {
+							"$ref": "#/definitions/User"
+						}
+					},
+					"400": {
+						"description": "Generic user input error",
+						"schema": {
+							"$ref": "#/definitions/GenericUserInputError"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"User": {
+			"required": [
+				"email",
+				"password",
+				"phoneNumber",
+				"fullName"
+			],
+			"properties": {
+				"fullName": {
+					"type": "string",
+					"example": "Jay Mehta"
+				},
+				"email": {
+					"type": "string",
+					"uniqueItems": true,
+					"example": "jm@example.com"
+				},
+				"password": {
+					"type": "string",
+					"example": "Jm1234"
+				},
+				"phoneNumber": {
+					"type": "string",
+					"example": "+919725505555"
+				},
+				"profilePic": {
+					"type": "string",
+					"example": "AWS Key"
+				},
+				"fbProvider": {
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string",
+							"example": "100000216633345"
+						},
+						"accessToken": {
+							"type": "string",
+							"example": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+						}
+					}
+				}
+			}
+		},
+		"Users": {
+			"type": "array",
+			"$ref": "#/definitions/User"
+		},
+		"GenericUserInputError": {
+			"properties": {
+				"error": {
+					"type": "string",
+					"example": "Password must be at least 6 letters long, contain a capital letter and contain a lowercase letter"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,103 @@
+//
+//  Config.swift
+//  ITZLIT
+//
+//  Created by devang.bhatt on 04/11/17.
+//  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
+//
+
+import Foundation
+
+struct WebserverPath {
+    //    static let baseUrl = "http://itzlit.psu.sa92.sa-labs.info/api/v1/" // staging
+    static let baseUrl = "http://stage.api.itzlit.io/api/v1/" // live
+    static let userLogin = "user/login"
+    static let createUser = "user/create"
+    static let createDevice = "device/create"
+    static let updateDevice = "device/update"
+    static let awsPresingedUrl = "user/profile-pic-aws-presinged-url"
+    static let forgetPassword = "user/forget-password"
+    static let contactsyc = "connection/itzlit-users"
+    static let  follow     =  "connection/follow"
+    static let  unFollow     =  "connection/unfollow"
+    static let followingList = "connection/followings"
+    static let followerList =  "connection/followers"
+    static let verifyMobileNumber = "user/verify-number/"
+    static let fbUserLogin = "user/fb-login"
+    static let resendOTP = "user/resend-otp"
+    static let profile = "user/me"
+    static let changePassword = "user/change-password"
+    static let globalSearch = "connection/search?q="
+    static let updateProfile = "user/update-profile"
+    static let notificationList = "notification/list"
+    static let logout = "user/logout"
+    static let CreateStory = "feed/new-story"
+    static let recentStories = "feed/recent-stories"
+    static let notificationPref = "device/update-notification-pref"
+    static let feedStories  = "feed/stories"
+    static let liverequestCount = "feed/live-req-count"
+    
+    static let liverequestList = "feed/live-req"
+    static let goliverequest = "feed/go-live-req"
+    static let markAsViewd = "feed/seen"
+    static let commentList = "feed/comments"
+    static let insertcomment = "feed/add-comment"
+    static let viewerList = "feed/seen-by"
+    static let litsUp = "feed/itzlit-up"
+    static let hideFeed = "feed/hide-by-user"
+    static let deleteFeed = "feed/remove-feed"
+    static let reportFeed = "feed/report"
+    static let getStreamId = "feed/go-live-get-stream-id"
+    static let goLiveStartPublishing = "feed/go-live-start-publishing"
+    static let goLiveStopPublishing = "feed/go-live-stop-publishing"
+    static let activateStory = "feed/activate-story"
+    static let feedDetails = "feed/feed-detail/"
+    static let getMyStories = "feed/my-stories"
+    static let privacyPolicy = "static/privacy-policy"
+    static let termsOfUse = "static/terms-of-use"
+    static let goLiveSendPN = "feed/go-live-send-notification"
+    static let sendInvitation = "user/send-invitation"
+}
+
+
+struct WebserviceRequestParmeterKey {
+    static let feedId = "feedId"
+    static let commentText = "commentText"
+    static let timeZone = "timeZone"
+    static let deviceType = "deviceType"
+    static let appIdentifier = "appIdentifier"
+    static let appName = "appName"
+    static let appVersion = "appVersion"
+    static let appBuildNumber = "appBuildNumber"
+    static let deviceToken = "deviceToken"
+    static let goLiveUser = "goLiveUser"
+    static let xAuthToken = "x-auth-token"
+    static let fullName = "fullName"
+    static let password = "password"
+    static let newPassword = "newPassword"
+    static let email = "email"
+    static let phoneNumber = "phoneNumber"
+    static let deviceId = "deviceId"
+    static let profilePic = "profilePic"
+    static let regionCode = "regionCode"
+    static let contactListTOsyc =  "contacts"
+    static let followee =  "followee"
+    static let connectionId =  "connectionId"
+    static let feedType = "feedType"
+    static let privacyLevel = "privacyLevel"
+    static let sharedWith = "sharedWith"
+    static let story = "story"
+    static let fbId = "id"
+    static let fbAccessToken = "accessToken"
+    static let aboutStory = "caption"
+    static let notificationPref = "notificationPref"
+    static let streamToYt = "streamToYt"
+    static let streamToItzlit = "streamToItzlit"
+    static let streamToFb = "streamToFb"
+    static let yt = "yt"
+    static let ingestionUrl = "ingestionUrl"
+    static let streamName = "streamName"
+    static let fb = "fb"
+    static let streamUrl = "streamUrl"
+    static let caption = "caption"
+}

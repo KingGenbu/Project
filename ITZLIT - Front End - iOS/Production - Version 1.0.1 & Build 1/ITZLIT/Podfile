@@ -1,0 +1,78 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'ITZLIT' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+ source 'https://github.com/CocoaPods/Specs.git'
+ use_frameworks!
+
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+  pod 'Google/SignIn'
+  pod 'GoogleAPIClientForREST/YouTube'
+  pod 'libPhoneNumber-iOS'
+  pod 'Alamofire' 
+  pod 'SwiftyJSON'
+  pod 'Branch'
+  pod 'SDWebImage'
+  pod 'SwiftLoader'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SQLite.swift', '~> 0.11.4'
+  pod 'Fabric'
+  pod 'Crashlytics'
+
+pod 'SimpleImageViewer', :git => 'https://github.com/teamSolutionAnalysts/SimpleImageViewer.git', :branch => 'podWith'
+pod 'Socket.IO-Client-Swift'
+  # Pods for ITZLIT
+
+end
+
+target 'ITZLIT Dev' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    source 'https://github.com/CocoaPods/Specs.git'
+    use_frameworks!
+    
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
+    pod 'Google/SignIn'
+    pod 'GoogleAPIClientForREST/YouTube'
+    pod 'libPhoneNumber-iOS'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+    pod 'Branch'
+    pod 'SDWebImage'
+    pod 'SwiftLoader'
+    pod 'IQKeyboardManagerSwift'
+    pod 'SQLite.swift', '~> 0.11.4'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'SimpleImageViewer', :git => 'https://github.com/teamSolutionAnalysts/SimpleImageViewer.git', :branch => 'podWith'
+    pod 'Socket.IO-Client-Swift'
+    # Pods for ITZLIT
+    
+end
+
+target 'ITZLIT Stage' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    source 'https://github.com/CocoaPods/Specs.git'
+    use_frameworks!
+    
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
+    pod 'Google/SignIn'
+    pod 'GoogleAPIClientForREST/YouTube'
+    pod 'libPhoneNumber-iOS'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+    pod 'Branch'
+    pod 'SDWebImage'
+    pod 'SwiftLoader'
+    pod 'IQKeyboardManagerSwift'
+    pod 'SQLite.swift', '~> 0.11.4'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'SimpleImageViewer', :git => 'https://github.com/teamSolutionAnalysts/SimpleImageViewer.git', :branch => 'podWith'
+    pod 'Socket.IO-Client-Swift'
+    # Pods for ITZLIT
+    
+end
