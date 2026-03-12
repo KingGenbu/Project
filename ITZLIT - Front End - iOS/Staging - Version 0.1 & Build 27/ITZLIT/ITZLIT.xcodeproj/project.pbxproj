@@ -474,6 +474,14 @@
 		A7EC6B0C1FE032BA001F2B43 /* FeedCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EC6B091FE032B9001F2B43 /* FeedCommentViewController.swift */; };
 		CE63464935335E32EC9EDD8F /* Pods_ITZLIT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064E10901FA1DF9400F01930 /* Pods_ITZLIT.framework */; };
 		D18531AA526BE55ADA6ACB77 /* Pods_ITZLIT_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220D36304F73D489844000BE /* Pods_ITZLIT_Dev.framework */; };
+		7587B12710894340971E757C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
+		2885F94DD58B48579A14932F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
+		2297A142D11C48A4880F029B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
+		A40167CF8EE94B40869A8B01 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
+		A15A3BE3431A46998B4B7D01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */; };
+		DC708B5D8E3440B9B584013C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */; };
+		83942743EE634B469EAA07B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */; };
+		7A52E4E910AE408DA4E86D21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -679,6 +687,8 @@
 		A7DC3D631FD809EB00D195A7 /* RequestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListViewController.swift; sourceTree = "<group>"; };
 		A7DC3D671FD8309C00D195A7 /* RequesterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterList.swift; sourceTree = "<group>"; };
 		A7EC6B091FE032B9001F2B43 /* FeedCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCommentViewController.swift; sourceTree = "<group>"; };
+		194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = file.xcprivacy; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1095,6 +1105,8 @@
 		6D454DC81F9F487D00065056 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */,
+				1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */,
 				6D454DB61F9F484300065056 /* AppDelegate.swift */,
 				6DB5A7BE1F9F53AF009EB057 /* Configuration.swift */,
 				6DB5A7C01F9F53D1009EB057 /* Environment.swift */,
@@ -1549,6 +1561,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7587B12710894340971E757C /* PrivacyInfo.xcprivacy in Resources */,
+
 				5D27C1392010B05900A3CCEF /* SettingFeed.storyboard in Resources */,
 				5D27C13A2010B05900A3CCEF /* Roboto-Light.ttf in Resources */,
 				5D27C13B2010B05900A3CCEF /* GoogleService-Info.plist in Resources */,
@@ -1579,6 +1593,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2885F94DD58B48579A14932F /* PrivacyInfo.xcprivacy in Resources */,
+
 				0654BC861FA9969C00A916A2 /* Roboto-Light.ttf in Resources */,
 				064E108A1FA1CC9F00F01930 /* Poppins-Bold.ttf in Resources */,
 				063A0D8B1FA3585000C00B90 /* BaseViewController.xib in Resources */,
@@ -1610,6 +1626,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2297A142D11C48A4880F029B /* PrivacyInfo.xcprivacy in Resources */,
+
 				06F2F68E1FCC24B2000158BD /* GoogleService-Info.plist in Resources */,
 				06ED701D1FC81F2D006C30BB /* SettingFeed.storyboard in Resources */,
 				A778B01C1FC6FF370068AD44 /* Roboto-Light.ttf in Resources */,
@@ -1640,6 +1658,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A40167CF8EE94B40869A8B01 /* PrivacyInfo.xcprivacy in Resources */,
+
 				5DFD2BA11FED6B88004FA29C /* SettingFeed.storyboard in Resources */,
 				A778B07B1FC7059E0068AD44 /* Roboto-Light.ttf in Resources */,
 				06F2F68F1FCC24B2000158BD /* GoogleService-Info.plist in Resources */,
@@ -2081,6 +2101,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15A3BE3431A46998B4B7D01 /* SceneDelegate.swift in Sources */,
+
 				5D27C0DD2010B05900A3CCEF /* SettingsViewController.swift in Sources */,
 				5D27C0DE2010B05900A3CCEF /* ApiManager.swift in Sources */,
 				5D27C0DF2010B05900A3CCEF /* ContactCell.swift in Sources */,
@@ -2165,6 +2187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC708B5D8E3440B9B584013C /* SceneDelegate.swift in Sources */,
+
 				06ED70211FC83731006C30BB /* LiveStreamingConfigurationVC.swift in Sources */,
 				06F66FCD1FCD3B4000387873 /* TermsAndPrivacyViewController.swift in Sources */,
 				06B180081FB1DE3F00F76C7A /* ApiManager.swift in Sources */,
@@ -2248,6 +2272,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83942743EE634B469EAA07B3 /* SceneDelegate.swift in Sources */,
+
 				06ED70221FC83731006C30BB /* LiveStreamingConfigurationVC.swift in Sources */,
 				06F66FCE1FCD3B4000387873 /* TermsAndPrivacyViewController.swift in Sources */,
 				06ED701B1FC81C7D006C30BB /* SettingsViewController.swift in Sources */,
@@ -2332,6 +2358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A52E4E910AE408DA4E86D21 /* SceneDelegate.swift in Sources */,
+
 				5DFD2BA21FED6C55004FA29C /* SettingsViewController.swift in Sources */,
 				A778B0361FC7059E0068AD44 /* ApiManager.swift in Sources */,
 				A778B0371FC7059E0068AD44 /* ContactCell.swift in Sources */,

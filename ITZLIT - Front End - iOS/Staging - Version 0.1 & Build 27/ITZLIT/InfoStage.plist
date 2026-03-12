@@ -157,5 +157,24 @@
 	<string>http://stage.api.itzlit.io</string>
 	<key>ytClientID</key>
 	<string>202860468598-87kbmv1k3aja4dnh405unkhdgo00d7gg.apps.googleusercontent.com</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>StoryShare</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 </dict>
 </plist>
