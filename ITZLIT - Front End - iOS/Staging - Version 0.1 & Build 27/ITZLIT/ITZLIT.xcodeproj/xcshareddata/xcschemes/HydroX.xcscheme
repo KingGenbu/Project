@@ -7,6 +7,34 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6D454DB21F9F484300065056"
+               BuildableName = "HydroX-Test.app"
+               BlueprintName = "HydroX-Test"
+               ReferencedContainer = "container:HydroX.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "063215A01FB090B000FC2ABD"
+               BuildableName = "HydroXTests.xctest"
+               BlueprintName = "HydroXTests"
+               ReferencedContainer = "container:HydroX.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
@@ -14,10 +42,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D454DB21F9F484300065056"
-               BuildableName = "ITZLIT-Test.app"
-               BlueprintName = "ITZLIT-Test"
-               ReferencedContainer = "container:ITZLIT.xcodeproj">
+               BlueprintIdentifier = "5D27C0DA2010B05900A3CCEF"
+               BuildableName = "HydroX.app"
+               BlueprintName = "HydroX"
+               ReferencedContainer = "container:HydroX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,24 +57,14 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "063215A01FB090B000FC2ABD"
-               BuildableName = "ITZLITTests.xctest"
-               BlueprintName = "ITZLITTests"
-               ReferencedContainer = "container:ITZLIT.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D27C0DA2010B05900A3CCEF"
-            BuildableName = "ITZLIT.app"
-            BlueprintName = "ITZLIT"
-            ReferencedContainer = "container:ITZLIT.xcodeproj">
+            BuildableName = "HydroX.app"
+            BlueprintName = "HydroX"
+            ReferencedContainer = "container:HydroX.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +101,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D27C0DA2010B05900A3CCEF"
-            BuildableName = "ITZLIT.app"
-            BlueprintName = "ITZLIT"
-            ReferencedContainer = "container:ITZLIT.xcodeproj">
+            BuildableName = "HydroX.app"
+            BlueprintName = "HydroX"
+            ReferencedContainer = "container:HydroX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -102,9 +120,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D27C0DA2010B05900A3CCEF"
-            BuildableName = "ITZLIT.app"
-            BlueprintName = "ITZLIT"
-            ReferencedContainer = "container:ITZLIT.xcodeproj">
+            BuildableName = "HydroX.app"
+            BlueprintName = "HydroX"
+            ReferencedContainer = "container:HydroX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

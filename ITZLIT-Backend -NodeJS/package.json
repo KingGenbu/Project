@@ -60,7 +60,7 @@
     "swagger-ui-express": "^5.0.1",
     "winston": "^3.17.0"
   },
-  "repository": "http://git.sa-labs.info/itzlit/itzlit-nodejs.git",
+  "repository": "http://git.sa-labs.info/hydrox/hydrox-nodejs.git",
   "devDependencies": {
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",

@@ -13,7 +13,7 @@
 		062051771FA2F3D600084475 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062051761FA2F3D600084475 /* Helper.swift */; };
 		0620517B1FA32C5E00084475 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0620517A1FA32C5E00084475 /* NotificationViewController.swift */; };
 		0620517E1FA32CB200084475 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0620517D1FA32CB200084475 /* NotificationCell.swift */; };
-		063215A41FB090B100FC2ABD /* ITZLITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063215A31FB090B100FC2ABD /* ITZLITTests.swift */; };
+		063215A41FB090B100FC2ABD /* HydroXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063215A31FB090B100FC2ABD /* HydroXTests.swift */; };
 		063215AD1FB090DC00FC2ABD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063215AC1FB090DC00FC2ABD /* RegistrationVC.swift */; };
 		063A0D8A1FA3585000C00B90 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A0D881FA3585000C00B90 /* BaseViewController.swift */; };
 		063A0D8B1FA3585000C00B90 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063A0D891FA3585000C00B90 /* BaseViewController.xib */; };
@@ -550,7 +550,7 @@
 		0620517A1FA32C5E00084475 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		0620517D1FA32CB200084475 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		063215A11FB090B000FC2ABD /* ITZLITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ITZLITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		063215A31FB090B100FC2ABD /* ITZLITTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITZLITTests.swift; sourceTree = "<group>"; };
+		063215A31FB090B100FC2ABD /* HydroXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydroXTests.swift; sourceTree = "<group>"; };
 		063215A51FB090B100FC2ABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		063215AC1FB090DC00FC2ABD /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		063A0D881FA3585000C00B90 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -622,7 +622,7 @@
 		5D1CFC2C1FDACDEF00E937E5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5D1F35F1203EA81E008BC4CF /* ILSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILSocketManager.swift; sourceTree = "<group>"; };
 		5D27C0D52010AE7100A3CCEF /* InfoProduction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoProduction.plist; sourceTree = "<group>"; };
-		5D27C0D92010AF9D00A3CCEF /* ITZLITProduction.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ITZLITProduction.entitlements; sourceTree = "<group>"; };
+		5D27C0D92010AF9D00A3CCEF /* HydroXProduction.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HydroXProduction.entitlements; sourceTree = "<group>"; };
 		5D27C1572010B05900A3CCEF /* ITZLIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITZLIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D43882A2051811600DA47B7 /* FeedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInfoView.swift; sourceTree = "<group>"; };
 		5D4388302051812400DA47B7 /* FeedInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedInfoView.xib; sourceTree = "<group>"; };
@@ -667,9 +667,9 @@
 		A77033701FE04D4200D38463 /* CommentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentList.swift; sourceTree = "<group>"; };
 		A7728D201FE2A39C003776D0 /* Meter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meter.swift; sourceTree = "<group>"; };
 		A778B0301FC6FF370068AD44 /* ITZLIT Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITZLIT Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A778B0321FC704A00068AD44 /* ITZLITDev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ITZLITDev.entitlements; sourceTree = "<group>"; };
+		A778B0321FC704A00068AD44 /* HydroXDev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HydroXDev.entitlements; sourceTree = "<group>"; };
 		A778B08F1FC7059E0068AD44 /* ITZLIT Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITZLIT Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A778B0911FC70C260068AD44 /* ITZLITStage.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ITZLITStage.entitlements; sourceTree = "<group>"; };
+		A778B0911FC70C260068AD44 /* HydroXStage.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HydroXStage.entitlements; sourceTree = "<group>"; };
 		A7A4113A1FB9A1AB009D2DCF /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		A7A4113B1FB9A1AB009D2DCF /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
 		A7A4113C1FB9A1AB009D2DCF /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
@@ -807,7 +807,7 @@
 		063215A21FB090B100FC2ABD /* ITZLITTests */ = {
 			isa = PBXGroup;
 			children = (
-				063215A31FB090B100FC2ABD /* ITZLITTests.swift */,
+				063215A31FB090B100FC2ABD /* HydroXTests.swift */,
 				063215AC1FB090DC00FC2ABD /* RegistrationVC.swift */,
 				063215A51FB090B100FC2ABD /* Info.plist */,
 			);
@@ -1084,10 +1084,10 @@
 		6D454DB51F9F484300065056 /* ITZLIT */ = {
 			isa = PBXGroup;
 			children = (
-				5D27C0D92010AF9D00A3CCEF /* ITZLITProduction.entitlements */,
-				A778B0911FC70C260068AD44 /* ITZLITStage.entitlements */,
+				5D27C0D92010AF9D00A3CCEF /* HydroXProduction.entitlements */,
+				A778B0911FC70C260068AD44 /* HydroXStage.entitlements */,
 				A74924101FB43240004D0CC6 /* Model */,
-				A778B0321FC704A00068AD44 /* ITZLITDev.entitlements */,
+				A778B0321FC704A00068AD44 /* HydroXDev.entitlements */,
 				064E3DEF1FA0630C004251B4 /* Custom Views */,
 				6D454DCC1F9F4A1400065056 /* Constants */,
 				6D454DCB1F9F4A1400065056 /* Extensions */,
@@ -2091,7 +2091,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D43882C2051811600DA47B7 /* FeedInfoView.swift in Sources */,
-				063215A41FB090B100FC2ABD /* ITZLITTests.swift in Sources */,
+				063215A41FB090B100FC2ABD /* HydroXTests.swift in Sources */,
 				063215AD1FB090DC00FC2ABD /* RegistrationVC.swift in Sources */,
 				5DBE0866204EAC8F003885A4 /* IZTextView.swift in Sources */,
 			);
@@ -2609,7 +2609,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2641,7 +2641,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2730,7 +2730,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2819,7 +2819,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2851,7 +2851,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITDev.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2882,7 +2882,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITDev.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2914,7 +2914,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITStage.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXStage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2946,7 +2946,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITStage.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXStage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;

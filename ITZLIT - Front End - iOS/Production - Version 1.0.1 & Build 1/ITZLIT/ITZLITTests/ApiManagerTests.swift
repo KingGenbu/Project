@@ -1,6 +1,6 @@
 //
 //  ApiManagerTests.swift
-//  ITZLITTests
+//  HydroXTests
 //
 //  Unit tests for ApiManager networking layer.
 //
@@ -10,7 +10,7 @@
 //
 
 import XCTest
-@testable import ITZLIT
+@testable import HydroX
 
 // MARK: - URLProtocol stub
 

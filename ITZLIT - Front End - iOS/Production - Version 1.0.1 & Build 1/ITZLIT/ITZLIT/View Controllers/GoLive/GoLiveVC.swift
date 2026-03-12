@@ -765,7 +765,7 @@ extension GoLiveVC {
          Parameter Format:
          '{"cdn":{"format":"1080p","ingestionType":"dash"},"snippet":{"title":"demo"}
          */
-        let params:[String:Any] = ["snippet":["title": self.strCaption == "" ? "Live via ITZLIT" : self.strCaption], "cdn":["format":"1080p", "ingestionType":"rtmp"]]
+        let params:[String:Any] = ["snippet":["title": self.strCaption == "" ? "Live via HydroX" : self.strCaption], "cdn":["format":"1080p", "ingestionType":"rtmp"]]
         var originalURL = "https://www.googleapis.com/youtube/v3/liveStreams?part=id, snippet, cdn, contentDetails, status"
         
         if let encodedURL = originalURL.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
@@ -813,7 +813,7 @@ extension GoLiveVC {
         print("Broadcast date -->>",strBroadcastDate)
         let headers = ["Authorization": "Bearer \(token)", "Accept": "application/json", "Content-Type":"application/json"]
         
-        let params:[String:Any] = ["snippet":["scheduledStartTime":strBroadcastDate,"title":self.strCaption == "" ? "Live via ITZLIT" : self.strCaption ], "status":["privacyStatus": "public"]]
+        let params:[String:Any] = ["snippet":["scheduledStartTime":strBroadcastDate,"title":self.strCaption == "" ? "Live via HydroX" : self.strCaption ], "status":["privacyStatus": "public"]]
         var originalURL = "https://www.googleapis.com/youtube/v3/liveBroadcasts?part=id, snippet, contentDetails, status"
         
         if let encodedURL = originalURL.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {

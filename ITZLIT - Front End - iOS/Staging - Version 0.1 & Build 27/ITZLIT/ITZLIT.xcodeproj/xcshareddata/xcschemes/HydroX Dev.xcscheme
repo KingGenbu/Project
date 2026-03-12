@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A778B0331FC7059E0068AD44"
-               BuildableName = "ITZLIT Stage.app"
-               BlueprintName = "ITZLIT Stage"
-               ReferencedContainer = "container:ITZLIT.xcodeproj">
+               BlueprintIdentifier = "A778AFD41FC6FF370068AD44"
+               BuildableName = "HydroX Dev.app"
+               BlueprintName = "HydroX Dev"
+               ReferencedContainer = "container:HydroX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,10 +33,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A778B0331FC7059E0068AD44"
-            BuildableName = "ITZLIT Stage.app"
-            BlueprintName = "ITZLIT Stage"
-            ReferencedContainer = "container:ITZLIT.xcodeproj">
+            BlueprintIdentifier = "A778AFD41FC6FF370068AD44"
+            BuildableName = "HydroX Dev.app"
+            BlueprintName = "HydroX Dev"
+            ReferencedContainer = "container:HydroX.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -57,10 +57,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A778B0331FC7059E0068AD44"
-            BuildableName = "ITZLIT Stage.app"
-            BlueprintName = "ITZLIT Stage"
-            ReferencedContainer = "container:ITZLIT.xcodeproj">
+            BlueprintIdentifier = "A778AFD41FC6FF370068AD44"
+            BuildableName = "HydroX Dev.app"
+            BlueprintName = "HydroX Dev"
+            ReferencedContainer = "container:HydroX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -74,7 +74,7 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Development"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -83,10 +83,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A778B0331FC7059E0068AD44"
-            BuildableName = "ITZLIT Stage.app"
-            BlueprintName = "ITZLIT Stage"
-            ReferencedContainer = "container:ITZLIT.xcodeproj">
+            BlueprintIdentifier = "A778AFD41FC6FF370068AD44"
+            BuildableName = "HydroX Dev.app"
+            BlueprintName = "HydroX Dev"
+            ReferencedContainer = "container:HydroX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

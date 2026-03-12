@@ -1,6 +1,6 @@
 //
-//  ITZLITTests.swift
-//  ITZLITTests
+//  HydroXTests.swift
+//  HydroXTests
 //
 //  Created by devang.bhatt on 06/11/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -11,7 +11,7 @@ import XCTest
 /// Smoke-test suite. Each area gets its own dedicated test file; this file
 /// verifies that the test bundle itself boots correctly and provides a home
 /// for cross-cutting checks that don't belong to a single feature.
-class ITZLITTests: XCTestCase {
+class HydroXTests: XCTestCase {
 
     override func setUp() {
         super.setUp()

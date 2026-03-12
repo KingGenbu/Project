@@ -64,7 +64,7 @@ awsUtils.publishSnsSMS = (to, message) => {
   const paramsAtt = {
     attributes: { /* required */
       DefaultSMSType: 'Transactional',
-      DefaultSenderID: 'ITZLIT',
+      DefaultSenderID: 'HydroX',
     },
   };
 

@@ -1332,7 +1332,7 @@ feedCtr.snsNotification = (req, res) => {
                         feedUtils.deleteTempFiles(uploadInfo.tempLocation);
 
                         // Create Branch Link
-                        branch.link(media.feed._id, `${media.user.fullName} was live on ITZLIT!`, 'ITZLIT - Go Live on multiple platforms simultaneously and share stories with friends! 😎', s3Files.thumb_750x1334.url)
+                        branch.link(media.feed._id, `${media.user.fullName} was live on HydroX!`, 'HydroX - Go Live on multiple platforms simultaneously and share stories with friends! 😎', s3Files.thumb_750x1334.url)
                           .then((link) => {
                             logger.info(`Branch URL : ${link.url}`);
                             media.feed.branchLink = link.url;

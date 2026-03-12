@@ -176,7 +176,7 @@ class ContactViewController: UIViewController {
     }
     func setupNavigationController()  {
         
-        self.title = "ITZLIT FRIENDS"
+        self.title = "HydroX FRIENDS"
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
         rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarSearchButton(_:)))
