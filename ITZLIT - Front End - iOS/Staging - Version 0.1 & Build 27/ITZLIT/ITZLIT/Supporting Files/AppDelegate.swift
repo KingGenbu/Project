@@ -9,16 +9,14 @@
 import UIKit
 import FBSDKCoreKit
 import GoogleSignIn
-import Google
 import UserNotifications
 import Branch
 import IQKeyboardManagerSwift
-import Fabric
-import Crashlytics
+import FirebaseCore
 import SimpleImageViewer
 
 enum NotificationType : String {
-    
+
     case typeFollow = "Follow"
     case typeIsLive = "IsLive"
     case typeWasLive = "WasLive"
@@ -27,63 +25,52 @@ enum NotificationType : String {
     case goLiveReq = "GoLiveReq"
 }
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    
+
     var window: UIWindow?
     lazy var configuration = Configuration()
     var arrFeedDetail = FeedDetailModel()
     var branch = Branch.getInstance()
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Fabric.with([Crashlytics.self])
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         DBManager.shared.copyDatabaseIfNeeded()
         ContactManager.shared.setUpcontactUpdateNotify()
         application.applicationIconBadgeNumber = 0
         if (UserDefaultHelper.getPREF(AppUserDefaults.pref_user_registered_token) != nil) && (UserDefaultHelper.getBoolPREF(AppUserDefaults.pref_user_verified) == true) {
-            
+
             DispatchQueue.global(qos: .background).async {
                 ContactManager.shared.setUpContactToDbWith(Loader: false, onCompletion: {(refresh) in
                 })
-                
+
             }
             DispatchQueue.main.async {
                 Helper.WSGetProfileCalled()
             }
             self.getUTCDateTime()
         }
-        
+
         // Check if launched from notification
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
             self.notificationData(userInfo: notification)
         }
-        
+
         DispatchQueue.main.async {
             if UserDefaultHelper.getPREF(AppUserDefaults.pref_device_id) == nil {
                 self.WSCreateDeviceId(onCompletionHandler: { (isSucess) in
                     if isSucess {
-                        if #available(iOS 10.0, *) {
-                            let center  = UNUserNotificationCenter.current()
-                            center.delegate = self
-                            center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
-                                if error == nil{
-                                    if granted {
-                                        DispatchQueue.main.async {
-                                            application.registerForRemoteNotifications()
-                                        }
-                                    } else{
-                                        print("denied")
+                        let center = UNUserNotificationCenter.current()
+                        center.delegate = self
+                        center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
+                            if error == nil {
+                                if granted {
+                                    DispatchQueue.main.async {
+                                        application.registerForRemoteNotifications()
                                     }
+                                } else {
+                                    print("denied")
                                 }
                             }
-                        } else{
-                            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound], completionHandler: { (granted, error) in
-                                if granted {
-                                    print("ios 11 Granted")
-                                    application.registerForRemoteNotifications()
-                                } else {
-                                    print("Denied")
-                                }
-                            })
                         }
                     }
                 })
@@ -95,16 +82,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         UNUserNotificationCenter.current().delegate = self
         self.setupGoogleSignIn()
-        
-        // IQ library enbled
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().enableAutoToolbar = false
-        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-        
+
+        // IQ keyboard manager
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+
         branch?.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: { (params, error) in
             if error == nil {
                 if let parameter = params as? [String:Any] {
-                    //    print("Branch IO params: ",params as? [String:Any] ?? "no params")
                     if let otpNumber = parameter["otp"] as? String {
                         self.WSVerifyMobileNumber(otpNumber)
                     }
@@ -113,69 +99,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("Branch io error:  ",error?.localizedDescription ?? "error")
             }
         })
-        
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        UIApplication.shared.isStatusBarHidden = false
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        
+
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+
         return true
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if url.scheme == ApiManager.branchScheme  {
             return Branch.getInstance().application(app, open: url, options: options)
         } else if url.scheme == ApiManager.fbUrlScheme  {
-            return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
-        }  else {
-            let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
-            let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
-            return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+            return ApplicationDelegate.shared.application(app, open: url, options: options)
+        } else {
+            return GIDSignIn.sharedInstance.handle(url)
         }
     }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         Branch.getInstance().continue(userActivity)
         return true
     }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
-    
+
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         ILSocketManager.shared.pauseConnection()
     }
-    
-    
-    
+
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-    
+
     func applicationDidBecomeActive(_ application: UIApplication) {
-//         Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         ILSocketManager.shared.resumeConnection()
         application.applicationIconBadgeNumber = 0
     }
-    
+
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        if UIApplication.shared.applicationState == .active {
-//            if let userInfo = notification.request.content.userInfo as? [String:Any] {
-//                self.notificationData(userInfo: userInfo)
-//            }
-//        }
-        completionHandler([.alert, .badge, .sound])
+        completionHandler([.banner, .badge, .sound])
     }
-    
-    
+
+
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let strDevicetoken = deviceToken.reduce("", {($0 + String(format: "%02X", $1))})
         print("strDevicetoken", strDevicetoken)
@@ -188,12 +155,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.notificationData(userInfo: userInfo)
         }
     }
-    
+
     func notificationData(userInfo: [String: Any]) {
         if let userNotificationDict = userInfo as [String: Any]? {
             if let type = userNotificationDict["type"] as? String{
                 if type == NotificationType.typeFollow.rawValue {
-                    
+
                 } else if type == NotificationType.typeIsLive.rawValue {
                     let viewliveVideoVC = Helper.settingFeedStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.viewLiveVideoVC.rawValue) as! ViewLiveVideoViewController
                     if let extrasDict = userNotificationDict["extras"] as? [String:Any] {
@@ -201,22 +168,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             ApiManager.Instance.sendHttpGetWithHeader(path: WebserverPath.feedDetails + feedId, onComplete: { (json, error, response) in
                                 if error == nil {
                                     if (response as? HTTPURLResponse)?.statusCode == 200 {
-                                        
+
                                         if let arrJsonFeedDetails = json.dictionaryObject!["doc"] as? [[String:Any]] {
-                                            
+
                                             if self.arrFeedDetail.arrFeedDetails == nil {
                                                 self.arrFeedDetail.arrFeedDetails = []
                                             }
-                                            
+
                                             var feedDetail = FeedDetail(values: [:])
-                                            
+
                                             for feedDetailItem in arrJsonFeedDetails {
                                                 feedDetail = FeedDetail(values: feedDetailItem)
                                                 self.arrFeedDetail.arrFeedDetails.append(feedDetail)
                                             }
-                                            
+
                                             viewliveVideoVC.arrFeedDetail = self.arrFeedDetail.arrFeedDetails
-                                            
+
                                             let navController = UINavigationController(rootViewController: viewliveVideoVC)
                                             self.window?.rootViewController?.present(navController, animated: true, completion: nil)
                                         }
@@ -232,7 +199,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         }
                     }
                 } else if type == NotificationType.goLiveReq.rawValue {
-                    
+
                     let rootViewController = self.window?.rootViewController as?
                     UINavigationController
                      let liveStreamingConfig = Helper.settingFeedStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.liveStreamingConfigurationVC.rawValue) as! LiveStreamingConfigurationVC
@@ -244,45 +211,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                             ApiManager.Instance.sendHttpGetWithHeader(path: WebserverPath.feedDetails + feedId, onComplete: { (json, error, response) in
                                 if error == nil {
                                     if (response as? HTTPURLResponse)?.statusCode == 200 {
-                                        
+
                                         if let arrJsonFeedDetails = json.dictionaryObject!["doc"] as? [[String:Any]] {
-                                            
+
                                             self.arrFeedDetail.arrFeedDetails = []
-                                            
-                                            
+
+
                                             var feedDetail = FeedDetail(values: [:])
-                                            
+
                                             for feedDetailItem in arrJsonFeedDetails {
                                                 feedDetail = FeedDetail(values: feedDetailItem)
                                                 self.arrFeedDetail.arrFeedDetails.append(feedDetail)
                                             }
-                                            
+
                                             let ownerDetails = owner(name: feedDetail.userFullName ?? "", image: #imageLiteral(resourceName: "img_profile"), originalImage: feedDetail.userProfilePic ?? "")
                                             var arrFeeds = [feed]()
                                             let feedCon = feedContant { (feeds) in
-                                       
-                                                
+
+
                                                 let createdDate = Date().getDifferanceFromCurrentTime(serverDate: feedDetail.createdAt!  as Date!)
-                                                
+
                                                 let storyMedia = feed(seenStoryId: "", thumbId: "", thumb: "", orignalMedia:  (feedDetail.mediaDict?.path)!, feedId: "", time: createdDate, discription: "", lits: "", comments: "", mediaType: (feedDetail.feedType == StoryType.storyImage.rawValue ? mediaType.image : mediaType.video ), owner: ownerDetails, type: .none, duration: (feedDetail.mediaDict?.duration)!, viewers: 0, branchLink: feedDetail.branchLink ?? "", masterIndex: nil, index: nil, individualFeedType: individualFeedType.init(rawValue: feedDetail.feedType!)!, privacyLevel: privacyLevel(rawValue: feedDetail.privacyLevel!)!)
-                                                
+
                                                 arrFeeds.append(storyMedia)
-                                                
+
                                                 feeds.feedList = arrFeeds
                                                 feeds.bottomtype = .none
                                                 feeds.feedType = .story
                                                 feeds.owner = ownerDetails
                                                 feeds.turnSoket =  false
                                             }
-                                            
-                                            
+
+
                                             let configuration = ImageViewerConfiguration { config in
                                             }
                                             DispatchQueue.main.async {
                                                 self.window?.rootViewController?.present(ImageViewerController(configuration: configuration, contant: feedCon), animated: true, completion: nil)
                                             }
                                         }
-                                        
+
                                     } else {
                                         print("error:", error?.localizedDescription ?? "error")
                                     }
@@ -298,36 +265,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-    
-    
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//        if let userInfo = userInfo as? [String:Any] {
-//            self.notificationData(userInfo: userInfo)
-//        }
-//    }
-    
-    /// configure google sign in
+
+    /// Configure Google Sign-In
     func setupGoogleSignIn() {
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
     }
-    
+
     /// MARK: Flush Local store data of go live requested from story detail screen.
     func getUTCDateTime() {
         if Date().getCurrentUTCDateTime() >= Date().getFlushUTCDateTime() {
             if let prefDate = UserDefaults.standard.object(forKey: "pref_date_golive") as? Date {
                 if Date().getFlushUTCDateTime() >= prefDate {
-//                    print("Flush story detail table")
                     DBManager.shared.clearStoryDetailTable()
                 }
             }
         }
     }
-    
+
     // WS create device id called
     func WSCreateDeviceId(onCompletionHandler: ((_ isSucess:Bool) -> ())?) {
-        
+
         let timeZone = TimeZone.current.abbreviation()
         let appName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
         let bundleID = Bundle.main.bundleIdentifier
@@ -341,7 +300,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                         WebserviceRequestParmeterKey.appVersion: appVersion,
                                         WebserviceRequestParmeterKey.appBuildNumber: appBuildNumber,
                                         WebserviceRequestParmeterKey.deviceToken: deviceToken ]
-        
+
         Helper.showProgressBar()
         ApiManager.Instance.httpPostRequestWithoutHeader(urlPath: WebserverPath.createDevice, parameter: parameter, onCompletion: { (json, error, response) in
             if error == nil {
@@ -364,7 +323,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-    
+
     /// Web service Device update called
     func WSDeviceUpdate() {
         let timeZone = TimeZone.current.abbreviation()
@@ -374,7 +333,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let appBuildNumber = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
         let deviceToken = UserDefaultHelper.getPREF(AppUserDefaults.pref_device_token)
         let deviceID = UserDefaultHelper.getPREF(AppUserDefaults.pref_device_id)
-        
+
         let parameter: [String: Any] = [WebserviceRequestParmeterKey.timeZone: timeZone!,
                                         WebserviceRequestParmeterKey.deviceType: "ios",
                                         WebserviceRequestParmeterKey.appName : appName,
@@ -403,7 +362,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-    
+
     /// WS Verify Mobile Number called
     func WSVerifyMobileNumber(_ otpNumber: String) {
         Helper.showProgressBar()
@@ -426,8 +385,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 if (response as! HTTPURLResponse).statusCode == 400 {
                     let resendOTPVC = Helper.mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.resendOTP.rawValue) as! ResendOTPVC
                     if self.window?.rootViewController != resendOTPVC {
-                        //      let navController = UINavigationController(rootViewController: resendOTPVC)
-                        //     Helper.Push_Pop_to_ViewController(destinationVC: resendOTPVC, isAnimated: true, navigationController: navController)
                     }
                 }
             } else {
@@ -440,4 +397,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 }
-
