@@ -237,11 +237,7 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
         let homeActionButton: UIAlertAction = UIAlertAction(title: MenuTitle.home.rawValue, style: .default) { action -> Void in
             self.navigateToHomeScren(navigation: navigation)
         }
-        if #available(iOS 11.0, *) {
-            homeActionButton.accessibilityAttributedLabel = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font: UIFontConst.POPPINS_LIGHT ?? UIFont.boldSystemFont(ofSize: 18.0)])
-        } else {
-            // Fallback on earlier versions
-        }
+        homeActionButton.accessibilityAttributedLabel = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font: UIFontConst.POPPINS_LIGHT ?? UIFont.boldSystemFont(ofSize: 18.0)])
         asMenuOption.addAction(homeActionButton)
         
         if (UserDefaultHelper.getPREF(AppUserDefaults.pref_user_registered_token) != nil) && (UserDefaultHelper.getBoolPREF(AppUserDefaults.pref_user_verified) == true) {

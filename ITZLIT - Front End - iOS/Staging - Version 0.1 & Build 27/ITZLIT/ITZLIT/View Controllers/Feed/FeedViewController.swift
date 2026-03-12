@@ -759,18 +759,10 @@ class FeedViewController: UIViewController {
                         }else { // other live
                             if self.arrfeedList[masterIndex].liveFeeds.count == 0 && self.arrfeedList[masterIndex].followingsFeeds.count == 0 {
                                 
-                                if #available(iOS 11.0, *) {
-                                    self.tblFeed.performBatchUpdates({
-                                        self.arrfeedList.remove(at: masterIndex)
-                                        self.tblFeed.deleteRows(at: [IndexPath(row: masterIndex, section: 0)], with: .automatic)
-                                    }) { (ok) in
-                                        self.tblFeed.reloadData()
-                                    }
-                                } else {
-                                    self.tblFeed.beginUpdates()
+                                self.tblFeed.performBatchUpdates({
                                     self.arrfeedList.remove(at: masterIndex)
-                                    self.tblFeed.deleteRows(at: [IndexPath(item: masterIndex, section: 0)], with: .automatic)
-                                    self.tblFeed.endUpdates()
+                                    self.tblFeed.deleteRows(at: [IndexPath(row: masterIndex, section: 0)], with: .automatic)
+                                }) { _ in
                                     self.tblFeed.reloadData()
                                 }
                                 //

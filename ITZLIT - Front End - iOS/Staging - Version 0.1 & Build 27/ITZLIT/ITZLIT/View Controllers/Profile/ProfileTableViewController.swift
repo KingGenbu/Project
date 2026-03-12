@@ -55,11 +55,7 @@ class ProfileTableViewController: UITableViewController,UIGestureRecognizerDeleg
         super.viewDidLoad()
         imagePicker.delegate = self
         self.setupProfileData()
-        if #available(iOS 11.0, *) {
-            self.tableView.contentInsetAdjustmentBehavior = .never
-        } else {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
+        self.tableView.contentInsetAdjustmentBehavior = .never
     }
     
     override func viewWillAppear(_ animated: Bool) {

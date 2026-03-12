@@ -31,11 +31,7 @@ class LoginTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        if #available(iOS 11.0, *) {
-             self.tableView.contentInsetAdjustmentBehavior = .never
-        } else {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
+        self.tableView.contentInsetAdjustmentBehavior = .never
         btnFBLogin.readPermissions = ["public_profile", "email"]
         btnFBLogin.delegate = self
         btnFBLogin.setAttributedTitle(NSAttributedString(string: App.fbButtonTitle.rawValue, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]), for: .normal)
