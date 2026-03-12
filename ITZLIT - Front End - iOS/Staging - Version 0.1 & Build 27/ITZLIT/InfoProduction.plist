@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Base_URL</key>
-	<string>http://api.itzlit.io/api/v1/</string>
+	<string>https://api.itzlit.io/api/v1/</string>
 	<key>Branch_URI_Scheme</key>
 	<string>itzlit</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -71,19 +71,6 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>itzlit.io</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We want to use Camera for uploading Story / Live Streaming</string>
 	<key>NSContactsUsageDescription</key>
@@ -154,7 +141,7 @@
 	<key>invitationLinkURL</key>
 	<string>https://itzlit.app.link/invite</string>
 	<key>socketURL</key>
-	<string>http://stage.api.itzlit.io</string>
+	<string>https://api.itzlit.io</string>
 	<key>ytClientID</key>
 	<string>902286470394-8offg615qttfom534ng36jgmosn04fdo.apps.googleusercontent.com</string>
 	<key>UIApplicationSceneManifest</key>

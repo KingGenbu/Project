@@ -25,14 +25,10 @@ class SearchItzlitFriendsVC: UIViewController {
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func configureUI() {
         self.title = ViewControllerTitle.searchGlobal.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
         let leftBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: .plain, target: self, action: #selector(btnBackTapped(_:)))
         self.navigationItem.leftBarButtonItem = leftBarButton

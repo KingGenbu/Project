@@ -51,7 +51,7 @@ class SendToViewController: UIViewController {
             self.tblFriends.reloadData()
         })
         
-        self.txtSearch.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white, NSAttributedStringKey.font: UIFontConst.ROBOTO_LIGHT ?? UIFont.boldSystemFont(ofSize: 14.0)])
+        self.txtSearch.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font: UIFontConst.ROBOTO_LIGHT ?? UIFont.boldSystemFont(ofSize: 14.0)])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,17 +139,13 @@ class SendToViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func configureUI() {
         self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.isHidden = false
         self.title = ViewControllerTitle.sendTo.rawValue
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -157,10 +153,10 @@ class SendToViewController: UIViewController {
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
         
-        btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(btnBackBarButtonTapped(_:)))
+        btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBackBarButtonTapped(_:)))
         self.navigationItem.leftBarButtonItem = btnBackBarButton
         
-        btnSearchBarButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(btnSearchBarButtonTapped(_:)))
+        btnSearchBarButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnSearchBarButtonTapped(_:)))
         self.navigationItem.rightBarButtonItem = btnSearchBarButton
         
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }

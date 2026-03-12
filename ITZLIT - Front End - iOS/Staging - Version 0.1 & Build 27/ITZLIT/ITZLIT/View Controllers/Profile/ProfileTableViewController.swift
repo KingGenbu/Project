@@ -67,17 +67,13 @@ class ProfileTableViewController: UITableViewController,UIGestureRecognizerDeleg
         self.configureUI()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func configureUI() {
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "img_profile_bg"))
         self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.isHidden = false
         self.title = ViewControllerTitle.profile.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -90,7 +86,7 @@ class ProfileTableViewController: UITableViewController,UIGestureRecognizerDeleg
         statusBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_profile_bg")!)
         statusBar.tintColor = .white
         
-        let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(btnBackBarButtonTapped(_:)))
+        let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBackBarButtonTapped(_:)))
         self.navigationItem.leftBarButtonItem = btnBackBarButton
         setNeedsStatusBarAppearanceUpdate()
         self.imgProfilePicture.layer.cornerRadius = self.imgProfilePicture.frame.height / 2.0
@@ -143,7 +139,7 @@ class ProfileTableViewController: UITableViewController,UIGestureRecognizerDeleg
     }
     
     @IBAction func btnCameraTapped(_ sender: UIButton) {
-        let actionSheet = UIAlertController(title: "Choose to select profile picture", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let actionSheet = UIAlertController(title: "Choose to select profile picture", message: "", preferredStyle: UIAlertController.Style.actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
             self.openCamera()
         }))

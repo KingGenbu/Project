@@ -769,15 +769,18 @@ open class SwiftyCamViewController: UIViewController {
     
     fileprivate func getPreviewLayerOrientation() -> AVCaptureVideoOrientation {
         // Depends on layout orientation, not device orientation
-        switch UIApplication.shared.statusBarOrientation {
-        case .portrait, .unknown:
-            return AVCaptureVideoOrientation.portrait
+        let orientation = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .first?.interfaceOrientation ?? .portrait
+        switch orientation {
         case .landscapeLeft:
             return AVCaptureVideoOrientation.landscapeLeft
         case .landscapeRight:
             return AVCaptureVideoOrientation.landscapeRight
         case .portraitUpsideDown:
             return AVCaptureVideoOrientation.portraitUpsideDown
+        default:
+            return AVCaptureVideoOrientation.portrait
         }
     }
 
@@ -863,12 +866,8 @@ open class SwiftyCamViewController: UIViewController {
 			let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
 			alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
 			alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"), style: .default, handler: { action in
-				if #available(iOS 10.0, *) {
-					UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
-				} else {
-					if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
-						UIApplication.shared.openURL(appSettings)
-					}
+				if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+					UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
 				}
 			}))
 			self.present(alertController, animated: true, completion: nil)

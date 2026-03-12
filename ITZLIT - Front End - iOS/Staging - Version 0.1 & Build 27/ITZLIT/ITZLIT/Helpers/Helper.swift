@@ -44,8 +44,12 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
             clickAction()
         }))
         
-        guard let viewController = UIApplication.shared.keyWindow?.rootViewController! else {return}
-        
+        let keyWindow = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .flatMap({ $0.windows })
+            .first(where: { $0.isKeyWindow })
+        guard let viewController = keyWindow?.rootViewController else { return }
+
         if let TabviewCntrl = viewController as? UITabBarController
         {
             if let navVC = TabviewCntrl.selectedViewController as? UINavigationController
@@ -53,9 +57,9 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
                 navVC.visibleViewController?.present(alertView, animated: true, completion: nil)
             }
         }else{
-            
+
             if let alertWindow = UIWindow(frame: UIScreen.main.bounds) as UIWindow? {
-                alertWindow.windowLevel = UIWindowLevelAlert
+                alertWindow.windowLevel = UIWindow.Level.alert
                 alertWindow.rootViewController = UIViewController()
                 alertWindow.makeKeyAndVisible()
                 alertWindow.rootViewController?.present(alertView, animated: true, completion: nil)
@@ -78,9 +82,9 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
     
     
     /// Show alert dialog with two buttons
-    class func showAlertDialogWith2Button(onVC viewController:UIViewController, title:String, message:String,button1Title:String, button1ActionStyle:UIAlertActionStyle, button2Title:String, onButton1Click:(()->())?, onButton2Click:(()->())?) {
+    class func showAlertDialogWith2Button(onVC viewController:UIViewController, title:String, message:String,button1Title:String, button1ActionStyle:UIAlertAction.Style, button2Title:String, onButton1Click:(()->())?, onButton2Click:(()->())?) {
         DispatchQueue.main.async {
-            let alert : UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            let alert : UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
             
             alert.addAction(UIAlertAction(title: button1Title, style:button1ActionStyle, handler: { (action:UIAlertAction) in
                 onButton1Click?()
@@ -146,7 +150,7 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
         Helper.showProgressBar()
         ApiManager.Instance.sendHttpGetWithHeader(path: WebserverPath.profile, onComplete: { (json, error, response) in
             if error == nil {
-                if (response as! HTTPURLResponse).statusCode == 200 {
+                if (response as? HTTPURLResponse)?.statusCode == 200 {
                     UserDefaultHelper.setDicPREF(json.dictionaryObject!, key: AppUserDefaults.pref_dictProfile)
                 }
             } else {
@@ -198,8 +202,8 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
             Helper.showProgressBar()
             ApiManager.Instance.httpPostRequestWithHeader(urlPath: WebserverPath.logout, parameter: parameter, onCompletion: { (json, error, response) in
                 if error == nil {
-                    if (response as! HTTPURLResponse).statusCode == 200 {
-                        if let msg = json.dictionaryObject!["msg"] as? String {
+                    if (response as? HTTPURLResponse)?.statusCode == 200 {
+                        if let msg = json.dictionaryObject?["msg"] as? String {
                             Helper.showAlertDialog(APP_NAME, message: msg, clickAction: {})
                         }
                         DBManager.shared.clearDb()
@@ -234,7 +238,7 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
             self.navigateToHomeScren(navigation: navigation)
         }
         if #available(iOS 11.0, *) {
-            homeActionButton.accessibilityAttributedLabel = NSAttributedString(string: "", attributes: [NSAttributedStringKey.font: UIFontConst.POPPINS_LIGHT ?? UIFont.boldSystemFont(ofSize: 18.0)])
+            homeActionButton.accessibilityAttributedLabel = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font: UIFontConst.POPPINS_LIGHT ?? UIFont.boldSystemFont(ofSize: 18.0)])
         } else {
             // Fallback on earlier versions
         }
@@ -325,41 +329,38 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
     }
     
     static func navigateToMyProfile(navigation : UINavigationController) {
-        let profileVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.profile.rawValue) as! ProfileTableViewController
+        guard let profileVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.profile.rawValue) as? ProfileTableViewController else { return }
         Push_Pop_to_ViewController(destinationVC: profileVC, isAnimated: true, navigationController: navigation)
     }
-    
+
     static func navigateToInviteFriends(navigation : UINavigationController) {
-        let contactVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.contact.rawValue) as! ContactViewController
+        guard let contactVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.contact.rawValue) as? ContactViewController else { return }
         Push_Pop_to_ViewController(destinationVC: contactVC, isAnimated: true, navigationController: navigation)
     }
-    
+
     static func navigateToLogin(navigation : UINavigationController) {
-        let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.login.rawValue) as! LoginTableViewController
+        guard let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.login.rawValue) as? LoginTableViewController else { return }
         Push_Pop_to_ViewController(destinationVC: loginVC, isAnimated: true, navigationController: navigation)
     }
-    
+
     static func navigateToRegistration(navigation : UINavigationController) {
-        let registrationVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.registration.rawValue) as! RegistrationTableViewController
+        guard let registrationVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.registration.rawValue) as? RegistrationTableViewController else { return }
         Push_Pop_to_ViewController(destinationVC: registrationVC, isAnimated: true, navigationController: navigation)
     }
-    
+
     static func navigateToHomeScren(navigation : UINavigationController) {
-        if !(navigation.viewControllers.last?.isKind(of: HomeViewController.self))! {
-            let homeVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.home.rawValue) as! HomeViewController
-            
-            Push_Pop_to_ViewController(destinationVC: homeVC, isAnimated: true, navigationController: navigation)
-         }
+        guard !(navigation.viewControllers.last?.isKind(of: HomeViewController.self) == true) else { return }
+        guard let homeVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.home.rawValue) as? HomeViewController else { return }
+        Push_Pop_to_ViewController(destinationVC: homeVC, isAnimated: true, navigationController: navigation)
     }
-    
+
     static func navigateToSettingsScreen(navigation : UINavigationController) {
-        let settingsVC = settingFeedStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.settingsVC.rawValue) as! SettingsViewController
-        
+        guard let settingsVC = settingFeedStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.settingsVC.rawValue) as? SettingsViewController else { return }
         Push_Pop_to_ViewController(destinationVC: settingsVC, isAnimated: true, navigationController: navigation)
     }
-    
+
     static func navigateToTermsAndPrivacyScreen(isFromPrivacyPolicy: Bool, navigation : UINavigationController) {
-        let termsAndPrivacyVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.termsAndPrivacyVC.rawValue) as! TermsAndPrivacyViewController
+        guard let termsAndPrivacyVC = mainStoryBoard.instantiateViewController(withIdentifier: StoryboardIdentefier.termsAndPrivacyVC.rawValue) as? TermsAndPrivacyViewController else { return }
         termsAndPrivacyVC.isFromPrivacyPolicy = isFromPrivacyPolicy
         Push_Pop_to_ViewController(destinationVC: termsAndPrivacyVC, isAnimated: true, navigationController: navigation)
     }

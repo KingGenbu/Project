@@ -71,10 +71,6 @@ class RegistrationTableViewController: UITableViewController {
         super.viewDidAppear(true)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
    
     func addBackgroundVideo() {
         let theURL = Bundle.main.url(forResource: "SampleVideo", withExtension: "mp4")
@@ -282,7 +278,7 @@ extension RegistrationTableViewController {
      }
     
     @objc func imgProfileTapped(tapGesture: UITapGestureRecognizer) {
-        let actionSheet = UIAlertController(title: "Choose to select profile picture", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let actionSheet = UIAlertController(title: "Choose to select profile picture", message: "", preferredStyle: UIAlertController.Style.actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
             self.openCamera()
         }))
@@ -327,14 +323,14 @@ extension RegistrationTableViewController {
         navigationController?.view.backgroundColor = .clear
         self.title =  ViewControllerTitle.signUp.rawValue
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Poppins-Medium", size: 18.0) ?? UIFont.boldSystemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 18.0) ?? UIFont.boldSystemFont(ofSize: 18.0), NSAttributedString.Key.foregroundColor: UIColor.white]
         
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
         
         statusBar.backgroundColor = .clear
         statusBar.tintColor = .white
         
-        let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(btnBackTapped(_:)))
+        let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBackTapped(_:)))
         self.navigationItem.leftBarButtonItem = btnBackBarButton
         
         self.btnSignUp.layer.cornerRadius = self.btnSignUp.frame.height/10.0
@@ -425,22 +421,22 @@ extension RegistrationTableViewController {
         let policyTermsAttributedString = NSMutableAttributedString(string: labelString)
         
         let signUpTextRange = (labelString as NSString).range(of: "By signing up, you agree to our")
-        policyTermsAttributedString.addAttribute(NSAttributedStringKey.font, value: UIFontConst.POPPINS_LIGHT_13!, range: signUpTextRange)
+        policyTermsAttributedString.addAttribute(NSAttributedString.Key.font, value: UIFontConst.POPPINS_LIGHT_13!, range: signUpTextRange)
         
         let termsRange = (labelString as NSString).range(of: "ITZLIT Terms")
         policyTermsAttributedString.addAttribute(.link, value: termsOfUseURL, range: termsRange)
-        policyTermsAttributedString.addAttribute(NSAttributedStringKey.font, value: UIFontConst.POPPINS_MEDIUM_13!, range: termsRange)
+        policyTermsAttributedString.addAttribute(NSAttributedString.Key.font, value: UIFontConst.POPPINS_MEDIUM_13!, range: termsRange)
         
         let readPrivacyRange = (labelString as NSString).range(of: "and that you have read our")
-        policyTermsAttributedString.addAttribute(NSAttributedStringKey.font, value: UIFontConst.POPPINS_LIGHT_13!, range: readPrivacyRange)
+        policyTermsAttributedString.addAttribute(NSAttributedString.Key.font, value: UIFontConst.POPPINS_LIGHT_13!, range: readPrivacyRange)
         
         let policyRange = (labelString as NSString).range(of: "Privacy Policy")
         policyTermsAttributedString.addAttribute(.link, value: privacyPolicyURL, range: policyRange)
-        policyTermsAttributedString.addAttribute(NSAttributedStringKey.font, value: UIFontConst.POPPINS_MEDIUM_13!, range: policyRange)
+        policyTermsAttributedString.addAttribute(NSAttributedString.Key.font, value: UIFontConst.POPPINS_MEDIUM_13!, range: policyRange)
         
         textViewPolicyAndTerms.attributedText = policyTermsAttributedString
         textViewPolicyAndTerms.textAlignment = .center
-        textViewPolicyAndTerms.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.black]
+        textViewPolicyAndTerms.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
     }
     

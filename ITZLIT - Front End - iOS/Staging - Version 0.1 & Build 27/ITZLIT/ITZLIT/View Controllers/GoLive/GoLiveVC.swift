@@ -80,10 +80,6 @@ class GoLiveVC: UIViewController, WZStatusCallback, WZVideoSink, WZAudioSink {
         goCoder?.cameraPreview?.previewLayer?.frame = view.bounds
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func videoFrameWasCaptured(_ imageBuffer: CVImageBuffer, framePresentationTime: CMTime, frameDuration: CMTime) {
         
@@ -460,14 +456,14 @@ extension GoLiveVC {
     func configureUI() {
         UIApplication.shared.isIdleTimerDisabled = true
         self.title = ViewControllerTitle.live.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
         
-        //        rightBarMicButton = UIBarButtonItem(image: UIImage(named: "mic_on_button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarMicButton(_:)))
+        //        rightBarMicButton = UIBarButtonItem(image: UIImage(named: "mic_on_button"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarMicButton(_:)))
         
-        rightBarCameraButton = UIBarButtonItem(image: UIImage(named: "img_camera-flip"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarCameraButton(_:)))
+        rightBarCameraButton = UIBarButtonItem(image: UIImage(named: "img_camera-flip"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarCameraButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarCameraButton
         
         navigationController?.navigationBar.isHidden = false

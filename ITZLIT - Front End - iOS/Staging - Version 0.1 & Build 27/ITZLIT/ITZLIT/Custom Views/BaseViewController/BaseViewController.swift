@@ -22,10 +22,6 @@ class BaseViewController: UIViewController {
         self.view.translatesAutoresizingMaskIntoConstraints = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func setupHeaderView(withTitle title:String = "", showBackButton showBack:Bool = true, showSearchButton showSearch:Bool = true ,viewCntrl:UIViewController) {
         

@@ -41,17 +41,13 @@ class SettingsViewController: UIViewController {
         self.configureUI()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     /// Configure UI
     func configureUI() {
          self.title = ViewControllerTitle.settings.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
         
          navigationController?.navigationBar.isTranslucent = true
@@ -139,7 +135,7 @@ class SettingsViewController: UIViewController {
                 self.WSUpdateNotificationPref("Yes")
             } else {
                 self.switchNotification.setOn(false, animated: false)
-                Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: "Allow access for notification from settings", button1Title: "Cancel", button1ActionStyle: UIAlertActionStyle.default, button2Title: "Settings", onButton1Click: nil, onButton2Click: {
+                Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: "Allow access for notification from settings", button1Title: "Cancel", button1ActionStyle: UIAlertAction.Style.default, button2Title: "Settings", onButton1Click: nil, onButton2Click: {
                     guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
                         return
                     }
@@ -160,7 +156,7 @@ class SettingsViewController: UIViewController {
                 self.WSUpdateNotificationPref("No")
             } else {
                 self.switchNotification.setOn(false, animated: false)
-                Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: "Allow access for notification from settings", button1Title: "Cancel", button1ActionStyle: UIAlertActionStyle.default, button2Title: "Settings", onButton1Click: nil, onButton2Click: {
+                Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: "Allow access for notification from settings", button1Title: "Cancel", button1ActionStyle: UIAlertAction.Style.default, button2Title: "Settings", onButton1Click: nil, onButton2Click: {
                     guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
                         return
                     }

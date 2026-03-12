@@ -25,10 +25,6 @@ class HomeViewController: UIViewController {
         setupNavigationBar()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     /// Function used to navigate to feed view controller
     func navigateToFeedViewController()  {
@@ -79,11 +75,11 @@ class HomeViewController: UIViewController {
     /// Setup Navigationbar
     func setupNavigationBar() {
         
-        let rightBarSettingButton = UIBarButtonItem(image: UIImage(named: "img_setting"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarSettingButton(_:)))
+        let rightBarSettingButton = UIBarButtonItem(image: UIImage(named: "img_setting"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarSettingButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarSettingButton
         
         
-        let leftBarNotificationButton = UIBarButtonItem(image: UIImage(named: "img_notification"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarNotificationButton(_:)))
+        let leftBarNotificationButton = UIBarButtonItem(image: UIImage(named: "img_notification"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarNotificationButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarNotificationButton
         
         navigationController?.navigationBar.isHidden = false

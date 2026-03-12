@@ -43,7 +43,7 @@ class ContactViewController: UIViewController {
         tblContactList.layer.cornerRadius = 2.0
         tblContactList.layer.borderWidth = 0.25
         tblContactList.layer.borderColor = UIColor.lightGray.cgColor
-        self.txtSearch.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white, NSAttributedStringKey.font: UIFontConst.ROBOTO_LIGHT ?? UIFont.boldSystemFont(ofSize: 14.0)])
+        self.txtSearch.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font: UIFontConst.ROBOTO_LIGHT ?? UIFont.boldSystemFont(ofSize: 14.0)])
         
         txtSearch.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         ContactManager.shared.checkContactsAccess { (sucess) in
@@ -62,7 +62,7 @@ class ContactViewController: UIViewController {
                     Helper.showProgressBar()
                 }
             } else {
-                Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: "Allow access to contact from settings", button1Title: "OK", button1ActionStyle: UIAlertActionStyle.default, button2Title: "Settings", onButton1Click: nil, onButton2Click: {
+                Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: "Allow access to contact from settings", button1Title: "OK", button1ActionStyle: UIAlertAction.Style.default, button2Title: "Settings", onButton1Click: nil, onButton2Click: {
                     guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
                         return
                     }
@@ -177,12 +177,12 @@ class ContactViewController: UIViewController {
     func setupNavigationController()  {
         
         self.title = "ITZLIT FRIENDS"
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarSearchButton(_:)))
+        rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarSearchButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarBackButton
         
-        leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
         
         navigationController?.navigationBar.isTranslucent = true

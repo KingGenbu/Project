@@ -65,20 +65,16 @@ class RemoveIZLITFreindsVC: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func setupNavigationBar() {
         self.navigationController?.navigationItem.hidesBackButton = true
         self.title = ViewControllerTitle.searchGlobal.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarSearchButton(_:)))
+        let rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarSearchButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarBackButton
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
     }
     

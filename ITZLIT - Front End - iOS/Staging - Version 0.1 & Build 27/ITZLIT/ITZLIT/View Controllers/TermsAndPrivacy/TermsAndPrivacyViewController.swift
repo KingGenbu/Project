@@ -7,49 +7,58 @@
 //
 
 import UIKit
+import WebKit
 
 class TermsAndPrivacyViewController: UIViewController {
 
-    @IBOutlet var webView: UIWebView!
-        
+    var webView: WKWebView!
+
     var isFromPrivacyPolicy: Bool = false
- 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.configureUI()
-        
-        isFromPrivacyPolicy == true ? self.webView.loadRequest(URLRequest(url: URL(string: ApiManager.baseUrl + WebserverPath.privacyPolicy)!)) : self.webView.loadRequest(URLRequest(url: URL(string: ApiManager.baseUrl + WebserverPath.termsOfUse)!))
+
+    override func loadView() {
+        webView = WKWebView()
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        view = UIView()
+        view.addSubview(webView)
+        NSLayoutConstraint.activate([
+            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.configureUI()
+
+        let urlString = isFromPrivacyPolicy
+            ? ApiManager.baseUrl + WebserverPath.privacyPolicy
+            : ApiManager.baseUrl + WebserverPath.termsOfUse
+
+        if let url = URL(string: urlString) {
+            webView.load(URLRequest(url: url))
+        }
     }
-    
+
     func configureUI() {
-        self.title = isFromPrivacyPolicy == true ? ViewControllerTitle.privacyPolicy.rawValue : ViewControllerTitle.termOfUse.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        self.title = isFromPrivacyPolicy ? ViewControllerTitle.privacyPolicy.rawValue : ViewControllerTitle.termOfUse.rawValue
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
-        
+
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
-        
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
-        statusBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
-        statusBar.tintColor = .white
-        
-    //    self.webView.dropShadow(scale: true)
-        self.webView.layer.borderWidth = 1.0
-        self.webView.layer.borderColor = UIColor.lightGray.cgColor
+
+        webView.layer.borderWidth = 1.0
+        webView.layer.borderColor = UIColor.lightGray.cgColor
     }
-    
+
     @objc func leftBarBackButton(_ sender:UIBarButtonItem)  {
         _ = self.navigationController?.popViewController(animated: true)
     }

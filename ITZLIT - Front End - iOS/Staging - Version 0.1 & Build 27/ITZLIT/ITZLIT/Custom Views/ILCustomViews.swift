@@ -58,7 +58,7 @@ import UIKit
             return self.placeHolderColor
         }
         set {
-            txtName.attributedPlaceholder = NSAttributedString(string:txtName.placeholder != nil ? txtName.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: newValue!])
+            txtName.attributedPlaceholder = NSAttributedString(string:txtName.placeholder != nil ? txtName.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: newValue!])
         }
     }
     
@@ -67,7 +67,7 @@ import UIKit
             return self.placeHolderSize
         }
         set {
-            txtName.attributedPlaceholder = NSMutableAttributedString(string: txtName.placeholder != nil ? txtName.placeholder! : "", attributes:[NSAttributedStringKey.font:UIFont(name: "", size: 0)!])
+            txtName.attributedPlaceholder = NSMutableAttributedString(string: txtName.placeholder != nil ? txtName.placeholder! : "", attributes:[NSAttributedString.Key.font:UIFont(name: "", size: 0)!])
         }
     }
     
