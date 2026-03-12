@@ -28,7 +28,7 @@ connectionRouter.post('/unfollow', connectionCtr.unfollow);
 // followers - people following to me 
 connectionRouter.get('/followers', connectionCtr.followers);
 connectionRouter.get('/followings', connectionCtr.followings);
-connectionRouter.post('/itzlit-users', connectionCtr.itzlitUsers);
+connectionRouter.post('/hydrox-users', connectionCtr.hydroxUsers);
 connectionRouter.get('/search', connectionCtr.search);
 
 module.exports = connectionRouter;

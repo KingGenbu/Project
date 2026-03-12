@@ -1,6 +1,6 @@
 //
 //  GlobalSearchModel.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by devang.bhatt on 13/11/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.

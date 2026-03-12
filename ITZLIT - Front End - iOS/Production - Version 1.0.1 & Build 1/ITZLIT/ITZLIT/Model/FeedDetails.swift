@@ -1,6 +1,6 @@
 //
 //  FeedDetails.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by Devang Bhatt on 18/12/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -28,7 +28,7 @@ class FeedDetail {
     var sharedWith:[String]?
     var comment: Int?
     var viewers: Int?
-    var itzlitCount: Int?
+    var hydroxCount: Int?
     var isItzlit:Bool?
     var createdAt:NSDate?
     
@@ -81,8 +81,8 @@ class FeedDetail {
             self.viewers = viewers
         }
         
-        if let itzlitCount = values["itzlitCount"] as? Int {
-            self.itzlitCount = itzlitCount
+        if let hydroxCount = values["hydroxCount"] as? Int {
+            self.hydroxCount = hydroxCount
         }
         
         

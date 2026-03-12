@@ -1,6 +1,6 @@
 //
 //  FeedCell.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by Dhaval Soni on 02/01/18.
 //  Copyright © 2018 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -244,7 +244,7 @@ extension FeedCell:UICollectionViewDataSource,UICollectionViewDelegate, UICollec
         }
         
         DispatchQueue.main.async {
-            feedCell.litMeter.lits = CGFloat(self.feedForDisplay.liveFeeds[indexPath.item].itzlitCount)
+            feedCell.litMeter.lits = CGFloat(self.feedForDisplay.liveFeeds[indexPath.item].hydroxCount)
         }
         //        feedCell.lblLits.text = "\(self.feed.liveFeeds[indexPath.item].viewers) views"
         

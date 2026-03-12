@@ -1,6 +1,6 @@
 //
 //  FeedCell.swift
-//  ITZLIT
+//  HydroX
 //  Created by devang.bhatt on 01/12/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
 import UIKit
@@ -77,7 +77,7 @@ class FeedCellOld: UITableViewCell {
             if feed.isItzlit == true {
                 setRediusWith(color: UIColor.clear)
                 self.btnGoLive.setTitle("", for: .normal)
-                self.btnGoLive.setImage(UIImage(named: "itzlit-title"), for: .normal)
+                self.btnGoLive.setImage(UIImage(named: "hydrox-title"), for: .normal)
             }else {
                 setRediusWith(color: UIColor.darkGray)
                 self.btnGoLive.setTitle("Go Live!", for: .normal)
@@ -106,9 +106,9 @@ class FeedCellOld: UITableViewCell {
                 self.imgFeed.sd_setImage(with: URL(string: "http://18.220.124.147:8086/thumbnail?application=live&streamname=\(feed.followingsFeeds[0].streamId)&size=300x300&fitmode=crop"), completed: nil)
             }
             DispatchQueue.main.async {
-            self.litMeter.lits = CGFloat(feed.followingsFeeds[0].itzlitCount)
+            self.litMeter.lits = CGFloat(feed.followingsFeeds[0].hydroxCount)
             }
-            self.lblLits.text = "\(feed.followingsFeeds[0].itzlitCount) Lits"
+            self.lblLits.text = "\(feed.followingsFeeds[0].hydroxCount) Lits"
             self.lblcmt.text = "\(feed.followingsFeeds[0].comments) Comments"
         }
         

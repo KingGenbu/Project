@@ -9,7 +9,7 @@
   "MSG_COMMENT_ADDED": "Comment Added Successfully",
   "MSG_FEED_REPORTED": "This feed Reported Successfully",
   "MSG_USER_EXIST": "User Already Exist",
-  "MSG_ITZLIT_ADDED": "HydroX Added Successfully",
+  "MSG_HYDROX_ADDED": "HydroX Added Successfully",
   "MSG_HIDE_FEED": "This Feed is now hidden for you.",
   "MSG_LOGOUT": "User logged out successfully",
   "ERR_CONNECTION_NOT_FOUND": "Error! Connection not found",

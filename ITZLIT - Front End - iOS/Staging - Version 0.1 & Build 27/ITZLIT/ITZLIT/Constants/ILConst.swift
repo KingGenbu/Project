@@ -1,6 +1,6 @@
 //
 //  ILConst.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by Sagar Thummar on 24/10/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -63,7 +63,7 @@ enum ViewControllerTitle: String {
     case viewList = "V I E W S"
     case requestList = "R E Q U E S T S"
     case notification = "N O T I F I C A T I O N S"
-    case contactITZLITFriends = "HydroX FRIENDS"
+    case contactHydroXFriends = "HydroX FRIENDS"
     case sendTo = "S e n d  t o..."
     case profile = "M Y  P R O F I L E"
     case searchGlobal = "H Y D R O X  F R I E N D S"

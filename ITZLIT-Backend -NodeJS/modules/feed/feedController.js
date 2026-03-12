@@ -216,7 +216,7 @@ const followingsFeedList = (userId, page) => {
                       in: {
                         totalViewers: '$$sa.totalViewers',
                         totalComments: '$$sa.totalComments',
-                        itzlitCount: '$$sa.itzlitCount',
+                        hydroxCount: '$$sa.hydroxCount',
                         streamStatus: '$$sa.streamStatus',
                         privacy: { sharedWith: '$$sa.privacy.sharedWith', level: '$$sa.privacy.level' },
                         storyExpiration: '$$sa.storyExpiration',
@@ -297,7 +297,7 @@ const followingsFeedList = (userId, page) => {
             $project: {
               'stories.totalViewers': 1,
               'stories.totalComments': 1,
-              'stories.itzlitCount': 1,
+              'stories.hydroxCount': 1,
               'stories.streamStatus': 1,
               'stories.privacy': 1,
               'stories.storyExpiration': 1,
@@ -309,7 +309,7 @@ const followingsFeedList = (userId, page) => {
               'stories._id': 1,
               'liveStreams.totalViewers': 1,
               'liveStreams.totalComments': 1,
-              'liveStreams.itzlitCount': 1,
+              'liveStreams.hydroxCount': 1,
               'liveStreams.streamStatus': 1,
               'liveStreams.privacy': 1,
               'liveStreams.storyExpiration': 1,
@@ -872,7 +872,7 @@ feedCtr.goLiveStopPublishing = (req, res) => {
   // });
 };
 
-feedCtr.itzlitUp = (req, res) => {
+feedCtr.hydroxUp = (req, res) => {
   const { feedId } = req.body;
   const userId = req.user._id;
   const users = { user: req.user._id };
@@ -896,7 +896,7 @@ feedCtr.itzlitUp = (req, res) => {
     },
     {
       $match: {
-        'itzlitBy.user': {
+        'hydroxBy.user': {
           $eq: req.user._id,
         },
       },
@@ -907,10 +907,10 @@ feedCtr.itzlitUp = (req, res) => {
       if (userId.toString() === doc[0].user._id.toString()) {
         Feed.update({
           _id: feedId,
-          'itzlitBy.user': doc[0].user._id,
-          'itzlitBy.count': { $ne: 5 },
+          'hydroxBy.user': doc[0].user._id,
+          'hydroxBy.count': { $ne: 5 },
         }, {
-          $inc: { 'itzlitBy.$.count': 1 },
+          $inc: { 'hydroxBy.$.count': 1 },
         }).then(() => {
           Feed.aggregate([
             {
@@ -920,7 +920,7 @@ feedCtr.itzlitUp = (req, res) => {
             },
             {
               $project: {
-                count: { $sum: '$itzlitBy.count' },
+                count: { $sum: '$hydroxBy.count' },
               },
             },
           ]).then((data) => {
@@ -958,7 +958,7 @@ feedCtr.itzlitUp = (req, res) => {
           },
           {
             $project: {
-              count: { $sum: '$itzlitBy.count' },
+              count: { $sum: '$hydroxBy.count' },
             },
           },
         ]).then((data) => {
@@ -973,7 +973,7 @@ feedCtr.itzlitUp = (req, res) => {
         _id: feedId,
       }, {
         $push: {
-          itzlitBy: users,
+          hydroxBy: users,
         },
       }).then(() => {
         Feed.aggregate([
@@ -985,7 +985,7 @@ feedCtr.itzlitUp = (req, res) => {
           {
             $project: {
               user: 1,
-              count: { $sum: '$itzlitBy.count' },
+              count: { $sum: '$hydroxBy.count' },
             },
           },
         ]).then((data) => {
@@ -1090,7 +1090,7 @@ feedCtr.feedDetail = (req, res) => {
         viewers: {
           $size: { $ifNull: ['$seenBy', []] },
         },
-        itzlitCount: { $sum: '$feed.itzlitBy.count' },
+        hydroxCount: { $sum: '$feed.hydroxBy.count' },
         isItzlit: {
           $arrayElemAt: [{
             $filter: {
@@ -1122,7 +1122,7 @@ feedCtr.feedDetail = (req, res) => {
         privacy: 1,
         comment: 1,
         viewers: 1,
-        itzlitCount: 1,
+        hydroxCount: 1,
         branchLink: 1,
         isItzlit: {
           $cond: {
@@ -1196,7 +1196,7 @@ feedCtr.myStories = (req, res) => {
         viewers: {
           $size: { $ifNull: ['$seenBy', []] },
         },
-        itzlitCount: { $sum: '$itzlitBy.count' },
+        hydroxCount: { $sum: '$hydroxBy.count' },
       },
     }, {
       $project: {
@@ -1218,7 +1218,7 @@ feedCtr.myStories = (req, res) => {
         },
         comment: 1,
         viewers: 1,
-        itzlitCount: 1,
+        hydroxCount: 1,
       },
     },
   ]).then((resultDocs) => {

@@ -1,6 +1,6 @@
 //
 //  RequesterList.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by Dhaval Soni on 06/12/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.

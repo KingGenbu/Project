@@ -272,9 +272,9 @@ describe('connectionCtr.followings()', () => {
   });
 });
 
-// ─── itzlitUsers() ────────────────────────────────────────────────────────────
+// ─── hydroxUsers() ────────────────────────────────────────────────────────────
 
-describe('connectionCtr.itzlitUsers()', () => {
+describe('connectionCtr.hydroxUsers()', () => {
   it('responds 200 with contacts annotated with their connection info', async () => {
     const matchedUser = { _id: OTHER_ID, phoneNumber: '+15555550100', fullName: 'Bob', isFollowed: false };
     User.aggregate.mockResolvedValue([matchedUser]);
@@ -286,7 +286,7 @@ describe('connectionCtr.itzlitUsers()', () => {
       },
     });
     const res = mockRes();
-    await connectionCtr.itzlitUsers(req, res);
+    await connectionCtr.hydroxUsers(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
     const responseBody = res.json.mock.calls[0][0];
@@ -304,7 +304,7 @@ describe('connectionCtr.itzlitUsers()', () => {
       },
     });
     const res = mockRes();
-    await connectionCtr.itzlitUsers(req, res);
+    await connectionCtr.hydroxUsers(req, res);
 
     const data = res.json.mock.calls[0][0];
     expect(data[0]).toHaveProperty('connection');
@@ -316,7 +316,7 @@ describe('connectionCtr.itzlitUsers()', () => {
 
     const req = baseReq({ body: { contacts: [], regionCode: 'US' } });
     const res = mockRes();
-    await connectionCtr.itzlitUsers(req, res);
+    await connectionCtr.hydroxUsers(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith([]);

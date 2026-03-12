@@ -83,7 +83,7 @@ feedRouter.post('/go-live-get-stream-id', feedCtr.goLiveGetStreamId);
 feedRouter.post('/go-live-start-publishing', feedCtr.goLiveStartPublishing);
 feedRouter.post('/go-live-send-notification', feedCtr.goLiveSendNotification);
 feedRouter.post('/go-live-stop-publishing', feedCtr.goLiveStopPublishing);
-feedRouter.post('/itzlit-up', feedCtr.itzlitUp);
+feedRouter.post('/hydrox-up', feedCtr.hydroxUp);
 feedRouter.post('/hide-by-user', feedCtr.hideByUser);
 feedRouter.get('/feed-detail/:feedId', feedCtr.feedDetail);
 feedRouter.get('/my-stories', feedCtr.myStories);

@@ -9,9 +9,9 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.itzlit.itzlit.development</string>
+	<string>com.hydrox.hydrox.development</string>
 	<key>PROJECT_ID</key>
-	<string>itzlitdemo</string>
+	<string>hydroxdemo</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>

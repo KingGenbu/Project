@@ -1,6 +1,6 @@
 //
 //  HomeViewController.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by devang.bhatt on 25/10/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    /// Action method for ITZLIT icon
+    /// Action method for HydroX icon
     @IBAction func btnIzlitTapped(_ sender: UIButton) {
         
         if (UserDefaultHelper.getPREF(AppUserDefaults.pref_user_registered_token) != nil) && (UserDefaultHelper.getBoolPREF(AppUserDefaults.pref_user_verified) == true) {

@@ -186,12 +186,12 @@
 		5D27C1342010B05900A3CCEF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064E10961FA1E25C00F01930 /* FBSDKCoreKit.framework */; };
 		5D27C1352010B05900A3CCEF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064E10971FA1E25C00F01930 /* FBSDKLoginKit.framework */; };
 		5D27C1362010B05900A3CCEF /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064E10981FA1E25C00F01930 /* FBSDKShareKit.framework */; };
-		5D27C1372010B05900A3CCEF /* Pods_ITZLIT_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5A5ADCE23BEE8AAABD70F8 /* Pods_ITZLIT_Stage.framework */; };
+		5D27C1372010B05900A3CCEF /* Pods_HydroX_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5A5ADCE23BEE8AAABD70F8 /* Pods_HydroX_Stage.framework */; };
 		5D27C1392010B05900A3CCEF /* SettingFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06ED70161FC8170C006C30BB /* SettingFeed.storyboard */; };
 		5D27C13A2010B05900A3CCEF /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0654BC851FA9968000A916A2 /* Roboto-Light.ttf */; };
 		5D27C13B2010B05900A3CCEF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06F2F68C1FCC24B2000158BD /* GoogleService-Info.plist */; };
 		5D27C13C2010B05900A3CCEF /* FeedAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A770333C1FE0341D00D38463 /* FeedAction.storyboard */; };
-		5D27C13D2010B05900A3CCEF /* ITZLIT-Production-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DBF95621FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist */; };
+		5D27C13D2010B05900A3CCEF /* HydroX-Production-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DBF95621FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist */; };
 		5D27C13E2010B05900A3CCEF /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 064E10851FA1CC6F00F01930 /* Poppins-Bold.ttf */; };
 		5D27C13F2010B05900A3CCEF /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063A0D891FA3585000C00B90 /* BaseViewController.xib */; };
 		5D27C1402010B05900A3CCEF /* StoryShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A411441FB9A225009D2DCF /* StoryShare.storyboard */; };
@@ -250,9 +250,9 @@
 		5DBEF8EF1FDEA00900FB1A07 /* WowzaGoCoderSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBEF8D11FDE97A300FB1A07 /* WowzaGoCoderSDK.framework */; };
 		5DBEF8F01FDEA00900FB1A07 /* WowzaGoCoderSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBEF8D11FDE97A300FB1A07 /* WowzaGoCoderSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5DBF95601FF6165000C3592F /* WowzaGoCoderSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBEF8D11FDE97A300FB1A07 /* WowzaGoCoderSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5DBF95631FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DBF95621FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist */; };
-		5DBF95641FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DBF95621FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist */; };
-		5DBF95651FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DBF95621FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist */; };
+		5DBF95631FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DBF95621FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist */; };
+		5DBF95641FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DBF95621FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist */; };
+		5DBF95651FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DBF95621FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist */; };
 		5DF4BC762031A37C0008850A /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5DF4BC752031A37C0008850A /* SampleVideo.mp4 */; };
 		5DF4BC772031A37C0008850A /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5DF4BC752031A37C0008850A /* SampleVideo.mp4 */; };
 		5DF4BC782031A37C0008850A /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5DF4BC752031A37C0008850A /* SampleVideo.mp4 */; };
@@ -270,7 +270,7 @@
 		6DB5A7BA1F9F4E6A009EB057 /* MessageConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB5A7B91F9F4E6A009EB057 /* MessageConst.swift */; };
 		6DB5A7BF1F9F53AF009EB057 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB5A7BE1F9F53AF009EB057 /* Configuration.swift */; };
 		6DB5A7C11F9F53D1009EB057 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB5A7C01F9F53D1009EB057 /* Environment.swift */; };
-		96394230EC793AB995E6E238 /* Pods_ITZLIT_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5A5ADCE23BEE8AAABD70F8 /* Pods_ITZLIT_Stage.framework */; };
+		96394230EC793AB995E6E238 /* Pods_HydroX_Stage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5A5ADCE23BEE8AAABD70F8 /* Pods_HydroX_Stage.framework */; };
 		A74924121FB4326A004D0CC6 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74924111FB4326A004D0CC6 /* ContactModel.swift */; };
 		A74924141FB46C2E004D0CC6 /* FollowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74924131FB46C2E004D0CC6 /* FollowList.swift */; };
 		A770333D1FE0341D00D38463 /* FeedAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A770333C1FE0341D00D38463 /* FeedAction.storyboard */; };
@@ -472,8 +472,8 @@
 		A7EC6B0A1FE032BA001F2B43 /* FeedCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EC6B091FE032B9001F2B43 /* FeedCommentViewController.swift */; };
 		A7EC6B0B1FE032BA001F2B43 /* FeedCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EC6B091FE032B9001F2B43 /* FeedCommentViewController.swift */; };
 		A7EC6B0C1FE032BA001F2B43 /* FeedCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EC6B091FE032B9001F2B43 /* FeedCommentViewController.swift */; };
-		CE63464935335E32EC9EDD8F /* Pods_ITZLIT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064E10901FA1DF9400F01930 /* Pods_ITZLIT.framework */; };
-		D18531AA526BE55ADA6ACB77 /* Pods_ITZLIT_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220D36304F73D489844000BE /* Pods_ITZLIT_Dev.framework */; };
+		CE63464935335E32EC9EDD8F /* Pods_HydroX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064E10901FA1DF9400F01930 /* Pods_HydroX.framework */; };
+		D18531AA526BE55ADA6ACB77 /* Pods_HydroX_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220D36304F73D489844000BE /* Pods_HydroX_Dev.framework */; };
 		7587B12710894340971E757C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
 		2885F94DD58B48579A14932F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
 		2297A142D11C48A4880F029B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
@@ -490,7 +490,7 @@
 			containerPortal = 6D454DAB1F9F484200065056 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6D454DB21F9F484300065056;
-			remoteInfo = ITZLIT;
+			remoteInfo = HydroX;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -542,14 +542,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05A69A712DDDBD556FFDE58C /* Pods-ITZLIT Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITZLIT Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITZLIT Dev/Pods-ITZLIT Dev.release.xcconfig"; sourceTree = "<group>"; };
+		05A69A712DDDBD556FFDE58C /* Pods-HydroX Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroX Dev.release.xcconfig"; path = "Pods/Target Support Files/Pods-HydroX Dev/Pods-HydroX Dev.release.xcconfig"; sourceTree = "<group>"; };
 		06018DCD1FA0BAD500A68D57 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0618F2C31FA20310008F1E05 /* FacebookLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginManager.swift; sourceTree = "<group>"; };
 		061E936E1FC2E0E800F60CC8 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		062051761FA2F3D600084475 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		0620517A1FA32C5E00084475 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		0620517D1FA32CB200084475 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
-		063215A11FB090B000FC2ABD /* ITZLITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ITZLITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		063215A11FB090B000FC2ABD /* HydroXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HydroXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		063215A31FB090B100FC2ABD /* HydroXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydroXTests.swift; sourceTree = "<group>"; };
 		063215A51FB090B100FC2ABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		063215AC1FB090DC00FC2ABD /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
@@ -568,7 +568,7 @@
 		064E10871FA1CC7100F01930 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		064E10881FA1CC7200F01930 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		064E10891FA1CC7400F01930 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		064E10901FA1DF9400F01930 /* Pods_ITZLIT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ITZLIT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		064E10901FA1DF9400F01930 /* Pods_HydroX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_HydroX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		064E10951FA1E25C00F01930 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		064E10961FA1E25C00F01930 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		064E10971FA1E25C00F01930 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -611,11 +611,11 @@
 		06ED70201FC83731006C30BB /* LiveStreamingConfigurationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamingConfigurationVC.swift; sourceTree = "<group>"; };
 		06F2F68C1FCC24B2000158BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		06F66FCC1FCD3B4000387873 /* TermsAndPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyViewController.swift; sourceTree = "<group>"; };
-		220D36304F73D489844000BE /* Pods_ITZLIT_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITZLIT_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D99E56FC9C407F3B3E4FB42 /* Pods-ITZLIT.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITZLIT.development.xcconfig"; path = "Pods/Target Support Files/Pods-ITZLIT/Pods-ITZLIT.development.xcconfig"; sourceTree = "<group>"; };
-		3F5A5ADCE23BEE8AAABD70F8 /* Pods_ITZLIT_Stage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITZLIT_Stage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		49389FF685238CD31B009D75 /* Pods-ITZLIT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITZLIT.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITZLIT/Pods-ITZLIT.release.xcconfig"; sourceTree = "<group>"; };
-		5AB6CB7FC33B3EBB503A57B7 /* Pods-ITZLIT Dev.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITZLIT Dev.development.xcconfig"; path = "Pods/Target Support Files/Pods-ITZLIT Dev/Pods-ITZLIT Dev.development.xcconfig"; sourceTree = "<group>"; };
+		220D36304F73D489844000BE /* Pods_HydroX_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HydroX_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D99E56FC9C407F3B3E4FB42 /* Pods-HydroX.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroX.development.xcconfig"; path = "Pods/Target Support Files/Pods-HydroX/Pods-HydroX.development.xcconfig"; sourceTree = "<group>"; };
+		3F5A5ADCE23BEE8AAABD70F8 /* Pods_HydroX_Stage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HydroX_Stage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49389FF685238CD31B009D75 /* Pods-HydroX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HydroX/Pods-HydroX.release.xcconfig"; sourceTree = "<group>"; };
+		5AB6CB7FC33B3EBB503A57B7 /* Pods-HydroX Dev.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroX Dev.development.xcconfig"; path = "Pods/Target Support Files/Pods-HydroX Dev/Pods-HydroX Dev.development.xcconfig"; sourceTree = "<group>"; };
 		5D0F14101FE3F5D800A22FAB /* ViewLiveVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLiveVideoViewController.swift; sourceTree = "<group>"; };
 		5D149AED1FF37FCF008B7502 /* GoogleService-Info_Dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info_Dev.plist"; sourceTree = "<group>"; };
 		5D1BB44120121794004C48A0 /* ImageViewer-Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "ImageViewer-Assets.xcassets"; path = "Pods/SimpleImageViewer/ImageViewer/Resources/ImageViewer-Assets.xcassets"; sourceTree = "<group>"; };
@@ -623,7 +623,7 @@
 		5D1F35F1203EA81E008BC4CF /* ILSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILSocketManager.swift; sourceTree = "<group>"; };
 		5D27C0D52010AE7100A3CCEF /* InfoProduction.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoProduction.plist; sourceTree = "<group>"; };
 		5D27C0D92010AF9D00A3CCEF /* HydroXProduction.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HydroXProduction.entitlements; sourceTree = "<group>"; };
-		5D27C1572010B05900A3CCEF /* ITZLIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITZLIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D27C1572010B05900A3CCEF /* HydroX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HydroX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D43882A2051811600DA47B7 /* FeedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInfoView.swift; sourceTree = "<group>"; };
 		5D4388302051812400DA47B7 /* FeedInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedInfoView.xib; sourceTree = "<group>"; };
 		5D4F3CAF203C5BEB00BBEC54 /* ContactList.rdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = ContactList.rdb; sourceTree = "<group>"; };
@@ -640,11 +640,11 @@
 		5DBEF8DC1FDE97D800FB1A07 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5DBEF8DD1FDE97D800FB1A07 /* SettingsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewModel.h; sourceTree = "<group>"; };
 		5DBEF8DE1FDE97D800FB1A07 /* SettingsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewModel.m; sourceTree = "<group>"; };
-		5DBEF8EE1FDE981B00FB1A07 /* ITZLIT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ITZLIT-Bridging-Header.h"; sourceTree = "<group>"; };
-		5DBF95621FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ITZLIT-Production-GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5DBEF8EE1FDE981B00FB1A07 /* HydroX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HydroX-Bridging-Header.h"; sourceTree = "<group>"; };
+		5DBF95621FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HydroX-Production-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DF4BC752031A37C0008850A /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
-		6C29523D78BD12E306023D54 /* Pods-ITZLIT Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITZLIT Stage.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITZLIT Stage/Pods-ITZLIT Stage.release.xcconfig"; sourceTree = "<group>"; };
-		6D454DB31F9F484300065056 /* ITZLIT-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITZLIT-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C29523D78BD12E306023D54 /* Pods-HydroX Stage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroX Stage.release.xcconfig"; path = "Pods/Target Support Files/Pods-HydroX Stage/Pods-HydroX Stage.release.xcconfig"; sourceTree = "<group>"; };
+		6D454DB31F9F484300065056 /* HydroX-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HydroX-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D454DB61F9F484300065056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D454DBB1F9F484300065056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D454DBD1F9F484300065056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -655,9 +655,9 @@
 		6DB5A7B91F9F4E6A009EB057 /* MessageConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageConst.swift; sourceTree = "<group>"; };
 		6DB5A7BE1F9F53AF009EB057 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		6DB5A7C01F9F53D1009EB057 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		73A3961C097A43B51873ED0F /* Pods-ITZLIT Stage.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITZLIT Stage.development.xcconfig"; path = "Pods/Target Support Files/Pods-ITZLIT Stage/Pods-ITZLIT Stage.development.xcconfig"; sourceTree = "<group>"; };
-		7758334341EF95AE2523181F /* Pods-ITZLIT.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITZLIT.production.xcconfig"; path = "Pods/Target Support Files/Pods-ITZLIT/Pods-ITZLIT.production.xcconfig"; sourceTree = "<group>"; };
-		781412432A1935A9A1495BBB /* Pods_ITZLIT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITZLIT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73A3961C097A43B51873ED0F /* Pods-HydroX Stage.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroX Stage.development.xcconfig"; path = "Pods/Target Support Files/Pods-HydroX Stage/Pods-HydroX Stage.development.xcconfig"; sourceTree = "<group>"; };
+		7758334341EF95AE2523181F /* Pods-HydroX.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydroX.production.xcconfig"; path = "Pods/Target Support Files/Pods-HydroX/Pods-HydroX.production.xcconfig"; sourceTree = "<group>"; };
+		781412432A1935A9A1495BBB /* Pods_HydroX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HydroX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74924111FB4326A004D0CC6 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		A74924131FB46C2E004D0CC6 /* FollowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowList.swift; sourceTree = "<group>"; };
 		A770333C1FE0341D00D38463 /* FeedAction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedAction.storyboard; sourceTree = "<group>"; };
@@ -666,9 +666,9 @@
 		A77033691FE0385A00D38463 /* FeedHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHeaderCell.swift; sourceTree = "<group>"; };
 		A77033701FE04D4200D38463 /* CommentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentList.swift; sourceTree = "<group>"; };
 		A7728D201FE2A39C003776D0 /* Meter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meter.swift; sourceTree = "<group>"; };
-		A778B0301FC6FF370068AD44 /* ITZLIT Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITZLIT Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A778B0301FC6FF370068AD44 /* HydroX Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HydroX Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A778B0321FC704A00068AD44 /* HydroXDev.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HydroXDev.entitlements; sourceTree = "<group>"; };
-		A778B08F1FC7059E0068AD44 /* ITZLIT Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITZLIT Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A778B08F1FC7059E0068AD44 /* HydroX Stage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HydroX Stage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A778B0911FC70C260068AD44 /* HydroXStage.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = HydroXStage.entitlements; sourceTree = "<group>"; };
 		A7A4113A1FB9A1AB009D2DCF /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		A7A4113B1FB9A1AB009D2DCF /* RPCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPCircularProgress.swift; sourceTree = "<group>"; };
@@ -717,8 +717,8 @@
 				5D27C1342010B05900A3CCEF /* FBSDKCoreKit.framework in Frameworks */,
 				5D27C1352010B05900A3CCEF /* FBSDKLoginKit.framework in Frameworks */,
 				5D27C1362010B05900A3CCEF /* FBSDKShareKit.framework in Frameworks */,
-				5D27C1372010B05900A3CCEF /* Pods_ITZLIT_Stage.framework in Frameworks */,
-				CE63464935335E32EC9EDD8F /* Pods_ITZLIT.framework in Frameworks */,
+				5D27C1372010B05900A3CCEF /* Pods_HydroX_Stage.framework in Frameworks */,
+				CE63464935335E32EC9EDD8F /* Pods_HydroX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,7 +759,7 @@
 				A778B0171FC6FF370068AD44 /* FBSDKCoreKit.framework in Frameworks */,
 				A778B0181FC6FF370068AD44 /* FBSDKLoginKit.framework in Frameworks */,
 				A778B0191FC6FF370068AD44 /* FBSDKShareKit.framework in Frameworks */,
-				D18531AA526BE55ADA6ACB77 /* Pods_ITZLIT_Dev.framework in Frameworks */,
+				D18531AA526BE55ADA6ACB77 /* Pods_HydroX_Dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,7 +781,7 @@
 				A778B0761FC7059E0068AD44 /* FBSDKCoreKit.framework in Frameworks */,
 				A778B0771FC7059E0068AD44 /* FBSDKLoginKit.framework in Frameworks */,
 				A778B0781FC7059E0068AD44 /* FBSDKShareKit.framework in Frameworks */,
-				96394230EC793AB995E6E238 /* Pods_ITZLIT_Stage.framework in Frameworks */,
+				96394230EC793AB995E6E238 /* Pods_HydroX_Stage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,14 +804,14 @@
 			path = "Notification Cells";
 			sourceTree = "<group>";
 		};
-		063215A21FB090B100FC2ABD /* ITZLITTests */ = {
+		063215A21FB090B100FC2ABD /* HydroXTests */ = {
 			isa = PBXGroup;
 			children = (
 				063215A31FB090B100FC2ABD /* HydroXTests.swift */,
 				063215AC1FB090DC00FC2ABD /* RegistrationVC.swift */,
 				063215A51FB090B100FC2ABD /* Info.plist */,
 			);
-			path = ITZLITTests;
+			path = HydroXTests;
 			sourceTree = "<group>";
 		};
 		063A0D871FA3585000C00B90 /* BaseViewController */ = {
@@ -973,7 +973,7 @@
 		06F2F68B1FCC2494000158BD /* GoogleService-plist-files */ = {
 			isa = PBXGroup;
 			children = (
-				5DBF95621FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist */,
+				5DBF95621FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist */,
 				5D149AED1FF37FCF008B7502 /* GoogleService-Info_Dev.plist */,
 				06F2F68C1FCC24B2000158BD /* GoogleService-Info.plist */,
 			);
@@ -1004,10 +1004,10 @@
 				064E10961FA1E25C00F01930 /* FBSDKCoreKit.framework */,
 				064E10971FA1E25C00F01930 /* FBSDKLoginKit.framework */,
 				064E10981FA1E25C00F01930 /* FBSDKShareKit.framework */,
-				064E10901FA1DF9400F01930 /* Pods_ITZLIT.framework */,
-				781412432A1935A9A1495BBB /* Pods_ITZLIT.framework */,
-				220D36304F73D489844000BE /* Pods_ITZLIT_Dev.framework */,
-				3F5A5ADCE23BEE8AAABD70F8 /* Pods_ITZLIT_Stage.framework */,
+				064E10901FA1DF9400F01930 /* Pods_HydroX.framework */,
+				781412432A1935A9A1495BBB /* Pods_HydroX.framework */,
+				220D36304F73D489844000BE /* Pods_HydroX_Dev.framework */,
+				3F5A5ADCE23BEE8AAABD70F8 /* Pods_HydroX_Stage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1033,7 +1033,7 @@
 			children = (
 				5DBEF8D51FDE97D800FB1A07 /* shared */,
 				5DBEF8D11FDE97A300FB1A07 /* WowzaGoCoderSDK.framework */,
-				5DBEF8EE1FDE981B00FB1A07 /* ITZLIT-Bridging-Header.h */,
+				5DBEF8EE1FDE981B00FB1A07 /* HydroX-Bridging-Header.h */,
 			);
 			path = "Wowza-framework";
 			sourceTree = "<group>";
@@ -1061,8 +1061,8 @@
 				06B146D21FC7E9310018ED2F /* InfoDev.plist */,
 				06B146D31FC7E9320018ED2F /* InfoStage.plist */,
 				5D27C0D52010AE7100A3CCEF /* InfoProduction.plist */,
-				6D454DB51F9F484300065056 /* ITZLIT */,
-				063215A21FB090B100FC2ABD /* ITZLITTests */,
+				6D454DB51F9F484300065056 /* HydroX */,
+				063215A21FB090B100FC2ABD /* HydroXTests */,
 				6D454DB41F9F484300065056 /* Products */,
 				D9781C661AB911FA2ED7BDC2 /* Pods */,
 				292A0E6A43938B813F07DDA7 /* Frameworks */,
@@ -1072,16 +1072,16 @@
 		6D454DB41F9F484300065056 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6D454DB31F9F484300065056 /* ITZLIT-Test.app */,
-				063215A11FB090B000FC2ABD /* ITZLITTests.xctest */,
-				A778B0301FC6FF370068AD44 /* ITZLIT Dev.app */,
-				A778B08F1FC7059E0068AD44 /* ITZLIT Stage.app */,
-				5D27C1572010B05900A3CCEF /* ITZLIT.app */,
+				6D454DB31F9F484300065056 /* HydroX-Test.app */,
+				063215A11FB090B000FC2ABD /* HydroXTests.xctest */,
+				A778B0301FC6FF370068AD44 /* HydroX Dev.app */,
+				A778B08F1FC7059E0068AD44 /* HydroX Stage.app */,
+				5D27C1572010B05900A3CCEF /* HydroX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6D454DB51F9F484300065056 /* ITZLIT */ = {
+		6D454DB51F9F484300065056 /* HydroX */ = {
 			isa = PBXGroup;
 			children = (
 				5D27C0D92010AF9D00A3CCEF /* HydroXProduction.entitlements */,
@@ -1338,13 +1338,13 @@
 		D9781C661AB911FA2ED7BDC2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7758334341EF95AE2523181F /* Pods-ITZLIT.production.xcconfig */,
-				5AB6CB7FC33B3EBB503A57B7 /* Pods-ITZLIT Dev.development.xcconfig */,
-				05A69A712DDDBD556FFDE58C /* Pods-ITZLIT Dev.release.xcconfig */,
-				73A3961C097A43B51873ED0F /* Pods-ITZLIT Stage.development.xcconfig */,
-				6C29523D78BD12E306023D54 /* Pods-ITZLIT Stage.release.xcconfig */,
-				2D99E56FC9C407F3B3E4FB42 /* Pods-ITZLIT.development.xcconfig */,
-				49389FF685238CD31B009D75 /* Pods-ITZLIT.release.xcconfig */,
+				7758334341EF95AE2523181F /* Pods-HydroX.production.xcconfig */,
+				5AB6CB7FC33B3EBB503A57B7 /* Pods-HydroX Dev.development.xcconfig */,
+				05A69A712DDDBD556FFDE58C /* Pods-HydroX Dev.release.xcconfig */,
+				73A3961C097A43B51873ED0F /* Pods-HydroX Stage.development.xcconfig */,
+				6C29523D78BD12E306023D54 /* Pods-HydroX Stage.release.xcconfig */,
+				2D99E56FC9C407F3B3E4FB42 /* Pods-HydroX.development.xcconfig */,
+				49389FF685238CD31B009D75 /* Pods-HydroX.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1352,9 +1352,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		063215A01FB090B000FC2ABD /* ITZLITTests */ = {
+		063215A01FB090B000FC2ABD /* HydroXTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 063215A81FB090B100FC2ABD /* Build configuration list for PBXNativeTarget "ITZLITTests" */;
+			buildConfigurationList = 063215A81FB090B100FC2ABD /* Build configuration list for PBXNativeTarget "HydroXTests" */;
 			buildPhases = (
 				0632159D1FB090B000FC2ABD /* Sources */,
 				0632159E1FB090B000FC2ABD /* Frameworks */,
@@ -1365,14 +1365,14 @@
 			dependencies = (
 				063215A71FB090B100FC2ABD /* PBXTargetDependency */,
 			);
-			name = ITZLITTests;
-			productName = ITZLITTests;
-			productReference = 063215A11FB090B000FC2ABD /* ITZLITTests.xctest */;
+			name = HydroXTests;
+			productName = HydroXTests;
+			productReference = 063215A11FB090B000FC2ABD /* HydroXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5D27C0DA2010B05900A3CCEF /* ITZLIT */ = {
+		5D27C0DA2010B05900A3CCEF /* HydroX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D27C1542010B05900A3CCEF /* Build configuration list for PBXNativeTarget "ITZLIT" */;
+			buildConfigurationList = 5D27C1542010B05900A3CCEF /* Build configuration list for PBXNativeTarget "HydroX" */;
 			buildPhases = (
 				5D27C0DB2010B05900A3CCEF /* [CP] Check Pods Manifest.lock */,
 				5D27C0DC2010B05900A3CCEF /* Sources */,
@@ -1388,14 +1388,14 @@
 			);
 			dependencies = (
 			);
-			name = ITZLIT;
-			productName = ITZLIT;
-			productReference = 5D27C1572010B05900A3CCEF /* ITZLIT.app */;
+			name = HydroX;
+			productName = HydroX;
+			productReference = 5D27C1572010B05900A3CCEF /* HydroX.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6D454DB21F9F484300065056 /* ITZLIT-Test */ = {
+		6D454DB21F9F484300065056 /* HydroX-Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D454DC51F9F484300065056 /* Build configuration list for PBXNativeTarget "ITZLIT-Test" */;
+			buildConfigurationList = 6D454DC51F9F484300065056 /* Build configuration list for PBXNativeTarget "HydroX-Test" */;
 			buildPhases = (
 				6D454DAF1F9F484300065056 /* Sources */,
 				6D454DB01F9F484300065056 /* Frameworks */,
@@ -1409,14 +1409,14 @@
 			);
 			dependencies = (
 			);
-			name = "ITZLIT-Test";
-			productName = ITZLIT;
-			productReference = 6D454DB31F9F484300065056 /* ITZLIT-Test.app */;
+			name = "HydroX-Test";
+			productName = HydroX;
+			productReference = 6D454DB31F9F484300065056 /* HydroX-Test.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A778AFD41FC6FF370068AD44 /* ITZLIT Dev */ = {
+		A778AFD41FC6FF370068AD44 /* HydroX Dev */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A778B02D1FC6FF370068AD44 /* Build configuration list for PBXNativeTarget "ITZLIT Dev" */;
+			buildConfigurationList = A778B02D1FC6FF370068AD44 /* Build configuration list for PBXNativeTarget "HydroX Dev" */;
 			buildPhases = (
 				EB0B1E7A2AC0AFB1F6F2DF84 /* [CP] Check Pods Manifest.lock */,
 				A778AFD61FC6FF370068AD44 /* Sources */,
@@ -1432,14 +1432,14 @@
 			);
 			dependencies = (
 			);
-			name = "ITZLIT Dev";
-			productName = ITZLIT;
-			productReference = A778B0301FC6FF370068AD44 /* ITZLIT Dev.app */;
+			name = "HydroX Dev";
+			productName = HydroX;
+			productReference = A778B0301FC6FF370068AD44 /* HydroX Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A778B0331FC7059E0068AD44 /* ITZLIT Stage */ = {
+		A778B0331FC7059E0068AD44 /* HydroX Stage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A778B08C1FC7059E0068AD44 /* Build configuration list for PBXNativeTarget "ITZLIT Stage" */;
+			buildConfigurationList = A778B08C1FC7059E0068AD44 /* Build configuration list for PBXNativeTarget "HydroX Stage" */;
 			buildPhases = (
 				55C0C5F037A9BD6BC3AF91B5 /* [CP] Check Pods Manifest.lock */,
 				A778B0351FC7059E0068AD44 /* Sources */,
@@ -1455,9 +1455,9 @@
 			);
 			dependencies = (
 			);
-			name = "ITZLIT Stage";
-			productName = ITZLIT;
-			productReference = A778B08F1FC7059E0068AD44 /* ITZLIT Stage.app */;
+			name = "HydroX Stage";
+			productName = HydroX;
+			productReference = A778B08F1FC7059E0068AD44 /* HydroX Stage.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1526,7 +1526,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6D454DAE1F9F484200065056 /* Build configuration list for PBXProject "ITZLIT" */;
+			buildConfigurationList = 6D454DAE1F9F484200065056 /* Build configuration list for PBXProject "HydroX" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1539,11 +1539,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6D454DB21F9F484300065056 /* ITZLIT-Test */,
-				063215A01FB090B000FC2ABD /* ITZLITTests */,
-				A778AFD41FC6FF370068AD44 /* ITZLIT Dev */,
-				A778B0331FC7059E0068AD44 /* ITZLIT Stage */,
-				5D27C0DA2010B05900A3CCEF /* ITZLIT */,
+				6D454DB21F9F484300065056 /* HydroX-Test */,
+				063215A01FB090B000FC2ABD /* HydroXTests */,
+				A778AFD41FC6FF370068AD44 /* HydroX Dev */,
+				A778B0331FC7059E0068AD44 /* HydroX Stage */,
+				5D27C0DA2010B05900A3CCEF /* HydroX */,
 			);
 		};
 /* End PBXProject section */
@@ -1567,7 +1567,7 @@
 				5D27C13A2010B05900A3CCEF /* Roboto-Light.ttf in Resources */,
 				5D27C13B2010B05900A3CCEF /* GoogleService-Info.plist in Resources */,
 				5D27C13C2010B05900A3CCEF /* FeedAction.storyboard in Resources */,
-				5D27C13D2010B05900A3CCEF /* ITZLIT-Production-GoogleService-Info.plist in Resources */,
+				5D27C13D2010B05900A3CCEF /* HydroX-Production-GoogleService-Info.plist in Resources */,
 				5DF4BC782031A37C0008850A /* SampleVideo.mp4 in Resources */,
 				5D27C13E2010B05900A3CCEF /* Poppins-Bold.ttf in Resources */,
 				5D4F3CB2203C5BEB00BBEC54 /* ContactList.rdb in Resources */,
@@ -1598,7 +1598,7 @@
 				0654BC861FA9969C00A916A2 /* Roboto-Light.ttf in Resources */,
 				064E108A1FA1CC9F00F01930 /* Poppins-Bold.ttf in Resources */,
 				063A0D8B1FA3585000C00B90 /* BaseViewController.xib in Resources */,
-				5DBF95631FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist in Resources */,
+				5DBF95631FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist in Resources */,
 				06F2F68D1FCC24B2000158BD /* GoogleService-Info.plist in Resources */,
 				A7A411451FB9A225009D2DCF /* StoryShare.storyboard in Resources */,
 				068FA56A1FB2C4D900A0AC9E /* Menu.storyboard in Resources */,
@@ -1632,7 +1632,7 @@
 				06ED701D1FC81F2D006C30BB /* SettingFeed.storyboard in Resources */,
 				A778B01C1FC6FF370068AD44 /* Roboto-Light.ttf in Resources */,
 				A778B01D1FC6FF370068AD44 /* Poppins-Bold.ttf in Resources */,
-				5DBF95641FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist in Resources */,
+				5DBF95641FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist in Resources */,
 				5DF4BC762031A37C0008850A /* SampleVideo.mp4 in Resources */,
 				A778B01E1FC6FF370068AD44 /* BaseViewController.xib in Resources */,
 				5D4F3CB0203C5BEB00BBEC54 /* ContactList.rdb in Resources */,
@@ -1664,7 +1664,7 @@
 				A778B07B1FC7059E0068AD44 /* Roboto-Light.ttf in Resources */,
 				06F2F68F1FCC24B2000158BD /* GoogleService-Info.plist in Resources */,
 				A770333F1FE0341D00D38463 /* FeedAction.storyboard in Resources */,
-				5DBF95651FF63D5E00C3592F /* ITZLIT-Production-GoogleService-Info.plist in Resources */,
+				5DBF95651FF63D5E00C3592F /* HydroX-Production-GoogleService-Info.plist in Resources */,
 				5DF4BC772031A37C0008850A /* SampleVideo.mp4 in Resources */,
 				A778B07C1FC7059E0068AD44 /* Poppins-Bold.ttf in Resources */,
 				5D4F3CB1203C5BEB00BBEC54 /* ContactList.rdb in Resources */,
@@ -1714,7 +1714,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ITZLIT Stage-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HydroX Stage-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1771,7 +1771,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ITZLIT-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HydroX-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1797,7 +1797,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT/Pods-ITZLIT-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-HydroX/Pods-HydroX-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
@@ -1844,7 +1844,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT/Pods-ITZLIT-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydroX/Pods-HydroX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5D27C1502010B05900A3CCEF /* [CP] Copy Pods Resources */ = {
@@ -1853,7 +1853,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT/Pods-ITZLIT-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-HydroX/Pods-HydroX-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1862,7 +1862,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT/Pods-ITZLIT-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydroX/Pods-HydroX-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5D27C1532010B05900A3CCEF /* ShellScript */ = {
@@ -1884,7 +1884,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT Stage/Pods-ITZLIT Stage-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-HydroX Stage/Pods-HydroX Stage-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1893,7 +1893,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT Stage/Pods-ITZLIT Stage-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydroX Stage/Pods-HydroX Stage-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9426FF60EBE34054A6FBB018 /* [CP] Embed Pods Frameworks */ = {
@@ -1902,7 +1902,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT Dev/Pods-ITZLIT Dev-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-HydroX Dev/Pods-HydroX Dev-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
@@ -1949,7 +1949,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT Dev/Pods-ITZLIT Dev-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydroX Dev/Pods-HydroX Dev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A71A25E31FF2233500D8AC94 /* ShellScript */ = {
@@ -1997,7 +1997,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT Dev/Pods-ITZLIT Dev-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-HydroX Dev/Pods-HydroX Dev-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2006,7 +2006,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT Dev/Pods-ITZLIT Dev-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydroX Dev/Pods-HydroX Dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3804A055593A26E1078FC1C /* [CP] Embed Pods Frameworks */ = {
@@ -2015,7 +2015,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT Stage/Pods-ITZLIT Stage-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-HydroX Stage/Pods-HydroX Stage-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
@@ -2062,7 +2062,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ITZLIT Stage/Pods-ITZLIT Stage-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydroX Stage/Pods-HydroX Stage-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EB0B1E7A2AC0AFB1F6F2DF84 /* [CP] Check Pods Manifest.lock */ = {
@@ -2076,7 +2076,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ITZLIT Dev-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HydroX Dev-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2445,7 +2445,7 @@
 /* Begin PBXTargetDependency section */
 		063215A71FB090B100FC2ABD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6D454DB21F9F484300065056 /* ITZLIT-Test */;
+			target = 6D454DB21F9F484300065056 /* HydroX-Test */;
 			targetProxy = 063215A61FB090B100FC2ABD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2521,22 +2521,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ITZLITTests/Info.plist;
+				INFOPLIST_FILE = HydroXTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sa.ITZLITTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sa.HydroXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ITZLIT.app/ITZLIT";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HydroX.app/HydroX";
 			};
 			name = Development;
 		};
@@ -2585,31 +2585,31 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ITZLITTests/Info.plist;
+				INFOPLIST_FILE = HydroXTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sa.ITZLITTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sa.HydroXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ITZLIT.app/ITZLIT";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HydroX.app/HydroX";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		5D27C1552010B05900A3CCEF /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D99E56FC9C407F3B3E4FB42 /* Pods-ITZLIT.development.xcconfig */;
+			baseConfigurationReference = 2D99E56FC9C407F3B3E4FB42 /* Pods-HydroX.development.xcconfig */;
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS =/* HydroX */HydroXProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2628,8 +2628,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "859c5269-c038-4f39-923f-2746ecd33d4b";
 				PROVISIONING_PROFILE_SPECIFIER = "HydroX Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2637,11 +2637,11 @@
 		};
 		5D27C1562010B05900A3CCEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49389FF685238CD31B009D75 /* Pods-ITZLIT.release.xcconfig */;
+			baseConfigurationReference = 49389FF685238CD31B009D75 /* Pods-HydroX.release.xcconfig */;
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS =/* HydroX */HydroXProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2660,8 +2660,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c2ce53b8-4e65-4e47-9806-a569b535c369";
 				PROVISIONING_PROFILE_SPECIFIER = "HydroX Distribution Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2730,7 +2730,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS =/* HydroX */HydroXProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2749,8 +2749,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c2ce53b8-4e65-4e47-9806-a569b535c369";
 				PROVISIONING_PROFILE_SPECIFIER = "HydroX Distribution Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2819,7 +2819,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS =/* HydroX */HydroXProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2838,8 +2838,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c2ce53b8-4e65-4e47-9806-a569b535c369";
 				PROVISIONING_PROFILE_SPECIFIER = "HydroX Distribution Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2847,11 +2847,11 @@
 		};
 		A778B02E1FC6FF370068AD44 /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AB6CB7FC33B3EBB503A57B7 /* Pods-ITZLIT Dev.development.xcconfig */;
+			baseConfigurationReference = 5AB6CB7FC33B3EBB503A57B7 /* Pods-HydroX Dev.development.xcconfig */;
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXDev.entitlements;
+				CODE_SIGN_ENTITLEMENTS =/* HydroX */HydroXDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2869,8 +2869,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "60df9326-a550-4555-933b-67e76bd50820";
 				PROVISIONING_PROFILE_SPECIFIER = "HydroX Development Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2878,11 +2878,11 @@
 		};
 		A778B02F1FC6FF370068AD44 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05A69A712DDDBD556FFDE58C /* Pods-ITZLIT Dev.release.xcconfig */;
+			baseConfigurationReference = 05A69A712DDDBD556FFDE58C /* Pods-HydroX Dev.release.xcconfig */;
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXDev.entitlements;
+				CODE_SIGN_ENTITLEMENTS =/* HydroX */HydroXDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2901,8 +2901,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "60df9326-a550-4555-933b-67e76bd50820";
 				PROVISIONING_PROFILE_SPECIFIER = "HydroX Development Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2910,11 +2910,11 @@
 		};
 		A778B08D1FC7059E0068AD44 /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73A3961C097A43B51873ED0F /* Pods-ITZLIT Stage.development.xcconfig */;
+			baseConfigurationReference = 73A3961C097A43B51873ED0F /* Pods-HydroX Stage.development.xcconfig */;
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXStage.entitlements;
+				CODE_SIGN_ENTITLEMENTS =/* HydroX */HydroXStage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2933,8 +2933,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "73d0a9b6-dd9e-49ec-be78-326b58b49f6d";
 				PROVISIONING_PROFILE_SPECIFIER = "HydroX Staging Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2942,11 +2942,11 @@
 		};
 		A778B08E1FC7059E0068AD44 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C29523D78BD12E306023D54 /* Pods-ITZLIT Stage.release.xcconfig */;
+			baseConfigurationReference = 6C29523D78BD12E306023D54 /* Pods-HydroX Stage.release.xcconfig */;
 			buildSettings = {
 				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ITZLIT/HydroXStage.entitlements;
+				CODE_SIGN_ENTITLEMENTS =/* HydroX */HydroXStage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2965,8 +2965,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5cec8a25-d12a-4032-b829-427ce36bbf97";
 				PROVISIONING_PROFILE_SPECIFIER = "HydroX Staging Distribution Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/HydroX-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "HydroX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2975,7 +2975,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		063215A81FB090B100FC2ABD /* Build configuration list for PBXNativeTarget "ITZLITTests" */ = {
+		063215A81FB090B100FC2ABD /* Build configuration list for PBXNativeTarget "HydroXTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				063215A91FB090B100FC2ABD /* Development */,
@@ -2984,7 +2984,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		5D27C1542010B05900A3CCEF /* Build configuration list for PBXNativeTarget "ITZLIT" */ = {
+		5D27C1542010B05900A3CCEF /* Build configuration list for PBXNativeTarget "HydroX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D27C1552010B05900A3CCEF /* Development */,
@@ -2993,7 +2993,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		6D454DAE1F9F484200065056 /* Build configuration list for PBXProject "ITZLIT" */ = {
+		6D454DAE1F9F484200065056 /* Build configuration list for PBXProject "HydroX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D454DC31F9F484300065056 /* Development */,
@@ -3002,7 +3002,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		6D454DC51F9F484300065056 /* Build configuration list for PBXNativeTarget "ITZLIT-Test" */ = {
+		6D454DC51F9F484300065056 /* Build configuration list for PBXNativeTarget "HydroX-Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D454DC61F9F484300065056 /* Development */,
@@ -3011,7 +3011,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		A778B02D1FC6FF370068AD44 /* Build configuration list for PBXNativeTarget "ITZLIT Dev" */ = {
+		A778B02D1FC6FF370068AD44 /* Build configuration list for PBXNativeTarget "HydroX Dev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A778B02E1FC6FF370068AD44 /* Development */,
@@ -3020,7 +3020,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Development;
 		};
-		A778B08C1FC7059E0068AD44 /* Build configuration list for PBXNativeTarget "ITZLIT Stage" */ = {
+		A778B08C1FC7059E0068AD44 /* Build configuration list for PBXNativeTarget "HydroX Stage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A778B08D1FC7059E0068AD44 /* Development */,

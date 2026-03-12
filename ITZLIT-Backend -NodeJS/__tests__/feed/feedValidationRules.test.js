@@ -118,7 +118,7 @@ describe('feedValidationRules.get()', () => {
 
   const feedIdRoutes = [
     '/seen',
-    '/itzlit-up',
+    '/hydrox-up',
     '/go-live-start-publishing',
     '/go-live-send-notification',
     '/go-live-stop-publishing',

@@ -1,6 +1,6 @@
 //
 //  ItFeedList.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by Dhaval Soni on 05/12/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -79,7 +79,7 @@ class FollowingsFeed : Equatable
     var mimeType:String = ""
     var path:String = ""
     var thumbs:[feedThumb] = []
-    var itzlitCount:Int = 0
+    var hydroxCount:Int = 0
     var comments:Int = 0
     var viewers:Int = 0
     var caption:String = ""
@@ -100,7 +100,7 @@ class FollowingsFeed : Equatable
         path = (dictionary["media"] as! Dictionary<String,Any>)["path"] as? String ?? ""
         thumbs = feedThumb.PopulateArray(array: (dictionary["media"] as! Dictionary<String,Any>)["thumbs"]  as! NSArray)
         branchLink = dictionary["branchLink"] as? String ?? ""
-        itzlitCount = dictionary["itzlitCount"] as?  Int ?? 0
+        hydroxCount = dictionary["hydroxCount"] as?  Int ?? 0
         comments = dictionary["totalComments"] as?  Int ?? 0
         viewers = dictionary["totalViewers"] as?  Int ?? 0
         caption = dictionary["caption"] as? String ?? ""

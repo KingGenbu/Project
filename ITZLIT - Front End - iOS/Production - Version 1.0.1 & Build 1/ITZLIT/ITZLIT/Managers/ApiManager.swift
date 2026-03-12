@@ -1,6 +1,6 @@
 //
 //  ApiManager.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by devang.bhatt on 04/11/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.

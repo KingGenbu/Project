@@ -1,6 +1,6 @@
 //
 //  GoLiveVC.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by Devang Bhatt on 11/12/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -411,12 +411,12 @@ extension GoLiveVC {
     func startLiveStreamingSettings()  {
         goCoder?.config.hostAddress = "18.220.124.147"//"52.37.2.203"
         goCoder?.config.portNumber = 1935
-        goCoder?.config.applicationName = "live"//"itzlit-test"
+        goCoder?.config.applicationName = "live"//"hydrox-test"
         if let streamID = UserDefaultHelper.getPREF(AppUserDefaults.pref_liveStreaming_streamId) {
             goCoder?.config.streamName = streamID
         }
-        goCoder?.config.username = "itzlit"//"itzlit-test"
-        goCoder?.config.password = "aNs-EDp-bEN-2wA"//"itzlit"
+        goCoder?.config.username = "hydrox"//"hydrox-test"
+        goCoder?.config.password = "aNs-EDp-bEN-2wA"//"hydrox"
         
         if let configError = goCoder?.config.validateForBroadcast() {
             Helper.showAlertDialog(APP_NAME + "\n Incomplete Streaming Settings", message: configError.localizedDescription, clickAction: {})

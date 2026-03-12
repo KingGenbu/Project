@@ -1,6 +1,6 @@
 //
 //  NotificationViewController.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by devang.bhatt on 27/10/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -248,7 +248,7 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
 //            }
 //        }
         
-        if notificationData.notificationType == NotificationType.itzlitDone.rawValue {
+        if notificationData.notificationType == NotificationType.hydroxDone.rawValue {
             notificationCell.imgProfilePic.sd_setShowActivityIndicatorView(true)
             notificationCell.imgProfilePic.sd_setIndicatorStyle(.gray)
 

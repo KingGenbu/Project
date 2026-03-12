@@ -1,6 +1,6 @@
 //
 //  ILCustomViews.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by devang.bhatt on 25/10/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.

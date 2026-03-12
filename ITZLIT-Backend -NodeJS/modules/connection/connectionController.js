@@ -250,7 +250,7 @@ const formatNumbers = (contacts, regionCode) => {
   });
 };
 
-connectionCtr.itzlitUsers = (req, res) => {
+connectionCtr.hydroxUsers = (req, res) => {
   const { contacts, regionCode } = req.body;
   const formattedContacts = formatNumbers(contacts, regionCode);
   const numbers = convertNumbers(formattedContacts);

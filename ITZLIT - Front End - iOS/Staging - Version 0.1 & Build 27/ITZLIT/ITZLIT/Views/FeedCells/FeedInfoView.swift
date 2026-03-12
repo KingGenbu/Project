@@ -1,6 +1,6 @@
 //
 //  FeedInfoView.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by Devang Bhatt on 08/03/18.
 //  Copyright © 2018 Solution Analysts Pvt. Ltd. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  RegistrationVC.swift
-//  ITZLITTests
+//  HydroXTests
 //
 //  Created by devang.bhatt on 06/11/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.

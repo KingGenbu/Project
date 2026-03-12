@@ -1,5 +1,5 @@
 //  FeedViewController.swift
-//  ITZLIT
+//  HydroX
 //  Created by devang.bhatt on 01/12/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
 
@@ -810,7 +810,7 @@ class FeedViewController: UIViewController {
             if error == nil {
                 if (response as! HTTPURLResponse).statusCode == 200  {
                     let outPut = json.dictionaryObject
-                    feedToUpdate.itzlitCount = (outPut!["count"] == nil ? 1 : outPut!["count"] as! Int)
+                    feedToUpdate.hydroxCount = (outPut!["count"] == nil ? 1 : outPut!["count"] as! Int)
                     
                     let cell = self.tblFeed.cellForRow(at: IndexPath(row: masterIndex, section: 0)) as! FeedCell
                     cell.collectionLive.reloadItems(at: [IndexPath(item: index, section: 0)])
@@ -1009,7 +1009,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
                     }
                 })
                 arrGoLiveID.append(seenStoryId)
-                let storyMedia = feed.init(seenStoryId: seenStoryId, thumbId: thumbId, thumb: imgThumb300, orignalMedia:(story.feedType ==  "StoryImage" ? imgThumb750 : story.path) , feedId: story.feedId, time: createdDate, discription: story.caption, lits: "\(story.itzlitCount)", comments: "\(story.comments)", mediaType: story.feedType ==  "StoryImage" ? .image : .video, owner: feedOwner, type: .feed,duration: story.duration, viewers: story.viewers, branchLink: story.branchLink, masterIndex: indexPath.row, index: storyIndex, individualFeedType: individualFeedType.init(rawValue: story.feedType)!, privacyLevel: privacyLevel.init(rawValue: story.privacy.level)!)
+                let storyMedia = feed.init(seenStoryId: seenStoryId, thumbId: thumbId, thumb: imgThumb300, orignalMedia:(story.feedType ==  "StoryImage" ? imgThumb750 : story.path) , feedId: story.feedId, time: createdDate, discription: story.caption, lits: "\(story.hydroxCount)", comments: "\(story.comments)", mediaType: story.feedType ==  "StoryImage" ? .image : .video, owner: feedOwner, type: .feed,duration: story.duration, viewers: story.viewers, branchLink: story.branchLink, masterIndex: indexPath.row, index: storyIndex, individualFeedType: individualFeedType.init(rawValue: story.feedType)!, privacyLevel: privacyLevel.init(rawValue: story.privacy.level)!)
                 
                 storys.append(storyMedia)
             }
@@ -1213,7 +1213,7 @@ extension FeedViewController:feedColectionActionProtocol {
             
             let createdDate = Date().getDifferanceFromCurrentTime(serverDate: selectedLiveFeed.createdAt! as Date)
             
-            let storyMedia = feed.init(seenStoryId: "", thumbId: "", thumb: imgThumb300, orignalMedia: selectedLiveFeed.path , feedId: selectedLiveFeed.feedId, time: createdDate, discription: selectedLiveFeed.caption, lits: "\(selectedLiveFeed.itzlitCount)", comments: "\(selectedLiveFeed.comments)", mediaType: .video, owner: feedOwner, type: .feed,duration: selectedLiveFeed.duration, viewers: selectedLiveFeed.viewers, branchLink: selectedLiveFeed.branchLink, masterIndex: masterIndex, index: index, individualFeedType: individualFeedType.init(rawValue: selectedLiveFeed.feedType)!, privacyLevel: privacyLevel(rawValue: selectedLiveFeed.privacy.level)!)
+            let storyMedia = feed.init(seenStoryId: "", thumbId: "", thumb: imgThumb300, orignalMedia: selectedLiveFeed.path , feedId: selectedLiveFeed.feedId, time: createdDate, discription: selectedLiveFeed.caption, lits: "\(selectedLiveFeed.hydroxCount)", comments: "\(selectedLiveFeed.comments)", mediaType: .video, owner: feedOwner, type: .feed,duration: selectedLiveFeed.duration, viewers: selectedLiveFeed.viewers, branchLink: selectedLiveFeed.branchLink, masterIndex: masterIndex, index: index, individualFeedType: individualFeedType.init(rawValue: selectedLiveFeed.feedType)!, privacyLevel: privacyLevel(rawValue: selectedLiveFeed.privacy.level)!)
             
             storys.append(storyMedia)
             

@@ -1,6 +1,6 @@
 //
 //  Config.swift
-//  ITZLIT
+//  HydroX
 //
 //  Created by devang.bhatt on 04/11/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
@@ -9,15 +9,15 @@
 import Foundation
 
 struct WebserverPath {
-    //    static let baseUrl = "http://itzlit.psu.sa92.sa-labs.info/api/v1/" // staging
-    static let baseUrl = "http://stage.api.itzlit.io/api/v1/" // live
+    //    static let baseUrl = "https://hydrox.psu.sa92.sa-labs.info/api/v1/" // staging
+    static let baseUrl = "https://stage.api.hydrox.io/api/v1/" // live
     static let userLogin = "user/login"
     static let createUser = "user/create"
     static let createDevice = "device/create"
     static let updateDevice = "device/update"
     static let awsPresingedUrl = "user/profile-pic-aws-presinged-url"
     static let forgetPassword = "user/forget-password"
-    static let contactsyc = "connection/itzlit-users"
+    static let contactsyc = "connection/hydrox-users"
     static let  follow     =  "connection/follow"
     static let  unFollow     =  "connection/unfollow"
     static let followingList = "connection/followings"
@@ -43,7 +43,7 @@ struct WebserverPath {
     static let commentList = "feed/comments"
     static let insertcomment = "feed/add-comment"
     static let viewerList = "feed/seen-by"
-    static let litsUp = "feed/itzlit-up"
+    static let litsUp = "feed/hydrox-up"
     static let hideFeed = "feed/hide-by-user"
     static let deleteFeed = "feed/remove-feed"
     static let reportFeed = "feed/report"

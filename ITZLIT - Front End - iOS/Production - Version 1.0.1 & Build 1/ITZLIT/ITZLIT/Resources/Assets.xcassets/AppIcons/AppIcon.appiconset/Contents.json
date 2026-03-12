@@ -3,109 +3,109 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "itzlit-app-icon-40.png",
+      "filename" : "hydrox-app-icon-40.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "itzlit-app-icon-60.png",
+      "filename" : "hydrox-app-icon-60.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "itzlit-app-icon-58.png",
+      "filename" : "hydrox-app-icon-58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "itzlit-app-icon-87.png",
+      "filename" : "hydrox-app-icon-87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "itzlit-app-icon-80.png",
+      "filename" : "hydrox-app-icon-80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "itzlit-app-icon-120.png",
+      "filename" : "hydrox-app-icon-120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "itzlit-app-icon-121.png",
+      "filename" : "hydrox-app-icon-121.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "itzlit-app-icon-180.png",
+      "filename" : "hydrox-app-icon-180.png",
       "scale" : "3x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-20.png",
+      "filename" : "hydrox-app-icon-20.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-41.png",
+      "filename" : "hydrox-app-icon-41.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-29.png",
+      "filename" : "hydrox-app-icon-29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-59.png",
+      "filename" : "hydrox-app-icon-59.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-42.png",
+      "filename" : "hydrox-app-icon-42.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-81.png",
+      "filename" : "hydrox-app-icon-81.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-76.png",
+      "filename" : "hydrox-app-icon-76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-152.png",
+      "filename" : "hydrox-app-icon-152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "itzlit-app-icon-167.png",
+      "filename" : "hydrox-app-icon-167.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "itzlit-app-icon-1024.png",
+      "filename" : "hydrox-app-icon-1024.png",
       "scale" : "1x"
     }
   ],

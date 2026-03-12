@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  ITZLIT
+//  HydroX
 //
 //  Adopted as part of iOS 13+ scene-based lifecycle modernisation.
 //  Each UIWindowScene instance owns its own UIWindow; this replaces the

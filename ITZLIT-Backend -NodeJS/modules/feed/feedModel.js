@@ -100,7 +100,7 @@ const feedSchema = new mongoose.Schema({
       ref: 'user',
     },
   }],
-  itzlitBy: [{
+  hydroxBy: [{
     count: {
       type: Number,
       default: 1,

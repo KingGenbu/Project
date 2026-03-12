@@ -60,7 +60,7 @@ const input = {
       { type: 'isValidMongoId' },
     ],
   },
-  '/itzlit-up': {
+  '/hydrox-up': {
     feedId: [
       { type: 'notEmpty' },
       { type: 'isValidMongoId' },

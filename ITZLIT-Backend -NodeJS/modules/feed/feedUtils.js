@@ -238,7 +238,7 @@ feedUtils.updateFeedListForUser = (userId) => {
         },
         {
           $addFields: {
-            itzlitCount: { $sum: '$itzlitBy.count' },
+            hydroxCount: { $sum: '$hydroxBy.count' },
             totalComments: {
               $size: { $ifNull: ['$comments', []] },
             },
@@ -272,7 +272,7 @@ feedUtils.updateFeedListForUser = (userId) => {
             media: 1,
             totalComments: 1,
             totalViewers: 1,
-            itzlitCount: 1,
+            hydroxCount: 1,
             branchLink: 1,
             lastActive: 1,
           },
