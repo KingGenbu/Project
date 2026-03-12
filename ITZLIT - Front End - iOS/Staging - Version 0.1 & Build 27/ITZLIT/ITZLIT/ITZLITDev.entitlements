@@ -6,8 +6,8 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:itzlit-dev.app.link</string>
-		<string>applinks:itzlit-dev.app-alternate.link</string>
+		<string>applinks:hydrox-dev.app.link</string>
+		<string>applinks:hydrox-dev.app-alternate.link</string>
 	</array>
 </dict>
 </plist>

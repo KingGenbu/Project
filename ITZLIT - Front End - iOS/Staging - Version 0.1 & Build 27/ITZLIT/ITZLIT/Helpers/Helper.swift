@@ -12,11 +12,11 @@ import SwiftLoader
 import FBSDKLoginKit
 import MessageUI
 
-let APP_NAME = "ITZLIT"
+let APP_NAME = "HydroX"
 
 class Helper : NSObject, MFMailComposeViewControllerDelegate {
     static let appdelegate = UIApplication.shared.delegate as? AppDelegate
-    static let invitationLink = "https://itzlit-stage.app.link/invite"
+    static let invitationLink = "https://hydrox-stage.app.link/invite"
     static let networkNotAvailableCode = -1009
     static let emailValidExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
     static var isFBData: Bool = false
@@ -374,8 +374,8 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
             let strBuildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
             
             self.mailComposeDelegate = self
-            self.setToRecipients(["Itzlitlive@gmail.com"])
-            self.setSubject("ITZLIT Support")
+            self.setToRecipients(["support@hydrox.io"])
+            self.setSubject("HydroX Support")
             self.setMessageBody("Version:  " + strVersionNumber + "\n" + "Build:  " + strBuildNumber, isHTML: false)
             navigation.present(self, animated: true, completion: nil)
         }

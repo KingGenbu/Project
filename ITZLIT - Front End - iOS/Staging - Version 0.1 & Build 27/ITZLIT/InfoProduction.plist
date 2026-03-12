@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Base_URL</key>
-	<string>https://api.itzlit.io/api/v1/</string>
+	<string>https://api.hydrox.io/api/v1/</string>
 	<key>Branch_URI_Scheme</key>
-	<string>itzlit</string>
+	<string>hydrox</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ITZLIT</string>
+	<string>HydroX</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.itzlit.itzlit</string>
+	<string>com.hydrox.hydrox</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -29,7 +29,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>itzlit</string>
+				<string>hydrox</string>
 			</array>
 		</dict>
 		<dict>
@@ -58,7 +58,7 @@
 	<key>FacebookAppID</key>
 	<string>548482365500827</string>
 	<key>FacebookDisplayName</key>
-	<string>ITZLIT</string>
+	<string>HydroX</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
@@ -130,7 +130,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>Verify_Link</key>
-	<string>https://itzlit.app.link/verify</string>
+	<string>https://hydrox.app.link/verify</string>
 	<key>WowzaKey</key>
 	<string>GOSK-0E45-0103-BD94-B545-06CF</string>
 	<key>branch_key</key>
@@ -139,9 +139,9 @@
 		<string>key_live_nczTBEjorQPcX0Xfb0EFkaoiBumzTGOm</string>
 	</dict>
 	<key>invitationLinkURL</key>
-	<string>https://itzlit.app.link/invite</string>
+	<string>https://hydrox.app.link/invite</string>
 	<key>socketURL</key>
-	<string>https://api.itzlit.io</string>
+	<string>https://api.hydrox.io</string>
 	<key>ytClientID</key>
 	<string>902286470394-8offg615qttfom534ng36jgmosn04fdo.apps.googleusercontent.com</string>
 	<key>UIApplicationSceneManifest</key>

@@ -411,15 +411,15 @@ extension RegistrationTableViewController {
     }
     
     private func configurePrivacyAndTermsLabel() {
-        let labelString = "By signing up, you agree to our ITZLIT Terms\nand that you have read our Privacy Policy."
+        let labelString = "By signing up, you agree to our HydroX Terms\nand that you have read our Privacy Policy."
         textViewPolicyAndTerms.text = labelString
         textViewPolicyAndTerms.font = UIFontConst.POPPINS_REGULAR
         let policyTermsAttributedString = NSMutableAttributedString(string: labelString)
-        
+
         let signUpTextRange = (labelString as NSString).range(of: "By signing up, you agree to our")
         policyTermsAttributedString.addAttribute(NSAttributedString.Key.font, value: UIFontConst.POPPINS_LIGHT_13!, range: signUpTextRange)
-        
-        let termsRange = (labelString as NSString).range(of: "ITZLIT Terms")
+
+        let termsRange = (labelString as NSString).range(of: "HydroX Terms")
         policyTermsAttributedString.addAttribute(.link, value: termsOfUseURL, range: termsRange)
         policyTermsAttributedString.addAttribute(NSAttributedString.Key.font, value: UIFontConst.POPPINS_MEDIUM_13!, range: termsRange)
         
