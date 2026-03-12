@@ -20,10 +20,6 @@ class ResendOTPVC: UIViewController {
         self.configureUI()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func btnResendOTPTapped(_ sender: UIButton) {
         self.WSResendOTPCalled()
@@ -32,7 +28,7 @@ class ResendOTPVC: UIViewController {
     func configureUI() {
         self.navigationController?.navigationBar.isHidden = false
         self.btnResendOTP.layer.cornerRadius = self.btnResendOTP.frame.height / 10.0
-        let leftBarBackButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarButtonTapped(_:)))
+        let leftBarBackButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarButtonTapped(_:)))
         leftBarBackButton.tintColor = .black
         self.navigationItem.leftBarButtonItem = leftBarBackButton
         DispatchQueue.main.async {

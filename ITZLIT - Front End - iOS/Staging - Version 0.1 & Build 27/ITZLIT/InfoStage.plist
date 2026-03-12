@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Base_URL</key>
-	<string>http://stage.api.itzlit.io/api/v1/</string>
+	<string>https://stage.api.hydrox.io/api/v1/</string>
 	<key>Branch_URI_Scheme</key>
-	<string>itzlitStaging</string>
+	<string>hydroxStaging</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ITZLIT-Stage</string>
+	<string>HydroX-Stage</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -29,7 +29,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>itzlitStaging</string>
+				<string>hydroxStaging</string>
 			</array>
 		</dict>
 		<dict>
@@ -55,24 +55,10 @@
 	<string>$(CONFIGURATION)</string>
 	<key>FB_URL_Scheme</key>
 	<string>fb1956063404632975</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>e1b97dd84f62904eaf7cda5204f67e9421443461</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-		</array>
-	</dict>
 	<key>FacebookAppID</key>
 	<string>1956063404632975</string>
 	<key>FacebookDisplayName</key>
-	<string>ITZLIT - Stage</string>
+	<string>HydroX - Stage</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
@@ -85,11 +71,6 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We want to use Camera for uploading Story / Live Streaming</string>
 	<key>NSContactsUsageDescription</key>
@@ -119,7 +100,7 @@
 	<string>StoryShare</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
-		<string>armv7</string>
+		<string>arm64</string>
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
@@ -149,7 +130,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>Verify_Link</key>
-	<string>https://itzlit-stage.app.link/verify</string>
+	<string>https://hydrox-stage.app.link/verify</string>
 	<key>WowzaKey</key>
 	<string>GOSK-1845-0103-F7C3-20E7-C43C</string>
 	<key>branch_key</key>
@@ -158,10 +139,29 @@
 		<string>key_live_hlqNvJDx77tVIGTY8Kg9gbfbCybwwrI0</string>
 	</dict>
 	<key>invitationLinkURL</key>
-	<string>https://itzlit-stage.app.link/invite</string>
+	<string>https://hydrox-stage.app.link/invite</string>
 	<key>socketURL</key>
-	<string>http://stage.api.itzlit.io</string>
+	<string>https://stage.api.hydrox.io</string>
 	<key>ytClientID</key>
 	<string>202860468598-87kbmv1k3aja4dnh405unkhdgo00d7gg.apps.googleusercontent.com</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>StoryShare</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 </dict>
 </plist>

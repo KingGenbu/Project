@@ -44,10 +44,6 @@ class LiveStreamingConfigurationVC: UIViewController {
     }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // Configure Google Sign-in.
     func configureGoogleSignIn() {
@@ -265,9 +261,9 @@ extension LiveStreamingConfigurationVC {
     /// Setup UI
     func configureUI() {
         self.title = ViewControllerTitle.liveStreaming.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
       
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -288,7 +284,7 @@ extension LiveStreamingConfigurationVC {
         statusBar.backgroundColor = .clear
         statusBar.tintColor = .white
         
-        self.txtTellAboutStory.attributedPlaceholder  = NSAttributedString(string: "What would you like to say?", attributes: [NSAttributedStringKey.font: UIFontConst.POPPINS_LIGHT!, NSAttributedStringKey.foregroundColor: UIColor.white])
+        self.txtTellAboutStory.attributedPlaceholder  = NSAttributedString(string: "What would you like to say?", attributes: [NSAttributedString.Key.font: UIFontConst.POPPINS_LIGHT!, NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     /// Left UIBarButton selector method

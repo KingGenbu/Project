@@ -22,10 +22,6 @@ class ForgetPasswordVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func btnForgetPasswordTapped(_ sender: UIButton?) {
         if self.isValid() {

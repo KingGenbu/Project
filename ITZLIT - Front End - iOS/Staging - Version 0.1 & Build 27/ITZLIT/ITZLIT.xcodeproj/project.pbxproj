@@ -474,6 +474,14 @@
 		A7EC6B0C1FE032BA001F2B43 /* FeedCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EC6B091FE032B9001F2B43 /* FeedCommentViewController.swift */; };
 		CE63464935335E32EC9EDD8F /* Pods_ITZLIT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064E10901FA1DF9400F01930 /* Pods_ITZLIT.framework */; };
 		D18531AA526BE55ADA6ACB77 /* Pods_ITZLIT_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220D36304F73D489844000BE /* Pods_ITZLIT_Dev.framework */; };
+		7587B12710894340971E757C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
+		2885F94DD58B48579A14932F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
+		2297A142D11C48A4880F029B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
+		A40167CF8EE94B40869A8B01 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */; };
+		A15A3BE3431A46998B4B7D01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */; };
+		DC708B5D8E3440B9B584013C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */; };
+		83942743EE634B469EAA07B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */; };
+		7A52E4E910AE408DA4E86D21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -679,6 +687,8 @@
 		A7DC3D631FD809EB00D195A7 /* RequestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListViewController.swift; sourceTree = "<group>"; };
 		A7DC3D671FD8309C00D195A7 /* RequesterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterList.swift; sourceTree = "<group>"; };
 		A7EC6B091FE032B9001F2B43 /* FeedCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCommentViewController.swift; sourceTree = "<group>"; };
+		194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = file.xcprivacy; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1095,6 +1105,8 @@
 		6D454DC81F9F487D00065056 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				194E296824734449BBD91930 /* PrivacyInfo.xcprivacy */,
+				1F3EA975421244229ADD4EF6 /* SceneDelegate.swift */,
 				6D454DB61F9F484300065056 /* AppDelegate.swift */,
 				6DB5A7BE1F9F53AF009EB057 /* Configuration.swift */,
 				6DB5A7C01F9F53D1009EB057 /* Environment.swift */,
@@ -1549,6 +1561,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7587B12710894340971E757C /* PrivacyInfo.xcprivacy in Resources */,
+
 				5D27C1392010B05900A3CCEF /* SettingFeed.storyboard in Resources */,
 				5D27C13A2010B05900A3CCEF /* Roboto-Light.ttf in Resources */,
 				5D27C13B2010B05900A3CCEF /* GoogleService-Info.plist in Resources */,
@@ -1579,6 +1593,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2885F94DD58B48579A14932F /* PrivacyInfo.xcprivacy in Resources */,
+
 				0654BC861FA9969C00A916A2 /* Roboto-Light.ttf in Resources */,
 				064E108A1FA1CC9F00F01930 /* Poppins-Bold.ttf in Resources */,
 				063A0D8B1FA3585000C00B90 /* BaseViewController.xib in Resources */,
@@ -1610,6 +1626,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2297A142D11C48A4880F029B /* PrivacyInfo.xcprivacy in Resources */,
+
 				06F2F68E1FCC24B2000158BD /* GoogleService-Info.plist in Resources */,
 				06ED701D1FC81F2D006C30BB /* SettingFeed.storyboard in Resources */,
 				A778B01C1FC6FF370068AD44 /* Roboto-Light.ttf in Resources */,
@@ -1640,6 +1658,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A40167CF8EE94B40869A8B01 /* PrivacyInfo.xcprivacy in Resources */,
+
 				5DFD2BA11FED6B88004FA29C /* SettingFeed.storyboard in Resources */,
 				A778B07B1FC7059E0068AD44 /* Roboto-Light.ttf in Resources */,
 				06F2F68F1FCC24B2000158BD /* GoogleService-Info.plist in Resources */,
@@ -2081,6 +2101,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15A3BE3431A46998B4B7D01 /* SceneDelegate.swift in Sources */,
+
 				5D27C0DD2010B05900A3CCEF /* SettingsViewController.swift in Sources */,
 				5D27C0DE2010B05900A3CCEF /* ApiManager.swift in Sources */,
 				5D27C0DF2010B05900A3CCEF /* ContactCell.swift in Sources */,
@@ -2165,6 +2187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC708B5D8E3440B9B584013C /* SceneDelegate.swift in Sources */,
+
 				06ED70211FC83731006C30BB /* LiveStreamingConfigurationVC.swift in Sources */,
 				06F66FCD1FCD3B4000387873 /* TermsAndPrivacyViewController.swift in Sources */,
 				06B180081FB1DE3F00F76C7A /* ApiManager.swift in Sources */,
@@ -2248,6 +2272,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83942743EE634B469EAA07B3 /* SceneDelegate.swift in Sources */,
+
 				06ED70221FC83731006C30BB /* LiveStreamingConfigurationVC.swift in Sources */,
 				06F66FCE1FCD3B4000387873 /* TermsAndPrivacyViewController.swift in Sources */,
 				06ED701B1FC81C7D006C30BB /* SettingsViewController.swift in Sources */,
@@ -2332,6 +2358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A52E4E910AE408DA4E86D21 /* SceneDelegate.swift in Sources */,
+
 				5DFD2BA21FED6C55004FA29C /* SettingsViewController.swift in Sources */,
 				A778B0361FC7059E0068AD44 /* ApiManager.swift in Sources */,
 				A778B0371FC7059E0068AD44 /* ContactCell.swift in Sources */,
@@ -2494,7 +2522,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = ITZLITTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2506,7 +2534,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ITZLIT.app/ITZLIT";
 			};
@@ -2558,7 +2586,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = ITZLITTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sa.ITZLITTests;
@@ -2568,7 +2596,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ITZLIT.app/ITZLIT";
 				VALIDATE_PRODUCT = YES;
@@ -2579,7 +2607,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D99E56FC9C407F3B3E4FB42 /* Pods-ITZLIT.development.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = ITZLIT;
+				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2593,16 +2621,16 @@
 					"$(PROJECT_DIR)/ITZLIT/Resources/Wowza-framework",
 				);
 				INFOPLIST_FILE = InfoProduction.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itzlit.itzlit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hydrox.hydrox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "859c5269-c038-4f39-923f-2746ecd33d4b";
-				PROVISIONING_PROFILE_SPECIFIER = "ITZLIT Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "HydroX Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Development;
@@ -2611,7 +2639,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49389FF685238CD31B009D75 /* Pods-ITZLIT.release.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = ITZLIT;
+				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2625,16 +2653,16 @@
 					"$(PROJECT_DIR)/ITZLIT/Resources/Wowza-framework",
 				);
 				INFOPLIST_FILE = InfoProduction.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itzlit.itzlit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hydrox.hydrox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c2ce53b8-4e65-4e47-9806-a569b535c369";
-				PROVISIONING_PROFILE_SPECIFIER = "ITZLIT Distribution Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "HydroX Distribution Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -2687,7 +2715,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
@@ -2700,7 +2728,7 @@
 		6D454DC61F9F484300065056 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APP_DISPLAY_NAME = ITZLIT;
+				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2714,16 +2742,16 @@
 					"$(PROJECT_DIR)/ITZLIT/Resources/Wowza-framework",
 				);
 				INFOPLIST_FILE = InfoProduction.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itzlit.itzlit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hydrox.hydrox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c2ce53b8-4e65-4e47-9806-a569b535c369";
-				PROVISIONING_PROFILE_SPECIFIER = "ITZLIT Distribution Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "HydroX Distribution Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Development;
@@ -2776,7 +2804,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
@@ -2789,7 +2817,7 @@
 		6DB5A7BD1F9F5271009EB057 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APP_DISPLAY_NAME = ITZLIT;
+				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITProduction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2803,16 +2831,16 @@
 					"$(PROJECT_DIR)/ITZLIT/Resources/Wowza-framework",
 				);
 				INFOPLIST_FILE = InfoProduction.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itzlit.itzlit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hydrox.hydrox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c2ce53b8-4e65-4e47-9806-a569b535c369";
-				PROVISIONING_PROFILE_SPECIFIER = "ITZLIT Distribution Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "HydroX Distribution Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -2821,7 +2849,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5AB6CB7FC33B3EBB503A57B7 /* Pods-ITZLIT Dev.development.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = ITZLIT;
+				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2834,16 +2862,16 @@
 					"$(PROJECT_DIR)/ITZLIT/Resources/Wowza-framework",
 				);
 				INFOPLIST_FILE = InfoDev.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itzlit.itzlit.development;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hydrox.hydrox.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "60df9326-a550-4555-933b-67e76bd50820";
-				PROVISIONING_PROFILE_SPECIFIER = "ITZLIT Development Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "HydroX Development Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Development;
@@ -2852,7 +2880,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05A69A712DDDBD556FFDE58C /* Pods-ITZLIT Dev.release.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = ITZLIT;
+				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2866,16 +2894,16 @@
 					"$(PROJECT_DIR)/ITZLIT/Resources/Wowza-framework",
 				);
 				INFOPLIST_FILE = InfoDev.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itzlit.itzlit.development;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hydrox.hydrox.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "60df9326-a550-4555-933b-67e76bd50820";
-				PROVISIONING_PROFILE_SPECIFIER = "ITZLIT Development Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "HydroX Development Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -2884,7 +2912,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 73A3961C097A43B51873ED0F /* Pods-ITZLIT Stage.development.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = ITZLIT;
+				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITStage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2898,16 +2926,16 @@
 					"$(PROJECT_DIR)/ITZLIT/Resources/Wowza-framework",
 				);
 				INFOPLIST_FILE = InfoStage.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itzlit.itzlit.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hydrox.hydrox.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "73d0a9b6-dd9e-49ec-be78-326b58b49f6d";
-				PROVISIONING_PROFILE_SPECIFIER = "ITZLIT Staging Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "HydroX Staging Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Development;
@@ -2916,7 +2944,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C29523D78BD12E306023D54 /* Pods-ITZLIT Stage.release.xcconfig */;
 			buildSettings = {
-				APP_DISPLAY_NAME = ITZLIT;
+				APP_DISPLAY_NAME = HydroX;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ITZLIT/ITZLITStage.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -2930,16 +2958,16 @@
 					"$(PROJECT_DIR)/ITZLIT/Resources/Wowza-framework",
 				);
 				INFOPLIST_FILE = InfoStage.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.itzlit.itzlit.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hydrox.hydrox.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5cec8a25-d12a-4032-b829-427ce36bbf97";
-				PROVISIONING_PROFILE_SPECIFIER = "ITZLIT Staging Distribution Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "HydroX Staging Distribution Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "ITZLIT/Resources/Wowza-framework/ITZLIT-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ITZLIT-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

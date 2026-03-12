@@ -8,28 +8,54 @@
 
 import XCTest
 
+/// Smoke-test suite. Each area gets its own dedicated test file; this file
+/// verifies that the test bundle itself boots correctly and provides a home
+/// for cross-cutting checks that don't belong to a single feature.
 class ITZLITTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    // MARK: - Bundle sanity
+
+    /// Ensures the test host application launched without crashing.
+    func testTestBundleLoads() {
+        XCTAssertNotNil(Bundle.main.bundleIdentifier,
+                        "Main bundle should have a bundle identifier")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+
+    // MARK: - Date / time utilities (used throughout the app)
+
+    func testDateComparisonFutureIsLater() {
+        let now = Date()
+        let future = Date(timeIntervalSinceNow: 3600)
+        XCTAssertTrue(future > now, "A date one hour from now should be later than now")
     }
-    
+
+    func testDateComparisonPastIsEarlier() {
+        let now = Date()
+        let past = Date(timeIntervalSinceNow: -3600)
+        XCTAssertTrue(past < now, "A date one hour ago should be earlier than now")
+    }
+
+    // MARK: - String utilities relied on by multiple view controllers
+
+    func testTrimmingWhitespaceProducesNonEmptyResult() {
+        let padded = "  hello world  "
+        XCTAssertEqual(padded.trimmingCharacters(in: .whitespaces), "hello world")
+    }
+
+    func testTrimmingWhitespaceOnlyStringProducesEmpty() {
+        let spaces = "   "
+        XCTAssertTrue(spaces.trimmingCharacters(in: .whitespaces).isEmpty)
+    }
+
+    func testStringIsEmptyAfterTrim() {
+        XCTAssertTrue("".trimmingCharacters(in: .whitespaces).isEmpty)
+    }
 }

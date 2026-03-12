@@ -237,9 +237,9 @@ class FeedViewController: UIViewController {
         statusBar.tintColor = .white
         
         self.title = ViewControllerTitle.feed.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
     }
     
@@ -759,18 +759,10 @@ class FeedViewController: UIViewController {
                         }else { // other live
                             if self.arrfeedList[masterIndex].liveFeeds.count == 0 && self.arrfeedList[masterIndex].followingsFeeds.count == 0 {
                                 
-                                if #available(iOS 11.0, *) {
-                                    self.tblFeed.performBatchUpdates({
-                                        self.arrfeedList.remove(at: masterIndex)
-                                        self.tblFeed.deleteRows(at: [IndexPath(row: masterIndex, section: 0)], with: .automatic)
-                                    }) { (ok) in
-                                        self.tblFeed.reloadData()
-                                    }
-                                } else {
-                                    self.tblFeed.beginUpdates()
+                                self.tblFeed.performBatchUpdates({
                                     self.arrfeedList.remove(at: masterIndex)
-                                    self.tblFeed.deleteRows(at: [IndexPath(item: masterIndex, section: 0)], with: .automatic)
-                                    self.tblFeed.endUpdates()
+                                    self.tblFeed.deleteRows(at: [IndexPath(row: masterIndex, section: 0)], with: .automatic)
+                                }) { _ in
                                     self.tblFeed.reloadData()
                                 }
                                 //

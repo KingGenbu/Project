@@ -221,7 +221,11 @@ open class SwiftyCamViewController: UIViewController {
 
 	/// Photo File Output variable
 
-	fileprivate var photoFileOutput              : AVCaptureStillImageOutput?
+	fileprivate var photoFileOutput              : AVCapturePhotoOutput?
+
+	/// Completion handler stored for the AVCapturePhotoCaptureDelegate callback
+
+	fileprivate var photoCaptureCompletionHandler: ((Bool) -> ())?
 
 	/// Video Device variable
 
@@ -740,10 +744,9 @@ open class SwiftyCamViewController: UIViewController {
 	/// Configure Photo Output
 
 	fileprivate func configurePhotoOutput() {
-		let photoFileOutput = AVCaptureStillImageOutput()
+		let photoFileOutput = AVCapturePhotoOutput()
 
 		if self.session.canAddOutput(photoFileOutput) {
-			photoFileOutput.outputSettings  = [AVVideoCodecKey: AVVideoCodecJPEG]
 			self.session.addOutput(photoFileOutput)
 			self.photoFileOutput = photoFileOutput
 		}
@@ -753,11 +756,11 @@ open class SwiftyCamViewController: UIViewController {
 
 	fileprivate func subscribeToDeviceOrientationChangeNotifications() {
 		self.deviceOrientation = UIDevice.current.orientation
-		NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(deviceDidRotate), name: UIDevice.orientationDidChangeNotification, object: nil)
 	}
 
 	fileprivate func unsubscribeFromDeviceOrientationChangeNotifications() {
-		NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+		NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
 		self.deviceOrientation = nil
 	}
 
@@ -769,15 +772,18 @@ open class SwiftyCamViewController: UIViewController {
     
     fileprivate func getPreviewLayerOrientation() -> AVCaptureVideoOrientation {
         // Depends on layout orientation, not device orientation
-        switch UIApplication.shared.statusBarOrientation {
-        case .portrait, .unknown:
-            return AVCaptureVideoOrientation.portrait
+        let orientation = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .first?.interfaceOrientation ?? .portrait
+        switch orientation {
         case .landscapeLeft:
             return AVCaptureVideoOrientation.landscapeLeft
         case .landscapeRight:
             return AVCaptureVideoOrientation.landscapeRight
         case .portraitUpsideDown:
             return AVCaptureVideoOrientation.portraitUpsideDown
+        default:
+            return AVCaptureVideoOrientation.portrait
         }
     }
 
@@ -832,25 +838,16 @@ open class SwiftyCamViewController: UIViewController {
 	}
 
 	fileprivate func capturePhotoAsyncronously(completionHandler: @escaping(Bool) -> ()) {
-        if let videoConnection = photoFileOutput?.connection(with: AVMediaType.video) {
-
-			photoFileOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: {(sampleBuffer, error) in
-				if (sampleBuffer != nil) {
-                    let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer!)
-					let image = self.processPhoto(imageData!)
-
-					// Call delegate and return new image
-					DispatchQueue.main.async {
-						self.cameraDelegate?.swiftyCam(self, didTake: image)
-					}
-					completionHandler(true)
-				} else {
-					completionHandler(false)
-				}
-			})
-		} else {
+		guard let photoFileOutput = photoFileOutput else {
 			completionHandler(false)
+			return
 		}
+		self.photoCaptureCompletionHandler = completionHandler
+		let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+		if let connection = photoFileOutput.connection(with: .video) {
+			connection.videoOrientation = getPreviewLayerOrientation()
+		}
+		photoFileOutput.capturePhoto(with: settings, delegate: self)
 	}
 
 	/// Handle Denied App Privacy Settings
@@ -863,12 +860,8 @@ open class SwiftyCamViewController: UIViewController {
 			let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
 			alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
 			alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"), style: .default, handler: { action in
-				if #available(iOS 10.0, *) {
-					UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
-				} else {
-					if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
-						UIApplication.shared.openURL(appSettings)
-					}
+				if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+					UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
 				}
 			}))
 			self.present(alertController, animated: true, completion: nil)
@@ -895,13 +888,7 @@ open class SwiftyCamViewController: UIViewController {
         case .iframe960x540: return AVCaptureSession.Preset.iFrame960x540.rawValue
         case .iframe1280x720: return AVCaptureSession.Preset.iFrame1280x720.rawValue
 		case .resolution3840x2160:
-			if #available(iOS 9.0, *) {
-                return AVCaptureSession.Preset.hd4K3840x2160.rawValue
-			}
-			else {
-				print("[SwiftyCam]: Resolution 3840x2160 not supported")
-                return AVCaptureSession.Preset.high.rawValue
-			}
+			return AVCaptureSession.Preset.hd4K3840x2160.rawValue
 		}
 	}
 
@@ -985,8 +972,8 @@ open class SwiftyCamViewController: UIViewController {
         }
 
 		do{
-			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord,
-			                                                with: [.duckOthers, .defaultToSpeaker])
+			try AVAudioSession.sharedInstance().setCategory(.playAndRecord,
+			                                                options: [.duckOthers, .defaultToSpeaker])
 
 			session.automaticallyConfiguresApplicationAudioSession = false
 		}
@@ -1028,6 +1015,24 @@ extension SwiftyCamViewController : SwiftyCamButtonDelegate {
 
 	public func longPressDidReachMaximumDuration() {
 		stopVideoRecording()
+	}
+}
+
+// MARK: AVCapturePhotoCaptureDelegate
+
+extension SwiftyCamViewController: AVCapturePhotoCaptureDelegate {
+	public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+		guard error == nil, let imageData = photo.fileDataRepresentation() else {
+			photoCaptureCompletionHandler?(false)
+			photoCaptureCompletionHandler = nil
+			return
+		}
+		let image = processPhoto(imageData)
+		DispatchQueue.main.async {
+			self.cameraDelegate?.swiftyCam(self, didTake: image)
+		}
+		photoCaptureCompletionHandler?(true)
+		photoCaptureCompletionHandler = nil
 	}
 }
 

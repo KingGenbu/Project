@@ -31,14 +31,10 @@ class LoginTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        if #available(iOS 11.0, *) {
-             self.tableView.contentInsetAdjustmentBehavior = .never
-        } else {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
+        self.tableView.contentInsetAdjustmentBehavior = .never
         btnFBLogin.readPermissions = ["public_profile", "email"]
         btnFBLogin.delegate = self
-        btnFBLogin.setAttributedTitle(NSAttributedString(string: App.fbButtonTitle.rawValue, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 18)]), for: .normal)
+        btnFBLogin.setAttributedTitle(NSAttributedString(string: App.fbButtonTitle.rawValue, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]), for: .normal)
      }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,10 +42,6 @@ class LoginTableViewController: UITableViewController {
         self.configureUI()
      }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     /// Action method for sign in button
     @IBAction func btnSignInTapped(_ sender: UIButton?) {
@@ -168,7 +160,7 @@ class LoginTableViewController: UITableViewController {
                             }
                             self.syncContact()
                         } else {
-                            Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: AppMessage.verifyMessage.rawValue, button1Title: "OK", button1ActionStyle: UIAlertActionStyle.default, button2Title: "Resend OTP", onButton1Click: {
+                            Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: AppMessage.verifyMessage.rawValue, button1Title: "OK", button1ActionStyle: UIAlertAction.Style.default, button2Title: "Resend OTP", onButton1Click: {
                                 
                             }, onButton2Click: {
                                 let resendOTPVC = self.storyboard?.instantiateViewController(withIdentifier: StoryboardIdentefier.resendOTP.rawValue) as! ResendOTPVC
@@ -225,14 +217,14 @@ class LoginTableViewController: UITableViewController {
         navigationController?.view.backgroundColor = .clear
         self.title =  ViewControllerTitle.signIn.rawValue
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Poppins-Medium", size: 18.0) ?? UIFont.boldSystemFont(ofSize: 18.0), NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 18.0) ?? UIFont.boldSystemFont(ofSize: 18.0), NSAttributedString.Key.foregroundColor: UIColor.white]
         
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
         
         statusBar.backgroundColor = .clear
         statusBar.tintColor = .white
        
-        let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(btnBackTapped(_:)))
+        let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBackTapped(_:)))
         self.navigationItem.leftBarButtonItem = btnBackBarButton
         
         DispatchQueue.main.async {
@@ -402,7 +394,7 @@ extension LoginTableViewController: FBSDKLoginButtonDelegate {
                         self.syncContact()
                         
                     } else {
-                         Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: AppMessage.verifyMessage.rawValue, button1Title: "OK", button1ActionStyle: UIAlertActionStyle.default, button2Title: "Resend OTP", onButton1Click: {
+                         Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: AppMessage.verifyMessage.rawValue, button1Title: "OK", button1ActionStyle: UIAlertAction.Style.default, button2Title: "Resend OTP", onButton1Click: {
                          }, onButton2Click: {
                             let resendOTPVC = self.storyboard?.instantiateViewController(withIdentifier: StoryboardIdentefier.resendOTP.rawValue) as! ResendOTPVC
                             Helper.Push_Pop_to_ViewController(destinationVC: resendOTPVC, isAnimated: true, navigationController: self.navigationController!)

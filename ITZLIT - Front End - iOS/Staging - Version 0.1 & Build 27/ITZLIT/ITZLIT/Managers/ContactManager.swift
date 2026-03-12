@@ -5,7 +5,6 @@
 //  Created by Dhaval Soni on 15/11/17.
 //  Copyright © 2017 Solution Analysts Pvt. Ltd. All rights reserved.
 import UIKit
-import AddressBook
 import Contacts
 
 
@@ -132,7 +131,10 @@ class ContactManager: NSObject {
     @objc func storeDidChange(_ notification: Notification) {
         if dbUpadting == nil {
             dbUpadting = true
-            let NavVccVar = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
+            guard let NavVccVar = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .flatMap({ $0.windows })
+                .first(where: { $0.isKeyWindow })?.rootViewController as? UINavigationController else { return }
             let ShnSrnVar = NavVccVar.visibleViewController
             if (ShnSrnVar?.isKind(of: ContactViewController.self))!{
                 

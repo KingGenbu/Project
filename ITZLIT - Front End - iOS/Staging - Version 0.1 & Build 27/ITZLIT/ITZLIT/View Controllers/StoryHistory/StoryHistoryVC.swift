@@ -38,7 +38,7 @@ class StoryHistoryVC: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.view.backgroundColor = .clear
-        let rightBarBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "img_close"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonAction))
+        let rightBarBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "img_close"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.rightBarButtonAction))
         self.navigationItem.rightBarButtonItem = rightBarBackButton
     }
     

@@ -80,10 +80,6 @@ class GoLiveVC: UIViewController, WZStatusCallback, WZVideoSink, WZAudioSink {
         goCoder?.cameraPreview?.previewLayer?.frame = view.bounds
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func videoFrameWasCaptured(_ imageBuffer: CVImageBuffer, framePresentationTime: CMTime, frameDuration: CMTime) {
         
@@ -460,14 +456,14 @@ extension GoLiveVC {
     func configureUI() {
         UIApplication.shared.isIdleTimerDisabled = true
         self.title = ViewControllerTitle.live.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
         
-        //        rightBarMicButton = UIBarButtonItem(image: UIImage(named: "mic_on_button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarMicButton(_:)))
+        //        rightBarMicButton = UIBarButtonItem(image: UIImage(named: "mic_on_button"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarMicButton(_:)))
         
-        rightBarCameraButton = UIBarButtonItem(image: UIImage(named: "img_camera-flip"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarCameraButton(_:)))
+        rightBarCameraButton = UIBarButtonItem(image: UIImage(named: "img_camera-flip"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarCameraButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarCameraButton
         
         navigationController?.navigationBar.isHidden = false
@@ -765,7 +761,7 @@ extension GoLiveVC {
          Parameter Format:
          '{"cdn":{"format":"1080p","ingestionType":"dash"},"snippet":{"title":"demo"}
          */
-        let params:[String:Any] = ["snippet":["title": self.strCaption == "" ? "Live via ITZLIT" : self.strCaption], "cdn":["format":"1080p", "ingestionType":"rtmp"]]
+        let params:[String:Any] = ["snippet":["title": self.strCaption == "" ? "Live via HydroX" : self.strCaption], "cdn":["format":"1080p", "ingestionType":"rtmp"]]
         var originalURL = "https://www.googleapis.com/youtube/v3/liveStreams?part=id, snippet, cdn, contentDetails, status"
         
         if let encodedURL = originalURL.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
@@ -813,7 +809,7 @@ extension GoLiveVC {
         print("Broadcast date -->>",strBroadcastDate)
         let headers = ["Authorization": "Bearer \(token)", "Accept": "application/json", "Content-Type":"application/json"]
         
-        let params:[String:Any] = ["snippet":["scheduledStartTime":strBroadcastDate,"title":self.strCaption == "" ? "Live via ITZLIT" : self.strCaption ], "status":["privacyStatus": "public"]]
+        let params:[String:Any] = ["snippet":["scheduledStartTime":strBroadcastDate,"title":self.strCaption == "" ? "Live via HydroX" : self.strCaption ], "status":["privacyStatus": "public"]]
         var originalURL = "https://www.googleapis.com/youtube/v3/liveBroadcasts?part=id, snippet, contentDetails, status"
         
         if let encodedURL = originalURL.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
