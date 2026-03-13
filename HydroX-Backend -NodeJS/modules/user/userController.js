@@ -4,7 +4,8 @@ const Device = require('../device/deviceModel.js');
 const Connection = require('../connection/connectionModel');
 const logger = require('../../helper/logger');
 const awsUtils = require('../../helper/aws');
-const md5 = require('md5');
+const bcrypt = require('bcrypt');
+const BCRYPT_ROUNDS = 12;
 const Q = require('q');
 const auth = require('../../helper/auth');
 const jwt = require('../../helper/jwt');
@@ -116,7 +117,7 @@ userCtr.create = (req, res) => {
         // Test FB details are valid
         fbPromise = auth.fbCheck(fbProvider);
       } else {
-        _user.password = md5(password);
+        _user.password = bcrypt.hashSync(password, BCRYPT_ROUNDS);
         const deferred = Q.defer();
         setTimeout(() => {
           deferred.resolve();
@@ -180,9 +181,9 @@ userCtr.login = (req, res) => {
     email, password, deviceId,
   } = req.body;
 
-  User.findOne({ email, password: md5(password) })
+  User.findOne({ email })
     .then((user) => {
-      if (user) {
+      if (user && bcrypt.compareSync(password, user.password)) {
         // Update Device Document with `user` field
         Device.update({ _id: deviceId }, { user: user })
           .then((done) => { logger.info(done); })
@@ -243,7 +244,7 @@ userCtr.forgetPassword = (req, res) => {
         const date = new Date();
         const expires = new Date(date.setTime(date.getTime() + (1 * 3600 * 1000)));
         user.resetPassword = {
-          newPassword: md5(randomPassword),
+          newPassword: bcrypt.hashSync(randomPassword, BCRYPT_ROUNDS),
           confirmationToken: uuid.v1(),
           expires,
         };
@@ -354,11 +355,11 @@ userCtr.resendOtp = (req, res) => {
 userCtr.changePassword = (req, res) => {
   const { password, newPassword } = req.body;
 
-  User.findOne({ _id: req.user._id, password: md5(password) })
+  User.findOne({ _id: req.user._id })
     .then((doc) => {
       const user = doc;
-      if (user) {
-        user.password = md5(newPassword);
+      if (user && bcrypt.compareSync(password, user.password)) {
+        user.password = bcrypt.hashSync(newPassword, BCRYPT_ROUNDS);
         user.save();
         res.status(200).json({ msg: req.t('MSG_PASSWORD_CHANGED') });
       } else {

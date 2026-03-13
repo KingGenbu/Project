@@ -5,7 +5,7 @@
 	<!-- ── Tracking ──────────────────────────────────────────────────────── -->
 	<!--
 		Set to true only if the app uses data for cross-app tracking as defined
-		by Apple's App Tracking Transparency framework. ITZLIT uses analytics
+		by Apple's App Tracking Transparency framework. HydroX uses analytics
 		(Firebase) but does not track users across third-party apps/websites,
 		so this is false.
 	-->

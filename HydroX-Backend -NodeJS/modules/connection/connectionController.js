@@ -140,7 +140,8 @@ const getFollowersFollowings = (userId, type, page, q) => {
     if (!_.isEmpty(q)) {
       const matchRulesForSearch = {};
       const searchTrem = type === 'followee' ? 'follower' : 'followee';
-      matchRulesForSearch[`${searchTrem}.fullName`] = { $regex: `^${q}`, $options: 'i' };
+      const sanitizedQ = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      matchRulesForSearch[`${searchTrem}.fullName`] = { $regex: `^${sanitizedQ}`, $options: 'i' };
 
       const query = {
         $match: matchRulesForSearch,
@@ -312,7 +313,7 @@ connectionCtr.search = (req, res) => {
 
   const aggregateRules = User.aggregate([
     // Find all `Users` with matchin name
-    { $match: { fullName: { $regex: `^${q}`, $options: 'i' } } },
+    { $match: { fullName: { $regex: `^${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, $options: 'i' } } },
     // Join with `connection` collection, to get to know who all are in connection with someone
     {
       $lookup: {

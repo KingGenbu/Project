@@ -3,12 +3,16 @@ require('dotenv').config();
 
 const http = require('http');
 const cors = require('cors');
+const helmet = require('helmet');
 const l10n = require('jm-ez-l10n');
 const express = require('express');
 const app = express();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const snsSubscriptionConfirmation = require('aws-sns-subscription-confirmation');
+
+// Security headers
+app.use(helmet());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
@@ -22,8 +26,9 @@ l10n.setTranslationsFile('en', './language/translation.en.json');
 app.use(l10n.enableL10NExpress);
 
 // CORS
+const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS || '').split(',').filter(Boolean);
 app.use(cors({
-  origin: '*',
+  origin: allowedOrigins.length > 0 ? allowedOrigins : false,
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Access-Control-Allow-Headers', 'x-auth-token'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
@@ -50,7 +55,7 @@ const server = http.createServer(app);
 // Socket.IO v4: pass cors config directly to the constructor
 const io = require('socket.io')(server, {
   cors: {
-    origin: '*',
+    origin: allowedOrigins.length > 0 ? allowedOrigins : false,
     methods: ['GET', 'POST'],
   },
 });

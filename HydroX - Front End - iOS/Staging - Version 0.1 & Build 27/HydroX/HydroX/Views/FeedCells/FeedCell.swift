@@ -238,7 +238,7 @@ extension FeedCell:UICollectionViewDataSource,UICollectionViewDelegate, UICollec
             feedCell.btnShare.isHidden = false
             feedCell.lblStatus.text = " Was Live! "
         } else {
-            feedCell.imgFeed.sd_setImage(with: URL(string: "http://18.220.124.147:8086/thumbnail?application=live&streamname=\(self.feedForDisplay.liveFeeds[indexPath.item].streamId)&size=300x300&fitmode=crop"), completed: nil)
+            feedCell.imgFeed.sd_setImage(with: URL(string: "\(ApiManager.thumbnailBaseUrl)?application=live&streamname=\(self.feedForDisplay.liveFeeds[indexPath.item].streamId)&size=300x300&fitmode=crop"), completed: nil)
             feedCell.btnShare.isHidden = true
             feedCell.lblStatus.text = " Live Now! "
         }

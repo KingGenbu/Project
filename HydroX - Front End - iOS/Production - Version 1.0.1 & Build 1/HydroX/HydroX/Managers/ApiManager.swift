@@ -29,13 +29,18 @@ class ApiManager: NSObject {
         return value
     }
 
-    class var invitationLinkURL: String { plistValue(for: "invitationLinkURL") }
-    class var socketURL: String         { plistValue(for: "socketURL") }
-    class var ytClientID: String        { plistValue(for: "ytClientID") }
-    class var fbUrlScheme: String       { plistValue(for: "FB_URL_Scheme") }
-    class var wowzaKey: String          { plistValue(for: "WowzaKey") }
-    class var baseUrl: String           { plistValue(for: "Base_URL") }
-    class var branchScheme: String      { plistValue(for: "Branch_URI_Scheme") }
+    class var invitationLinkURL: String  { plistValue(for: "invitationLinkURL") }
+    class var socketURL: String          { plistValue(for: "socketURL") }
+    class var ytClientID: String         { plistValue(for: "ytClientID") }
+    class var fbUrlScheme: String        { plistValue(for: "FB_URL_Scheme") }
+    class var wowzaKey: String           { plistValue(for: "WowzaKey") }
+    class var baseUrl: String            { plistValue(for: "Base_URL") }
+    class var branchScheme: String       { plistValue(for: "Branch_URI_Scheme") }
+    class var thumbnailBaseUrl: String   { plistValue(for: "ThumbnailBaseURL") }
+    class var streamingHost: String      { plistValue(for: "StreamingHost") }
+    class var streamingAppName: String   { plistValue(for: "StreamingAppName") }
+    class var streamingUsername: String   { plistValue(for: "StreamingUsername") }
+    class var streamingPassword: String   { plistValue(for: "StreamingPassword") }
 
     override init() {
         if let saved = UserDefaultHelper.getPREF(AppUserDefaults.pref_user_registered_token) {

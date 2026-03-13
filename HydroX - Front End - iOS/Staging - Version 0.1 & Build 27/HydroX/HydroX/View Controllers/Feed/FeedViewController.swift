@@ -168,7 +168,7 @@ class FeedViewController: UIViewController {
                         }
                     }
                 } else {
-                    imgThumb300ForLiveStream = "http://18.220.124.147:8086/thumbnail?application=live&streamname=\(feed.liveFeeds[0].streamId)&size=300x300&fitmode=crop"
+                    imgThumb300ForLiveStream = "\(ApiManager.thumbnailBaseUrl)?application=live&streamname=\(feed.liveFeeds[0].streamId)&size=300x300&fitmode=crop"
                 }
             } else {
                 imgThumb300ForLiveStream = profileImage
@@ -275,7 +275,7 @@ class FeedViewController: UIViewController {
                         }
                     }
                 } else {
-                    imgThumb300ForLiveStream = "http://18.220.124.147:8086/thumbnail?application=live&streamname=\(feed.liveFeeds[0].streamId)&size=300x300&fitmode=crop"
+                    imgThumb300ForLiveStream = "\(ApiManager.thumbnailBaseUrl)?application=live&streamname=\(feed.liveFeeds[0].streamId)&size=300x300&fitmode=crop"
                 }
                 
             } else {

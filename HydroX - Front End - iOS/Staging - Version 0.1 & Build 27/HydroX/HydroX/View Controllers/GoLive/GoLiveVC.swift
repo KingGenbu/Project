@@ -409,14 +409,14 @@ extension GoLiveVC {
     
     /// Start Live Streaming
     func startLiveStreamingSettings()  {
-        goCoder?.config.hostAddress = "18.220.124.147"//"52.37.2.203"
+        goCoder?.config.hostAddress = ApiManager.streamingHost
         goCoder?.config.portNumber = 1935
-        goCoder?.config.applicationName = "live"//"hydrox-test"
+        goCoder?.config.applicationName = ApiManager.streamingAppName
         if let streamID = UserDefaultHelper.getPREF(AppUserDefaults.pref_liveStreaming_streamId) {
             goCoder?.config.streamName = streamID
         }
-        goCoder?.config.username = "hydrox"//"hydrox-test"
-        goCoder?.config.password = "aNs-EDp-bEN-2wA"//"hydrox"
+        goCoder?.config.username = ApiManager.streamingUsername
+        goCoder?.config.password = ApiManager.streamingPassword
         
         if let configError = goCoder?.config.validateForBroadcast() {
             Helper.showAlertDialog(APP_NAME + "\n Incomplete Streaming Settings", message: configError.localizedDescription, clickAction: {})

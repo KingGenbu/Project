@@ -7,50 +7,66 @@
 //
 
 import UIKit
+import WebKit
 
 class TermsAndPrivacyViewController: UIViewController {
 
-    @IBOutlet var webView: UIWebView!
-        
+    var webView: WKWebView!
+
     var isFromPrivacyPolicy: Bool = false
- 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        webView = WKWebView(frame: .zero)
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(webView)
+        NSLayoutConstraint.activate([
+            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+
         self.configureUI()
-        
-        isFromPrivacyPolicy == true ? self.webView.loadRequest(URLRequest(url: URL(string: ApiManager.baseUrl + WebserverPath.privacyPolicy)!)) : self.webView.loadRequest(URLRequest(url: URL(string: ApiManager.baseUrl + WebserverPath.termsOfUse)!))
+
+        let urlPath = isFromPrivacyPolicy
+            ? ApiManager.baseUrl + WebserverPath.privacyPolicy
+            : ApiManager.baseUrl + WebserverPath.termsOfUse
+        if let url = URL(string: urlPath) {
+            webView.load(URLRequest(url: url))
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func configureUI() {
-        self.title = isFromPrivacyPolicy == true ? ViewControllerTitle.privacyPolicy.rawValue : ViewControllerTitle.termOfUse.rawValue
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
-        
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        self.title = isFromPrivacyPolicy
+            ? ViewControllerTitle.privacyPolicy.rawValue
+            : ViewControllerTitle.termOfUse.rawValue
+
+        navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFontConst.POPPINS_MEDIUM ?? UIFont.systemFont(ofSize: 17, weight: .medium),
+            .foregroundColor: UIColor.white
+        ]
+
+        let leftBarSearchButton = UIBarButtonItem(
+            image: UIImage(named: "img_back"),
+            style: .plain,
+            target: self,
+            action: #selector(leftBarBackButton(_:))
+        )
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
-        
+
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.view.backgroundColor = .clear
-        navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
-        
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
-        statusBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
-        statusBar.tintColor = .white
-        
-    //    self.webView.dropShadow(scale: true)
+        navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain") ?? UIImage())
+
         self.webView.layer.borderWidth = 1.0
         self.webView.layer.borderColor = UIColor.lightGray.cgColor
     }
-    
-    @objc func leftBarBackButton(_ sender:UIBarButtonItem)  {
+
+    @objc func leftBarBackButton(_ sender: UIBarButtonItem) {
         _ = self.navigationController?.popViewController(animated: true)
     }
 }

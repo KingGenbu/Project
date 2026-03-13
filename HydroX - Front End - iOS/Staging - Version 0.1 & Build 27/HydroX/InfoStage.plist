@@ -144,6 +144,16 @@
 	<string>https://stage.api.hydrox.io</string>
 	<key>ytClientID</key>
 	<string>202860468598-87kbmv1k3aja4dnh405unkhdgo00d7gg.apps.googleusercontent.com</string>
+	<key>ThumbnailBaseURL</key>
+	<string>https://stage.api.hydrox.io/thumbnail</string>
+	<key>StreamingHost</key>
+	<string>18.220.124.147</string>
+	<key>StreamingAppName</key>
+	<string>live</string>
+	<key>StreamingUsername</key>
+	<string>hydrox</string>
+	<key>StreamingPassword</key>
+	<string>REPLACE_WITH_SECURE_CREDENTIAL</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

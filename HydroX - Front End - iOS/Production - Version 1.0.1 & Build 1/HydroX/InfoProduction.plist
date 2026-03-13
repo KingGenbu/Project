@@ -77,10 +77,10 @@
 		<dict>
 			<key>hydrox.io</key>
 			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
 			</dict>
 		</dict>
 	</dict>
@@ -155,6 +155,16 @@
 	<string>https://hydrox.app.link/invite</string>
 	<key>socketURL</key>
 	<string>https://stage.api.hydrox.io</string>
+	<key>ThumbnailBaseURL</key>
+	<string>https://stream.hydrox.io/thumbnail</string>
+	<key>StreamingHost</key>
+	<string>stream.hydrox.io</string>
+	<key>StreamingAppName</key>
+	<string>live</string>
+	<key>StreamingUsername</key>
+	<string>hydrox</string>
+	<key>StreamingPassword</key>
+	<string>REPLACE_WITH_SECURE_CREDENTIAL</string>
 	<key>ytClientID</key>
 	<string>902286470394-8offg615qttfom534ng36jgmosn04fdo.apps.googleusercontent.com</string>
 	<key>UIApplicationSceneManifest</key>

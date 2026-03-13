@@ -11,15 +11,15 @@ import Contacts
 import SQLite
 
 open class Manager: NSObject {
-    
+
 }
 class DBManager: NSObject {
-   
+
     static let shared = DBManager()
     private var db: Connection?
     let DBName = "ContactList.rdb"
     let DBStories = "Stories.rdb"
-    
+
     let profilePic = Expression<String>("profilePic")
     let png = Expression<String>("png")
     let id = Expression<Int64>("id")
@@ -30,52 +30,49 @@ class DBManager: NSObject {
     let connection_id = Expression<String>("connection_id")
     let user_id = Expression<String>("user_id")
     let app_user = Expression<Bool>("app_user")
-    
+
     let storyId = Expression<String>("storyId")
-    
+    let userId = Expression<String>("userId")
+
     func openDatabase() {
-        let path = NSSearchPathForDirectoriesInDomains(
+        guard let path = NSSearchPathForDirectoriesInDomains(
             .documentDirectory, .userDomainMask, true
-            ).first!
-        
+            ).first else { return }
+
         do {
             db = try Connection("\(path)/\(DBName)")
         } catch {
             db = nil
             print ("Unable to open database")
         }
-        
+
     }
-   
+
     func copyDatabaseIfNeeded() {
-        // Move database file from bundle to documents folder
-        
         let fileManager = FileManager.default
-        
+
         let documentsUrl = fileManager.urls(for: .documentDirectory,
                                             in: .userDomainMask)
-        
-        guard documentsUrl.count != 0 else {
-            return // Could not find documents URL
+
+        guard let firstUrl = documentsUrl.first else {
+            return
         }
-        
-        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("\(DBName)")
-        
+
+        let finalDatabaseURL = firstUrl.appendingPathComponent("\(DBName)")
+
         if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
-            
-            let documentsURL = Bundle.main.resourceURL?.appendingPathComponent("\(DBName)")
-            
+
+            guard let documentsURL = Bundle.main.resourceURL?.appendingPathComponent("\(DBName)") else { return }
+
             do {
-                try fileManager.copyItem(atPath: (documentsURL?.path)!, toPath: finalDatabaseURL.path)
-            } catch /*let error*/_ as NSError {
-               // print("Couldn't copy file to final location! Error:\(error.description)")
+                try fileManager.copyItem(atPath: documentsURL.path, toPath: finalDatabaseURL.path)
+            } catch {
+                // Could not copy database
             }
-            
-        } else {
-            //print("Database file found at path: \(finalDatabaseURL.path)")
+
         }
     }
-    
+
     func clearDb()  {
         openDatabase()
         do{
@@ -88,13 +85,15 @@ class DBManager: NSObject {
     func getAllContacts() -> [DBContactLIst]
     {
         openDatabase()
-        
+
         var arrlist = [DBContactLIst]()
-        
+
+        guard let db = db else { return arrlist }
+
         do {
             let tableContacts = Table("Contacts")
 
-            for fetchedcontact in try db!.prepare(tableContacts)  {
+            for fetchedcontact in try db.prepare(tableContacts)  {
 
                 var contactToInsert = [String:Any]()
                 contactToInsert["id"] = fetchedcontact[id]
@@ -114,119 +113,112 @@ class DBManager: NSObject {
         }
         return arrlist
     }
-    
+
     func insertContactTODb(contacts: [CNContact],onCompletion: @escaping ContactHandler)  {
         openDatabase()
-        
-        var arrStr:[String] = []
-        let rowStr = "insert into Contacts (name,number,identifier,following,connection_id,user_id,app_user,profilePic) values"
-        
-        for contact in contacts {
-            var contactname = ""
-            var finalName = ""
-            if let givenName = contact.givenName as String? {
-                finalName = givenName
-            }
-            if let familyName = contact.familyName as String? {
-                finalName += " " + familyName
-            }
-            if contact.givenName == "" && contact.familyName == "" {
-                if let organizationName = contact.organizationName as String? {
-                    finalName = " " + organizationName
-                }
-            }
-
-            if let givenName = finalName as String? {
-                contactname = givenName
-                if contactname.contains("'"){
-                    contactname = contactname.replacingOccurrences(of: "'", with: "''")
-                }
-                if contactname.contains("\""){
-                    contactname = contactname.replacingOccurrences(of: "\"", with: "")
-                }
-            }
-            for phoneNumber in contact.phoneNumbers {
-                let values = "( \"\(contactname)\", \"\(phoneNumber.value.stringValue)\", \"\(contact.identifier)\", \"\("0")\", \"\("")\", \"\("")\", \"\("0")\", \"\("")\" )"
-                arrStr.append(values)
-            }
+        guard let db = db else {
+            onCompletion(false)
+            return
         }
+
+        let tableContacts = Table("Contacts")
+
         do {
-            try db?.run("\(rowStr) \(arrStr.joined(separator: ","))")
+            try db.transaction {
+                for contact in contacts {
+                    var finalName = ""
+                    if let givenName = contact.givenName as String? {
+                        finalName = givenName
+                    }
+                    if let familyName = contact.familyName as String? {
+                        finalName += " " + familyName
+                    }
+                    if contact.givenName == "" && contact.familyName == "" {
+                        if let organizationName = contact.organizationName as String? {
+                            finalName = " " + organizationName
+                        }
+                    }
+
+                    for phoneNumber in contact.phoneNumbers {
+                        try db.run(tableContacts.insert(
+                            self.name <- finalName,
+                            self.number <- phoneNumber.value.stringValue,
+                            self.identifier <- contact.identifier,
+                            self.following <- false,
+                            self.connection_id <- "",
+                            self.user_id <- "",
+                            self.app_user <- false,
+                            self.profilePic <- ""
+                        ))
+                    }
+                }
+            }
             onCompletion(true)
         } catch {
             onCompletion(false)
             print(error)
         }
     }
-    
+
     /// Insert Data in Story Detail Table
-    func insertStoryDetailToDB(userId:String, storyId:String,onCompletion: @escaping ContactHandler)  {
+    func insertStoryDetailToDB(userId: String, storyId: String, onCompletion: @escaping ContactHandler)  {
         openDatabase()
-        var arrStr:[String] = []
-        let rowStr =  "insert into StoryDetail (userId,storyId) values"
+        guard let db = db else {
+            onCompletion(false)
+            return
+        }
 
-        let values = "(\"\(userId)\", \"\(storyId)\")"
-        arrStr.append(values)
+        let tableStoryDetail = Table("StoryDetail")
         do {
-            try db?.run("\(rowStr) \(arrStr.joined(separator: ","))")
+            try db.run(tableStoryDetail.insert(
+                self.userId <- userId,
+                self.storyId <- storyId
+            ))
             onCompletion(true)
         } catch {
             onCompletion(false)
             print(error)
         }
-        
-//        var storyid = storyId
-//        do {
-//            let tableContacts = Table("StoryDetail")
-//
-//            let table = tableContacts.filter(self.storyId == storyid)
-//            let row = try db!.pluck(table)
-//
-//            if let id = try row?.get(self.storyId) {
-//                storyid = id
-//            } else{
-//                storyid = ""
-//            }
-//            onCompletion(true)
-//        }
-//        catch{
-//            print("select failed ", error)
-//            onCompletion(false)
-//        }
-        
     }
-    
-    /// Insert Data in Stroy Seen Table
-    func insertStorySeenDataToDB(storyId:String,onCompletion: @escaping ContactHandler)  {
+
+    /// Insert Data in Story Seen Table
+    func insertStorySeenDataToDB(storyId: String, onCompletion: @escaping ContactHandler)  {
         openDatabase()
-        
-        var arrStr:[String] = []
-        let rowStr = "insert into StroySeen (storyId) values"
-        let values = "(\"\(storyId)\")"
-        arrStr.append(values)
+        guard let db = db else {
+            onCompletion(false)
+            return
+        }
+
+        let tableStorySeen = Table("StroySeen")
         do {
-            try db?.run("\(rowStr) \(arrStr.joined(separator: ","))")
+            try db.run(tableStorySeen.insert(
+                self.storyId <- storyId
+            ))
             onCompletion(true)
         } catch {
             onCompletion(false)
             print(error)
         }
     }
-    
+
     /// Fetch story id from story detail table
-    func fetchStoryDetailData(storyid:String, onCompletion: @escaping ContactHandler) -> String  {
+    func fetchStoryDetailData(storyid: String, onCompletion: @escaping ContactHandler) -> String  {
         openDatabase()
-        var storyid = storyid
+        var resultId = storyid
+        guard let db = db else {
+            onCompletion(false)
+            return resultId
+        }
         do {
-            let tableContacts = Table("StoryDetail")
-            
-            let table = tableContacts.filter(self.storyId == storyid)
-            let row = try db!.pluck(table)
-            
+            let tableStoryDetail = Table("StoryDetail")
+
+            let table = tableStoryDetail.filter(self.storyId == storyid)
+            let row = try db.pluck(table)
+
             if let id = try row?.get(self.storyId) {
-                storyid = id
+                resultId = id
             } else{
-                storyid = ""
+                resultId = ""
             }
             onCompletion(true)
         }
@@ -234,22 +226,26 @@ class DBManager: NSObject {
             print("select failed ", error)
             onCompletion(false)
         }
-        return storyid
+        return resultId
     }
-   
-    /// Fetch story id from story seen table and return bool value, that all stories of paticular user is seen or not.
-    func isContainsAllStories(arrStoryid:[String], onCompletion: @escaping ContactHandler) -> Bool  {
+
+    /// Fetch story id from story seen table and return bool value, that all stories of particular user is seen or not.
+    func isContainsAllStories(arrStoryid: [String], onCompletion: @escaping ContactHandler) -> Bool  {
         openDatabase()
-        var isContainsAllStoriesId:Bool = false
+        var isContainsAllStoriesId: Bool = false
         var fetchStoryId: String = ""
         var arrStories: [String] = []
+        guard let db = db else {
+            onCompletion(false)
+            return false
+        }
         for storyid in arrStoryid {
             do {
-                let tableContacts = Table("StroySeen")
-                
-                let table = tableContacts.filter(self.storyId == storyid)
-                let row = try db!.pluck(table)
-                
+                let tableStorySeen = Table("StroySeen")
+
+                let table = tableStorySeen.filter(self.storyId == storyid)
+                let row = try db.pluck(table)
+
                 if let id = try row?.get(self.storyId) {
                     fetchStoryId = id
                     arrStories.append(fetchStoryId)
@@ -263,7 +259,7 @@ class DBManager: NSObject {
                 isContainsAllStoriesId = false
             }
         }
-        
+
         if arrStoryid.count == arrStories.count {
             isContainsAllStoriesId =  true
             onCompletion(true)
@@ -272,7 +268,7 @@ class DBManager: NSObject {
         }
         return isContainsAllStoriesId
     }
-    
+
     func clearStoryDetailTable()  {
         openDatabase()
         do{
@@ -282,17 +278,17 @@ class DBManager: NSObject {
             print("delete failed", error.localizedDescription)
         }
     }
-    
-    func updateContactWith(parameter:ContactLIst)  {
+
+    func updateContactWith(parameter: ContactLIst)  {
        openDatabase()
         let tableContacts = Table("Contacts")
         let user = tableContacts.filter(number == parameter.number)
         do{
             try db?.run(user.update(name<-parameter.connection.fullName,number<-parameter.connection.phoneNumber,identifier<-parameter.deviceContactId, following<-parameter.connection.isFollowed,connection_id<-parameter.connection.connecttionId,user_id<-parameter.connection._id,app_user<-true,profilePic<-parameter.connection.profilePic))
-            
+
         }
         catch{
-//            print("select failed ")
+            // update failed
         }
     }
 }

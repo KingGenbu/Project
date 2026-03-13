@@ -103,7 +103,7 @@ class FeedCellOld: UITableViewCell {
             if feed.followingsFeeds[0].feedType == "LiveStreamVideo" {
                 self.imgFeed.sd_setImage(with: URL(string: imgThumb300), completed: nil)
             } else {
-                self.imgFeed.sd_setImage(with: URL(string: "http://18.220.124.147:8086/thumbnail?application=live&streamname=\(feed.followingsFeeds[0].streamId)&size=300x300&fitmode=crop"), completed: nil)
+                self.imgFeed.sd_setImage(with: URL(string: "(ApiManager.thumbnailBaseUrl)?application=live&streamname=\(feed.followingsFeeds[0].streamId)&size=300x300&fitmode=crop"), completed: nil)
             }
             DispatchQueue.main.async {
             self.litMeter.lits = CGFloat(feed.followingsFeeds[0].hydroxCount)

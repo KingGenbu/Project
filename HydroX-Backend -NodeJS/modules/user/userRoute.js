@@ -15,7 +15,8 @@ userRouter.use((req, res, next) => {
 userRouter.use(middleware.reqValidator);
 
 // Routes
-userRouter.post('/test', userCtr.test);
+// Test endpoint disabled for security — only enable in development
+// userRouter.post('/test', userCtr.test);
 userRouter.post('/create', userCtr.create);
 userRouter.get('/profile-pic-aws-presinged-url', userCtr.profilePicAWSPreSignedURL);
 

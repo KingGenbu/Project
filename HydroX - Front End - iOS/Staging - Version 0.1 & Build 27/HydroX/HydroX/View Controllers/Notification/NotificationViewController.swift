@@ -264,7 +264,7 @@ extension NotificationViewController: UITableViewDataSource, UITableViewDelegate
                 
                 notificationCell.imgProfilePic.sd_setImage(with: URL(string: path), placeholderImage: #imageLiteral(resourceName: "img_profile"), completed: nil)
             } else {
-                notificationCell.imgProfilePic.sd_setImage(with: URL(string: "http://18.220.124.147:8086/thumbnail?application=live&streamname=\(feedDetail.mediaDict?.streamID ?? "")&size=300x300&fitmode=crop"), completed: nil)
+                notificationCell.imgProfilePic.sd_setImage(with: URL(string: "\(ApiManager.thumbnailBaseUrl)?application=live&streamname=\(feedDetail.mediaDict?.streamID ?? "")&size=300x300&fitmode=crop"), completed: nil)
             }
         } else if notificationData.notificationType == NotificationType.typeStory.rawValue {
             var thumbSize300 : String = ""
