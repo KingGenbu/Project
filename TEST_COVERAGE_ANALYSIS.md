@@ -1,4 +1,4 @@
-# Test Coverage Analysis — ITZLIT Project
+# Test Coverage Analysis — HydroX Project
 
 **Date:** 2026-03-09
 **Scope:** Backend (Node.js/Express) + Frontend (iOS/Swift)
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The ITZLIT codebase (~20,000 lines across 100+ files) has no meaningful automated tests. The Node.js backend has `"test": "echo \"Error: no test specified\" && exit 1"` in `package.json` — no test framework is even installed. The iOS targets contain two XCTest stub files with no real assertions. Every module, helper, and view controller is untested.
+The HydroX codebase (~20,000 lines across 100+ files) has no meaningful automated tests. The Node.js backend has `"test": "echo \"Error: no test specified\" && exit 1"` in `package.json` — no test framework is even installed. The iOS targets contain two XCTest stub files with no real assertions. Every module, helper, and view controller is untested.
 
 This document prioritises the areas most worth addressing first, ordered by risk impact.
 
@@ -228,8 +228,8 @@ Use `mongodb-memory-server` for integration tests so they never touch a real dat
 
 ### iOS (XCTest / Swift)
 
-- Write genuine unit tests in the existing `ITZLITTests` target.
-- Add a separate `ITZLITUITests` target for UI-level flows.
+- Write genuine unit tests in the existing `HydroXTests` target.
+- Add a separate `HydroXUITests` target for UI-level flows.
 - Use protocol-based dependency injection on `ApiManager` so network calls can be swapped for stubs in tests.
 
 ---
