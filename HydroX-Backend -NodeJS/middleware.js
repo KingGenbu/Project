@@ -49,7 +49,6 @@ middleware.loadUser = (req, res, next) => {
           logger.error(err);
           res.status(401).json({ error: req.t('TOKEN_EXP') });
         });
-      req.user = decoded;
     } else {
       res.status(401).json({ error: req.t('TOKEN_EXP') });
     }

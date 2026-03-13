@@ -6,13 +6,12 @@ const logger = require('../../helper/logger');
 const awsUtils = require('../../helper/aws');
 const bcrypt = require('bcrypt');
 const BCRYPT_ROUNDS = 12;
-const Q = require('q');
 const auth = require('../../helper/auth');
 const jwt = require('../../helper/jwt');
-const uuid = require('node-uuid');
+const { randomUUID } = require('crypto');
 const generatePassword = require('password-generator');
 const notification = require('../../helper/notification');
-const PhoneNumber = require('awesome-phonenumber');
+const { parsePhoneNumber } = require('awesome-phonenumber');
 const constants = require('../../config/constants');
 const l10n = require('jm-ez-l10n');
 
@@ -83,7 +82,7 @@ userCtr.create = (req, res) => {
     fullName, email, phoneNumber, password, profilePic, deviceId, fbProvider, regionCode,
   } = body;
 
-  const formattedPhoneNumber = PhoneNumber(phoneNumber, regionCode || 'US').getNumber('e164');
+  const formattedPhoneNumber = parsePhoneNumber(phoneNumber, { regionCode: regionCode || 'US' }).number.e164;
 
   // Check Email is not already taken
   const conditions = [{ email }, { phoneNumber: formattedPhoneNumber }];
@@ -118,11 +117,7 @@ userCtr.create = (req, res) => {
         fbPromise = auth.fbCheck(fbProvider);
       } else {
         _user.password = bcrypt.hashSync(password, BCRYPT_ROUNDS);
-        const deferred = Q.defer();
-        setTimeout(() => {
-          deferred.resolve();
-        });
-        fbPromise = deferred.promise;
+        fbPromise = Promise.resolve();
       }
 
       fbPromise
@@ -146,7 +141,7 @@ userCtr.create = (req, res) => {
                 });
               }
               // Update Device Document with `user` field
-              Device.update({ _id: deviceId }, { user: user })
+              Device.updateOne({ _id: deviceId }, { user: user })
                 .then((done) => { logger.info(done); })
                 .catch((err) => { logger.error(err); });
               const token = jwt.getAuthToken({ id: result._id });
@@ -185,7 +180,7 @@ userCtr.login = (req, res) => {
     .then((user) => {
       if (user && bcrypt.compareSync(password, user.password)) {
         // Update Device Document with `user` field
-        Device.update({ _id: deviceId }, { user: user })
+        Device.updateOne({ _id: deviceId }, { user: user })
           .then((done) => { logger.info(done); })
           .catch((err) => { logger.error(err); });
         // Generate JWT token
@@ -213,7 +208,7 @@ userCtr.fbLogin = (req, res) => {
         auth.fbCheck(fbProvider)
           .then(() => {
             // Update Device Document with `user` field
-            Device.update({ _id: deviceId }, { user: user })
+            Device.updateOne({ _id: deviceId }, { user: user })
               .then((done) => { logger.info(done); })
               .catch((err) => { logger.error(err); });
             const token = jwt.getAuthToken({ id: user._id });
@@ -245,7 +240,7 @@ userCtr.forgetPassword = (req, res) => {
         const expires = new Date(date.setTime(date.getTime() + (1 * 3600 * 1000)));
         user.resetPassword = {
           newPassword: bcrypt.hashSync(randomPassword, BCRYPT_ROUNDS),
-          confirmationToken: uuid.v1(),
+          confirmationToken: randomUUID(),
           expires,
         };
         user.save();
@@ -384,7 +379,7 @@ userCtr.me = (req, res) => {
 userCtr.logout = (req, res) => {
   const { deviceId } = req.body;
   // Clean device token when user logout so that he don't get Push Notification
-  Device.update({ _id: deviceId }, { deviceToken: '' })
+  Device.updateOne({ _id: deviceId }, { deviceToken: '' })
     .then(() => {
       res.status(200).json({ msg: req.t('MSG_LOGOUT') });
     })
@@ -411,12 +406,10 @@ const resolveEmailValidation = (aSyncValidations, email, user) => {
   return new Promise((resolve, reject) => {
     const _user = user;
     if (aSyncValidations.length > 0) {
-      Q.allSettled(aSyncValidations)
+      Promise.allSettled(aSyncValidations)
         .then((results) => {
           results.forEach((result) => {
-            if (result.state === 'fulfilled') {
-              // Hack as it's only one promise for,
-              //  to be fixed when multiple aSync validations will be there
+            if (result.status === 'fulfilled') {
               _user.email = email;
               resolve(_user);
             } else {
@@ -425,9 +418,7 @@ const resolveEmailValidation = (aSyncValidations, email, user) => {
           });
         });
     } else {
-      setTimeout(() => {
-        resolve(_user);
-      });
+      resolve(_user);
     }
   });
 };
@@ -451,7 +442,7 @@ userCtr.updateProfile = (req, res) => {
   resolveEmailValidation(aSyncValidations, email, _user)
     .then((user) => {
       // Update user object
-      User.update({ _id: req.user._id }, user)
+      User.updateOne({ _id: req.user._id }, user)
         .then(() => { res.status(200).json({ msg: req.t('MSG_USER_PROFILE_UPDATED') }); })
         .catch((err) => { res.status(400).json({ error: err }); });
     })

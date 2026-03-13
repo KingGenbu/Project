@@ -11,7 +11,7 @@ const Media = require('../media/mediaModel.js');
 const Connection = require('../connection/connectionModel.js');
 const User = require('../user/userModel');
 const { ObjectId } = require('mongoose').Types;
-const uuid = require('node-uuid');
+const { randomUUID } = require('crypto');
 const wowza = require('../../helper/wowza');
 const notificationUtils = require('../notification/notificationUtils');
 const connectionUtils = require('../connection/connectionUtils');
@@ -50,7 +50,7 @@ feedCtr.newStory = (req, res) => {
 
   // Remove file
   if (fs.existsSync(files.story.path)) {
-    fs.unlink(files.story.path);
+    fs.unlink(files.story.path, () => {});
   }
 
   media.save();
@@ -392,7 +392,7 @@ feedCtr.goLiveReq = (req, res) => {
         userToUpdate.goLiveReq.forEach((u, i) => {
           if (u.user.toString() === req.user._id.toString()) {
             userToUpdate.goLiveReq[i].reqCount += 1;
-            User.update({
+            User.updateOne({
               _id: goLiveUser,
             }, {
               $set: {
@@ -405,7 +405,7 @@ feedCtr.goLiveReq = (req, res) => {
           }
         });
       } else {
-        User.update({
+        User.updateOne({
           _id: goLiveUser,
         }, {
           $push: {
@@ -489,15 +489,10 @@ feedCtr.liveReq = (req, res) => {
 };
 
 feedCtr.flushLiveReq = () => {
-  User.update({
-
-  }, {
+  User.updateMany({}, {
     $set: {
       goLiveReq: [],
     },
-  }, {
-    upsert: true,
-    multi: true,
   }).then((doc) => {
     logger.info(doc);
   }).catch((err) => {
@@ -597,7 +592,7 @@ feedCtr.seen = (req, res) => {
     },
   ]).then((doc) => {
     if (doc.length > 0) {
-      Feed.update({
+      Feed.updateOne({
         _id: feedId,
         'seenBy.user': req.user._id,
       }, {
@@ -608,7 +603,7 @@ feedCtr.seen = (req, res) => {
         res.status(500).json({ error: req.t('ERR_INTERNAL_SERVER_ERROR') });
       });
     } else {
-      Feed.update({
+      Feed.updateOne({
         _id: feedId,
       }, {
         $addToSet: {
@@ -713,7 +708,7 @@ feedCtr.goLiveGetStreamId = (req, res) => {
 
   logger.info('stream to...', [streamToYt, streamToFb, streamToHydroX]);
 
-  const streamId = uuid.v1();
+  const streamId = randomUUID();
   const media = new Media({
     mimeType: 'vnd.apple.mpegURL',
     path: `${process.env.WowzaProtocol}://${process.env.WowzaHost}:${process.env.WowzaPort}/${process.env.WowzaApp}/${streamId}/playlist.m3u8`,
@@ -799,7 +794,7 @@ feedCtr.goLiveStartPublishing = (req, res) => {
     feedId,
   } = req.body;
 
-  Feed.update({
+  Feed.updateOne({
     _id: feedId,
   }, { streamStatus: 'Publishing' })
     .then(() => {
@@ -858,7 +853,7 @@ feedCtr.goLiveStopPublishing = (req, res) => {
     });
 
   // Send notification to followers for user was Live!
-  // Feed.update({
+  // Feed.updateOne({
   //   _id: feedId,
   // }, { streamStatus: 'Ended', feedType: 'LiveStreamVideo' })
   //   .then(() => {
@@ -905,7 +900,7 @@ feedCtr.hydroxUp = (req, res) => {
     const feed = doc[0];
     if (doc.length > 0) {
       if (userId.toString() === doc[0].user._id.toString()) {
-        Feed.update({
+        Feed.updateOne({
           _id: feedId,
           'hydroxBy.user': doc[0].user._id,
           'hydroxBy.count': { $ne: 5 },
@@ -969,7 +964,7 @@ feedCtr.hydroxUp = (req, res) => {
         });
       }
     } else {
-      Feed.update({
+      Feed.updateOne({
         _id: feedId,
       }, {
         $push: {
@@ -1028,7 +1023,7 @@ feedCtr.hideByUser = (req, res) => {
   const { feedId } = req.body;
   const user = req.user._id;
 
-  Feed.update({
+  Feed.updateOne({
     _id: feedId,
   }, {
     $push: {
@@ -1277,7 +1272,7 @@ feedCtr.snsNotification = (req, res) => {
           media.feed.streamStatus = 'Ended';
 
           Feed
-            .update({ _id: media.feed._id }, media.feed)
+            .updateOne({ _id: media.feed._id }, media.feed)
             .then(() => {
               logger.info('Feed updated');
             })
@@ -1318,7 +1313,7 @@ feedCtr.snsNotification = (req, res) => {
                         _media.duration = original.duration;
 
                         Media
-                          .update({ _id: _media._id }, _media)
+                          .updateOne({ _id: _media._id }, _media)
                           .then(() => {
                             logger.info('Media updated');
                             feedUtils.updateFeedListForUser(media.user._id);
@@ -1337,7 +1332,7 @@ feedCtr.snsNotification = (req, res) => {
                             logger.info(`Branch URL : ${link.url}`);
                             media.feed.branchLink = link.url;
                             return Feed
-                              .update({ _id: media.feed._id }, media.feed);
+                              .updateOne({ _id: media.feed._id }, media.feed);
                           })
                           .catch((err) => {
                             logger.error(err);
@@ -1382,7 +1377,7 @@ feedCtr.snsNotification = (req, res) => {
 
 feedCtr.removeFeed = (req, res) => {
   const { feedId } = req.body;
-  Feed.findOneAndRemove({
+  Feed.findOneAndDelete({
     _id: feedId,
     user: req.user._id,
   })

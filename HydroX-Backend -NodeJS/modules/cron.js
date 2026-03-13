@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const cron = require('node-cron');
 
 const logger = require('../helper/logger');
@@ -12,15 +11,12 @@ cron.schedule('0 10 * * *', () => {
   feedCtr.flushLiveReq();
 });
 
-// cron.schedule('0 0 * * *', () => {
-// logger.info('running a task every day midnight 12');
 const updateFeedList = () => {
   User.find()
     .then((users) => {
-      _.forEach(users, (user) => {
+      users.forEach((user) => {
         feedUtils.updateFeedListForUser(user._id);
       });
     });
 };
-// });
 updateFeedList();

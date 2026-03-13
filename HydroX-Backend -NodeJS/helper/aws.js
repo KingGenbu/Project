@@ -1,7 +1,6 @@
 const logger = require('./logger');
 const aws = require('aws-sdk');
-const uuid = require('node-uuid');
-const Q = require('q');
+const { randomUUID } = require('crypto');
 const fs = require('fs');
 const path = require('path');
 
@@ -24,27 +23,27 @@ awsUtils.getS3 = () => {
 };
 
 awsUtils.getPreSignedURL = (prefix) => {
-  const s3ObjectKey = `${prefix}/${uuid.v1()}`;
-  const deferred = Q.defer();
+  const s3ObjectKey = `${prefix}/${randomUUID()}`;
 
-  s3.getSignedUrl('putObject', {
-    Bucket: process.env.AwsS3Bucket,
-    Expires: parseInt(process.env.PreSignedUrlExpiration, 10),
-    Key: s3ObjectKey,
-    ACL: 'public-read',
-  }, (err, url) => {
-    if (err == null) {
-      deferred.resolve({
-        preSignedUrl: url,
-        key: s3ObjectKey,
-        url: awsUtils.getS3Url(s3ObjectKey),
-      });
-    } else {
-      logger.error(err);
-    }
+  return new Promise((resolve, reject) => {
+    s3.getSignedUrl('putObject', {
+      Bucket: process.env.AwsS3Bucket,
+      Expires: parseInt(process.env.PreSignedUrlExpiration, 10),
+      Key: s3ObjectKey,
+      ACL: 'public-read',
+    }, (err, url) => {
+      if (err == null) {
+        resolve({
+          preSignedUrl: url,
+          key: s3ObjectKey,
+          url: awsUtils.getS3Url(s3ObjectKey),
+        });
+      } else {
+        logger.error(err);
+        reject(err);
+      }
+    });
   });
-
-  return deferred.promise;
 };
 
 awsUtils.getS3Url = (key) => {
@@ -54,44 +53,40 @@ awsUtils.getCFUrl = (key) => {
   return `https://${process.env.AwsCloudFront}/${key}`;
 };
 awsUtils.publishSnsSMS = (to, message) => {
-  const deferred = Q.defer();
-  const params = {
-    Message: message,
-    MessageStructure: 'string',
-    PhoneNumber: to,
-  };
+  return new Promise((resolve, reject) => {
+    const params = {
+      Message: message,
+      MessageStructure: 'string',
+      PhoneNumber: to,
+    };
 
-  const paramsAtt = {
-    attributes: { /* required */
-      DefaultSMSType: 'Transactional',
-      DefaultSenderID: 'HydroX',
-    },
-  };
+    const paramsAtt = {
+      attributes: { /* required */
+        DefaultSMSType: 'Transactional',
+        DefaultSenderID: 'HydroX',
+      },
+    };
 
-  sns.setSMSAttributes(paramsAtt, (err, data) => {
-    if (err) {
-      logger.error(err, err.stack);
-    } else {
-      logger.info(data);
-      sns.publish(params, (snsErr, snsData) => {
-        if (snsErr) {
-          // an error occurred
-          logger.error(snsErr);
-          deferred.reject(snsErr);
-        } else {
-          // successful response
-          // logger.info(data);
-          deferred.resolve(snsData);
-        }
-      });
-    }
+    sns.setSMSAttributes(paramsAtt, (err, data) => {
+      if (err) {
+        logger.error(err, err.stack);
+      } else {
+        logger.info(data);
+        sns.publish(params, (snsErr, snsData) => {
+          if (snsErr) {
+            logger.error(snsErr);
+            reject(snsErr);
+          } else {
+            resolve(snsData);
+          }
+        });
+      }
+    });
   });
-
-  return deferred.promise;
 };
 
 awsUtils.getNewKey = (prefix, ext, thumbs) => {
-  const id = uuid.v1();
+  const id = randomUUID();
   const thumbPaths = {};
   if (thumbs) {
     thumbs.forEach((thumb) => {
@@ -108,7 +103,6 @@ awsUtils.getNewKey = (prefix, ext, thumbs) => {
 awsUtils.putObject = (file, key) => {
   return new Promise((resolve, reject) => {
     fs.readFile(file.path, (error, fileContent) => {
-      // if unable to read file contents, throw exception
       if (error) { throw error; }
 
       const params = {
@@ -137,24 +131,21 @@ awsUtils.putObject = (file, key) => {
 awsUtils.uploadFolder = (folder, files, videoType) => {
   const vType = videoType || 'story';
   return new Promise((resolve, reject) => {
-    const distFolderPath = `${vType}/${uuid.v1()}`;
+    const distFolderPath = `${vType}/${randomUUID()}`;
 
     const promises = [];
 
-    // Can use `forEach`, but used `every` as hack to break the loop
     files.every((file) => {
-      // get the full path of the file
       const key = path.join(distFolderPath, path.basename(file.path));
-
       promises.push(awsUtils.putObject(file, key));
       return true;
     });
 
-    Q.allSettled(promises)
+    Promise.allSettled(promises)
       .then((results) => {
         const s3Files = [];
         results.forEach((result) => {
-          if (result.state === 'fulfilled') {
+          if (result.status === 'fulfilled') {
             s3Files.push(result.value);
           } else {
             reject(result.reason);
@@ -163,7 +154,6 @@ awsUtils.uploadFolder = (folder, files, videoType) => {
         resolve(s3Files);
       });
   });
-  // });
 };
 
 awsUtils.downloadObject = (key) => {

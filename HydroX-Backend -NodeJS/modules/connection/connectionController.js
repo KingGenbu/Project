@@ -4,7 +4,7 @@ const User = require('../user/userModel.js');
 const Device = require('../device/deviceModel');
 const logger = require('../../helper/logger');
 const constants = require('../../config/constants');
-const PhoneNumber = require('awesome-phonenumber');
+const { parsePhoneNumber } = require('awesome-phonenumber');
 const notificationUtils = require('../notification/notificationUtils');
 
 const connectionCtr = {};
@@ -57,7 +57,7 @@ connectionCtr.follow = (req, res) => {
 
 connectionCtr.unfollow = (req, res) => {
   const { connectionId } = req.body;
-  Connection.findOneAndRemove({
+  Connection.findOneAndDelete({
     _id: connectionId,
     follower: req.user._id,
   })
@@ -243,9 +243,9 @@ const convertNumbers = (contacts) => {
 const formatNumbers = (contacts, regionCode) => {
   return _.map(contacts, (_contact) => {
     const contact = _contact;
-    const phone = new PhoneNumber(contact.number, regionCode || 'US');
-    if (phone.isValid() && phone.isMobile()) {
-      contact.e164 = phone.getNumber('e164');
+    const phone = parsePhoneNumber(contact.number, { regionCode: regionCode || 'US' });
+    if (phone.valid && phone.typeIsMobile) {
+      contact.e164 = phone.number.e164;
     }
     return contact;
   });

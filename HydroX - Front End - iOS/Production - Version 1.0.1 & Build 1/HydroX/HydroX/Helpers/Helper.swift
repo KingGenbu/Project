@@ -203,7 +203,7 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
                         UserDefaultHelper.delBoolPREF(AppUserDefaults.pref_user_verified)
                         UserDefaultHelper.delPREF(AppUserDefaults.pref_user_registered_token)
                         UserDefaultHelper.delBoolPREF(AppUserDefaults.pref_Fb_Login)
-                        FBSDKLoginManager().logOut()
+                        LoginManager().logOut()
                         navigation.popToRootViewController(animated: true)
                         navigation.dismiss(animated: false, completion: nil)
                     }
@@ -227,11 +227,7 @@ class Helper : NSObject, MFMailComposeViewControllerDelegate {
         let homeActionButton: UIAlertAction = UIAlertAction(title: MenuTitle.home.rawValue, style: .default) { action -> Void in
             self.navigateToHomeScren(navigation: navigation)
         }
-        if #available(iOS 11.0, *) {
-            homeActionButton.accessibilityAttributedLabel = NSAttributedString(string: "", attributes: [.font: UIFontConst.POPPINS_LIGHT ?? UIFont.boldSystemFont(ofSize: 18.0)])
-        } else {
-            // Fallback on earlier versions
-        }
+        homeActionButton.accessibilityAttributedLabel = NSAttributedString(string: "", attributes: [.font: UIFontConst.POPPINS_LIGHT ?? UIFont.boldSystemFont(ofSize: 18.0)])
         asMenuOption.addAction(homeActionButton)
 
         if (UserDefaultHelper.getPREF(AppUserDefaults.pref_user_registered_token) != nil) && (UserDefaultHelper.getBoolPREF(AppUserDefaults.pref_user_verified) == true) {
@@ -381,17 +377,6 @@ extension MFMailComposeViewController: MFMailComposeViewControllerDelegate {
     }
 }
 
-extension Character {
-    var isUppercase: Bool {
-        guard self.asciiValue != nil else {
-            return false
-        }
-
-        return self.asciiValue! >= Character("A").asciiValue! &&
-            self.asciiValue! <= Character("Z").asciiValue!
-    }
-
-    var asciiValue: UInt32? {
-        return String(self).unicodeScalars.first?.value
-    }
-}
+// Character.isUppercase and Character.asciiValue are available in the Swift
+// standard library since Swift 4.2 / Xcode 10, so the custom extensions have
+// been removed.

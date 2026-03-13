@@ -2,7 +2,7 @@ const _ = require('lodash');
 const Device = require('./deviceModel.js');
 const logger = require('../../helper/logger');
 const pjson = require('../../package.json');
-const boolean = require('boolean');
+const { boolean } = require('boolean');
 const notification = require('../../helper/notification');
 
 const deviceCtr = {};
@@ -35,10 +35,10 @@ deviceCtr.create = (req, res) => {
     .then((result) => {
       if (!_.isEmpty(deviceToken)) {
         // Update devices with same token first to ensure notification won't go to wrong person.
-        Device.update({
+        Device.updateMany({
           deviceToken,
           _id: { $ne: result._id },
-        }, { deviceToken: '' }, { multi: true })
+        }, { deviceToken: '' })
           .then((done) => { logger.info(done); })
           .catch((err) => { logger.error(err); });
       }
@@ -75,14 +75,14 @@ deviceCtr.update = (req, res) => {
     apiVersion: pjson.version,
   };
 
-  Device.update({ _id: deviceId }, device)
+  Device.updateOne({ _id: deviceId }, device)
     .then(() => {
       if (!_.isEmpty(deviceToken)) {
         // Update devices with same token first to ensure notification won't go to wrong person.
-        Device.update({
+        Device.updateMany({
           deviceToken,
           _id: { $ne: deviceId },
-        }, { deviceToken: '' }, { multi: true })
+        }, { deviceToken: '' })
           .then((done) => { logger.info(done); })
           .catch((err) => { logger.error(err); });
       }
@@ -106,7 +106,7 @@ deviceCtr.updateNotificationPref = (req, res) => {
     notificationPref: boolean(notificationPref),
   };
 
-  Device.update({ _id: deviceId }, device)
+  Device.updateOne({ _id: deviceId }, device)
     .then((data) => {
       logger.info(data);
       res.status(200).json({ deviceId });
