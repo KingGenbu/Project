@@ -1701,7 +1701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" e1b97dd84f62904eaf7cda5204f67e9421443461 919d970ac1e1c6f41fa85443ae64ab487e5f42ecb4cfb1a2c7d8b0aa0292b6d8";
+			shellScript = "# Fabric run script removed - Fabric is deprecated. Firebase Crashlytics is used instead.\nexit 0";
 		};
 		55C0C5F037A9BD6BC3AF91B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1732,7 +1732,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+			shellScript = "# Legacy architecture-stripping script removed for Apple Silicon compatibility.\n# Modern CocoaPods and XCFrameworks handle architecture slicing automatically.\nexit 0";
 		};
 		5D120A421FF27B1100C50A4B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1745,7 +1745,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+			shellScript = "# Legacy architecture-stripping script removed for Apple Silicon compatibility.\n# Modern CocoaPods and XCFrameworks handle architecture slicing automatically.\nexit 0";
 		};
 		5D27C0D4201085CD00A3CCEF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1758,7 +1758,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\nSTRIPARCHS=\"x86_64 i386\"\nfor t in $STRIPARCHS\ndo\n\nif find \"$APP_PATH\" -name '*.a' -exec lipo -info {} \\; | grep $t ; then\nfind \"$APP_PATH\" -name '*.a' -exec lipo -remove $t {} -output {}2 \\; -exec rm {} \\; -exec mv {}2 {} \\; ;\nfi\n\ndone\n\nexit 0";
+			shellScript = "# Legacy x86_64/i386 stripping script removed for Apple Silicon compatibility.\n# arm64 simulator and device slices are now handled by XCFrameworks.\nexit 0";
 		};
 		5D27C0DB2010B05900A3CCEF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1789,7 +1789,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" e1b97dd84f62904eaf7cda5204f67e9421443461 919d970ac1e1c6f41fa85443ae64ab487e5f42ecb4cfb1a2c7d8b0aa0292b6d8";
+			shellScript = "# Fabric run script removed - Fabric is deprecated. Firebase Crashlytics is used instead.\nexit 0";
 		};
 		5D27C14F2010B05900A3CCEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

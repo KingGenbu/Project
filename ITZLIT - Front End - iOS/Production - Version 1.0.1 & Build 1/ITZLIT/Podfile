@@ -5,24 +5,34 @@ abstract_target 'ITZLITShared' do
   source 'https://github.com/CocoaPods/Specs.git'
   use_frameworks!
 
-  pod 'FBSDKLoginKit'
-  pod 'FBSDKShareKit'
-  pod 'GoogleSignIn'
-  pod 'GoogleAPIClientForREST/YouTube'
-  pod 'libPhoneNumber-iOS'
-  pod 'Alamofire'
-  pod 'SwiftyJSON'
-  pod 'Branch'
-  pod 'SDWebImage'
-  pod 'SwiftLoader'
-  pod 'IQKeyboardManagerSwift'
+  pod 'FBSDKLoginKit', '~> 17.0'
+  pod 'FBSDKShareKit', '~> 17.0'
+  pod 'GoogleSignIn', '~> 8.0'
+  pod 'GoogleAPIClientForREST/YouTube', '~> 3.0'
+  pod 'libPhoneNumber-iOS', '~> 1.2'
+  pod 'Alamofire', '~> 4.9'
+  pod 'SwiftyJSON', '~> 5.0'
+  pod 'BranchSDK', '~> 3.0'
+  pod 'SDWebImage', '~> 5.0'
+  pod 'SwiftLoader', '~> 0.4'
+  pod 'IQKeyboardManagerSwift', '~> 7.0'
   pod 'SQLite.swift', '~> 0.15'
-  pod 'Firebase/Crashlytics'
-  pod 'Firebase/Analytics'
+  pod 'FirebaseCrashlytics', '~> 11.0'
+  pod 'FirebaseAnalytics', '~> 11.0'
   pod 'SimpleImageViewer', :git => 'https://github.com/teamSolutionAnalysts/SimpleImageViewer.git', :branch => 'podWith'
-  pod 'Socket.IO-Client-Swift'
+  pod 'Socket.IO-Client-Swift', '~> 16.0'
 
   target 'ITZLIT'
   target 'ITZLIT Dev'
   target 'ITZLIT Stage'
+end
+
+# Ensure all pods build for the correct deployment target and support Apple Silicon simulator
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+      config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+    end
+  end
 end
