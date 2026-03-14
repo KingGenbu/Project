@@ -277,7 +277,7 @@ open class SwiftyCamViewController: UIViewController {
 
 			// not yet determined
 			sessionQueue.suspend()
-            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { [unowned self] granted in
+            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { [weak self] granted in
 				if !granted {
 					self.setupResult = .notAuthorized
 				}
@@ -288,7 +288,7 @@ open class SwiftyCamViewController: UIViewController {
 			// already been asked. Denied access
 			setupResult = .notAuthorized
 		}
-		sessionQueue.async { [unowned self] in
+		sessionQueue.async { [weak self] in
 			self.configureSession()
 		}
 	}
@@ -376,7 +376,7 @@ open class SwiftyCamViewController: UIViewController {
 				self.promptToAppSettings()
 			case .configurationFailed:
 				// Unknown Error
-				DispatchQueue.main.async(execute: { [unowned self] in
+				DispatchQueue.main.async(execute: { [weak self] in
 					let message = NSLocalizedString("Unable to capture media", comment: "Alert message when something goes wrong during capture session configuration")
 					let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
 					alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))
@@ -479,7 +479,7 @@ open class SwiftyCamViewController: UIViewController {
 			previewLayer.addSubview(flashView!)
 		}
 
-		sessionQueue.async { [unowned self] in
+		sessionQueue.async { [weak self] in
 			if !movieFileOutput.isRecording {
 				if UIDevice.current.isMultitaskingSupported {
 					self.backgroundRecordingID = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
@@ -568,7 +568,7 @@ open class SwiftyCamViewController: UIViewController {
 
 		session.stopRunning()
 
-		sessionQueue.async { [unowned self] in
+		sessionQueue.async { [weak self] in
 
 			// remove and re-add inputs and outputs
 
@@ -858,7 +858,7 @@ open class SwiftyCamViewController: UIViewController {
 	fileprivate func promptToAppSettings() {
 		// prompt User with UIAlertView
 
-		DispatchQueue.main.async(execute: { [unowned self] in
+		DispatchQueue.main.async(execute: { [weak self] in
 			let message = NSLocalizedString("AVCam doesn't have permission to use the camera, please change privacy settings", comment: "Alert message when the user has denied access to the camera")
 			let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
 			alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil))

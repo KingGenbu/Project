@@ -16,7 +16,7 @@ const getVideoImageThumb = (file, originalFile, tempLocation, shouldRotate) => {
   return new Promise((resolveMain, rejectMain) => {
     return new Promise((resolve, reject) => {
       // Capture Frames if Video
-      if (constants.supportedMime.video.indexOf(file.type) !== -1) {
+      if (constants.supportedMime.video.includes(file.type)) {
         // File is video, generate Thumb from Video file
         feedUtils.generateScreenShot(originalFile, tempLocation, shouldRotate)
           .then((screenshot) => {
@@ -98,7 +98,7 @@ const getVideoImageThumb = (file, originalFile, tempLocation, shouldRotate) => {
 const getVideoDuration = (file, pFiles) => {
   const files = pFiles;
   return new Promise((resolve, reject) => {
-    if (constants.supportedMime.video.indexOf(file.type) !== -1) {
+    if (constants.supportedMime.video.includes(file.type)) {
       ffmpeg.ffprobe(file.path, (err, probeData) => {
         if (!err) {
           const original = _.find(files, { id: 'original' });
@@ -204,9 +204,9 @@ feedUtils.generateScreenShot = (videoPath, tempLocation, shouldRotate) => {
 
 feedUtils.updateFeedListForUser = (userId) => {
   // Remove all existing
-  FeedList.find({
+  FeedList.deleteMany({
     user: userId,
-  }).remove()
+  })
     .then(() => {
       logger.info(`FeedList empty : ${userId}`);
       // Find and update list

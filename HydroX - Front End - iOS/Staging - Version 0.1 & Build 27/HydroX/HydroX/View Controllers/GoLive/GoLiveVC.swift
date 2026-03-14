@@ -313,7 +313,7 @@ extension GoLiveVC {
         
         let savedConfigData = NSKeyedArchiver.archivedData(withRootObject: goCoderConfig)
         UserDefaults.standard.set(savedConfigData, forKey: SDKSampleSavedConfigKey)
-        UserDefaults.standard.synchronize()
+        // synchronize() removed — iOS 12+ syncs automatically
         
         // Update the configuration settings in the GoCoder SDK
         if (goCoder != nil) {

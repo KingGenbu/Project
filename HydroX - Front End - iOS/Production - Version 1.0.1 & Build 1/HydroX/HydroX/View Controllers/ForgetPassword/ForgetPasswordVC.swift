@@ -49,12 +49,13 @@ class ForgetPasswordVC: UIViewController, UITextFieldDelegate {
     }
     
     func isValid() -> Bool{
-        if (vwForgetPassword.txtName.text?.isEmpty)! {
+        guard let emailText = vwForgetPassword.txtName.text, !emailText.isEmpty else {
             Helper.showAlertDialog(APP_NAME, message: ValidationMessage.emptyEmailAdress.rawValue, clickAction: {
                 self.vwForgetPassword.txtName.becomeFirstResponder()
             })
             return false
-        } else if (!Helper.isValidEmail(vwForgetPassword.txtName.text!)) {
+        }
+        if !Helper.isValidEmail(emailText) {
             Helper.showAlertDialog(APP_NAME, message: ValidationMessage.invalidEmailAddress.rawValue, clickAction: {
                 self.vwForgetPassword.txtName.becomeFirstResponder()
             })
@@ -64,15 +65,15 @@ class ForgetPasswordVC: UIViewController, UITextFieldDelegate {
     }
     
     func WSForgetPasswordCalled() {
-        let parameter: [String: Any] = [WebserviceRequestParmeterKey.email : self.vwForgetPassword.txtName.text!]
+        let parameter: [String: Any] = [WebserviceRequestParmeterKey.email : self.vwForgetPassword.txtName.text ?? ""]
         Helper.showProgressBar()
         ApiManager.Instance.httpPostRequestWithoutHeader(urlPath: WebserverPath.forgetPassword, parameter: parameter, onCompletion: { (json, error, response) in
             if error == nil {
-                if let errorMessage = json.dictionaryObject!["error"] as? String {
+                if let errorMessage = json.dictionaryObject?["error"] as? String {
                     Helper.showAlertDialog(APP_NAME, message: errorMessage, clickAction: {})
                     return
                 }
-                if let message = json.dictionaryObject!["msg"] as? String {
+                if let message = json.dictionaryObject?["msg"] as? String {
                     Helper.showAlertDialog(APP_NAME, message: message, clickAction: {})
                 }
             }

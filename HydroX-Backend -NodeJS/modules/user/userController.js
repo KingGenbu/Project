@@ -116,8 +116,9 @@ userCtr.create = (req, res) => {
         // Test FB details are valid
         fbPromise = auth.fbCheck(fbProvider);
       } else {
-        _user.password = bcrypt.hashSync(password, BCRYPT_ROUNDS);
-        fbPromise = Promise.resolve();
+        fbPromise = bcrypt.hash(password, BCRYPT_ROUNDS).then((hashedPassword) => {
+          _user.password = hashedPassword;
+        });
       }
 
       fbPromise
@@ -178,19 +179,24 @@ userCtr.login = (req, res) => {
 
   User.findOne({ email })
     .then((user) => {
-      if (user && bcrypt.compareSync(password, user.password)) {
-        // Update Device Document with `user` field
-        Device.updateOne({ _id: deviceId }, { user: user })
-          .then((done) => { logger.info(done); })
-          .catch((err) => { logger.error(err); });
-        // Generate JWT token
-        const token = jwt.getAuthToken({ id: user._id });
-        res.status(200).json({ token, isVerified: user.verification.phone.status });
-      } else {
-        res.status(400).json({
-          error: req.t('WRONG_CREDENTIALS'),
-        });
+      if (!user) {
+        return res.status(400).json({ error: req.t('WRONG_CREDENTIALS') });
       }
+      return bcrypt.compare(password, user.password).then((isMatch) => {
+        if (isMatch) {
+          // Update Device Document with `user` field
+          Device.updateOne({ _id: deviceId }, { user: user })
+            .then((done) => { logger.info(done); })
+            .catch((err) => { logger.error(err); });
+          // Generate JWT token
+          const token = jwt.getAuthToken({ id: user._id });
+          res.status(200).json({ token, isVerified: user.verification.phone.status });
+        } else {
+          res.status(400).json({
+            error: req.t('WRONG_CREDENTIALS'),
+          });
+        }
+      });
     })
     .catch((err) => { logger.error(err); });
 };
@@ -238,15 +244,17 @@ userCtr.forgetPassword = (req, res) => {
         const randomPassword = generatePassword();
         const date = new Date();
         const expires = new Date(date.setTime(date.getTime() + (1 * 3600 * 1000)));
-        user.resetPassword = {
-          newPassword: bcrypt.hashSync(randomPassword, BCRYPT_ROUNDS),
-          confirmationToken: randomUUID(),
-          expires,
-        };
-        user.save();
-        notification.sendMail(user.email, 'forget-password', { name: user.fullName, link: `${process.env.RootUrl}/api/v1/user/reset-password/${user._id}/${user.resetPassword.confirmationToken}`, password: randomPassword });
-        res.status(200).json({
-          msg: req.t('RESET_PASSWORD_INSTRUCTION'),
+        bcrypt.hash(randomPassword, BCRYPT_ROUNDS).then((hashedPassword) => {
+          user.resetPassword = {
+            newPassword: hashedPassword,
+            confirmationToken: randomUUID(),
+            expires,
+          };
+          user.save();
+          notification.sendMail(user.email, 'forget-password', { name: user.fullName, link: `${process.env.RootUrl}/api/v1/user/reset-password/${user._id}/${user.resetPassword.confirmationToken}`, password: randomPassword });
+          res.status(200).json({
+            msg: req.t('RESET_PASSWORD_INSTRUCTION'),
+          });
         });
       } else {
         res.status(400).json({
@@ -353,13 +361,20 @@ userCtr.changePassword = (req, res) => {
   User.findOne({ _id: req.user._id })
     .then((doc) => {
       const user = doc;
-      if (user && bcrypt.compareSync(password, user.password)) {
-        user.password = bcrypt.hashSync(newPassword, BCRYPT_ROUNDS);
-        user.save();
-        res.status(200).json({ msg: req.t('MSG_PASSWORD_CHANGED') });
-      } else {
-        res.status(400).json({ error: req.t('ERR_OLD_PASSWORD_INCORRECT') });
+      if (!user) {
+        return res.status(400).json({ error: req.t('ERR_OLD_PASSWORD_INCORRECT') });
       }
+      return bcrypt.compare(password, user.password).then((isMatch) => {
+        if (isMatch) {
+          return bcrypt.hash(newPassword, BCRYPT_ROUNDS).then((hashedPassword) => {
+            user.password = hashedPassword;
+            user.save();
+            res.status(200).json({ msg: req.t('MSG_PASSWORD_CHANGED') });
+          });
+        } else {
+          res.status(400).json({ error: req.t('ERR_OLD_PASSWORD_INCORRECT') });
+        }
+      });
     })
     .catch((err) => {
       logger.error(err);

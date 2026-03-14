@@ -42,9 +42,9 @@ const upload = {
       // logger.info(keys);
       const file = req.files[field];
       // Custome Validations
-      if (req.body.feedType === 'StoryImage' && constants.supportedMime.image.indexOf(file.type) === -1) {
+      if (req.body.feedType === 'StoryImage' && !constants.supportedMime.image.includes(file.type)) {
         return res.status(400).json({ error: req.t('ERR_UNSUPPORTED_FILE') });
-      } else if (req.body.feedType === 'StoryVideo' && constants.supportedMime.video.indexOf(file.type) === -1) {
+      } else if (req.body.feedType === 'StoryVideo' && !constants.supportedMime.video.includes(file.type)) {
         return res.status(400).json({ error: req.t('ERR_UNSUPPORTED_FILE') });
       }
 
