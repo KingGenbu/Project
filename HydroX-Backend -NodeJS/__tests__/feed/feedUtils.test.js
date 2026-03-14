@@ -3,13 +3,12 @@
 // ── Heavy I/O dependencies – mocked so tests run without binaries / file system
 jest.mock('fluent-ffmpeg');
 jest.mock('sharp');
-jest.mock('rmdir', () => jest.fn());
-jest.mock('node-ffprobe', () => jest.fn());
 jest.mock('fs', () => ({
   mkdirSync: jest.fn(),
   renameSync: jest.fn(),
   existsSync: jest.fn().mockReturnValue(false),
   unlink: jest.fn(),
+  rm: jest.fn(),
 }));
 
 // Model mocks
@@ -133,10 +132,14 @@ describe('feedUtils.filterDocs()', () => {
 // ─── deleteTempFiles() ────────────────────────────────────────────────────────
 
 describe('feedUtils.deleteTempFiles()', () => {
-  it('calls rmdir with the provided path', () => {
-    const rmdir = require('rmdir');
+  it('calls fs.rm with the provided path and recursive option', () => {
+    const fs = require('fs');
     feedUtils.deleteTempFiles('/tmp/my-upload-folder');
-    expect(rmdir).toHaveBeenCalledWith('/tmp/my-upload-folder');
+    expect(fs.rm).toHaveBeenCalledWith(
+      '/tmp/my-upload-folder',
+      { recursive: true, force: true },
+      expect.any(Function)
+    );
   });
 });
 

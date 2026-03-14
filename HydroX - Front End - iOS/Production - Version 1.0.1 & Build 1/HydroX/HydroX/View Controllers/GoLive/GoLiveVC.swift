@@ -462,12 +462,12 @@ extension GoLiveVC {
         self.title = ViewControllerTitle.live.rawValue
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
         
-        //        rightBarMicButton = UIBarButtonItem(image: UIImage(named: "mic_on_button"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarMicButton(_:)))
+        //        rightBarMicButton = UIBarButtonItem(image: UIImage(named: "mic_on_button"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarMicButton(_:)))
         
-        rightBarCameraButton = UIBarButtonItem(image: UIImage(named: "img_camera-flip"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarCameraButton(_:)))
+        rightBarCameraButton = UIBarButtonItem(image: UIImage(named: "img_camera-flip"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarCameraButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarCameraButton
         
         navigationController?.navigationBar.isHidden = false
@@ -479,9 +479,6 @@ extension GoLiveVC {
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.backgroundColor = .clear
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = .clear
-        statusBar.tintColor = .white
         self.lblCaption.sizeToFit()
         self.lblCaption.text = strCaption
         self.lblGoliveCaption.text = "Start live video"

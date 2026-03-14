@@ -70,10 +70,6 @@ class ViewLiveVideoViewController: UIViewController {
     func configureUI() {
         navigationController?.navigationBar.isHidden = true
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
-        statusBar.backgroundColor = .clear
-        statusBar.tintColor = .white
         self.imgProfile.layer.cornerRadius = self.imgProfile.frame.height / 2.0
         self.imgProfile.clipsToBounds = true
     }

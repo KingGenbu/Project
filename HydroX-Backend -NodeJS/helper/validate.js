@@ -5,7 +5,7 @@ const isFloat = require('is-float');
 const isAlphanumeric = require('is-alphanumeric');
 const passwordRules = require('password-rules');
 const isValidUSZip = require('is-valid-zip');
-const PhoneNumber = require('awesome-phonenumber');
+const { parsePhoneNumber } = require('awesome-phonenumber');
 const l10n = require('jm-ez-l10n');
 
 
@@ -63,13 +63,13 @@ validator.isEmail = (str) => {
 };
 
 validator.isValidPhoneNumber = (str) => {
-  const pn = new PhoneNumber(str);
-  return pn.isValid() && pn.isMobile();
+  const pn = parsePhoneNumber(str);
+  return pn.valid && pn.typeIsMobile;
 };
 
 validator.isValidRex = (str, options) => {
   const { rex } = options;
-  if (this.isValid(str)) {
+  if (validator.isValid(str)) {
     if (!_.isEmpty(rex)) {
       return rex.test(str);
     }

@@ -27,7 +27,7 @@ class LiveStreamingConfigurationVC: UIViewController {
     var streamName: String = ""
     
     var gidSignIn = GIDSignIn.sharedInstance()
-    var fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+    var fbLoginManager : LoginManager = LoginManager()
     var timer:Timer?
     
     override func viewDidLoad() {
@@ -38,8 +38,8 @@ class LiveStreamingConfigurationVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.configureUI()
-        IQKeyboardManager.sharedManager().enableAutoToolbar = true
-        IQKeyboardManager.sharedManager().toolbarTintColor = .blue
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.toolbarTintColor = .blue
         self.configureGoogleSignIn()
     }
     
@@ -79,8 +79,8 @@ class LiveStreamingConfigurationVC: UIViewController {
             self.switchFB.isOn = false
             self.FBSignIn(onCompletionHandler: {isSucess in
                 if isSucess {
-                    let token = FBSDKAccessToken.current().tokenString
-                    UserDefaultHelper.setPREF(token!, key: AppUserDefaults.fb_Token)
+                    let token = AccessToken.current?.tokenString
+                    UserDefaultHelper.setPREF(token, key: AppUserDefaults.fb_Token)
                     self.WSCheckPermissionForFBPlublicAction(onCompletionHandler: { (isSucess) in
                         if isSucess {
                             self.switchFB.isOn = true
@@ -139,14 +139,14 @@ class LiveStreamingConfigurationVC: UIViewController {
     
     /// WS called to check FB Plublic Action is Enabled or not
     func WSCheckPermissionForFBPlublicAction(onCompletionHandler: @escaping (_ isSucess:Bool) -> ()) {
-        if FBSDKAccessToken.current() != nil {
-            if FBSDKAccessToken.current().hasGranted("publish_actions") {
+        if AccessToken.current != nil {
+            if AccessToken.current?.hasGranted("publish_actions") {
                 print("Granted")
                 onCompletionHandler(true)
             } else {
-                self.fbLoginManager.logIn(withPublishPermissions: ["publish_actions"], from: self) { (result, error) in
+                self.fbLoginManager.logIn(permissions: ["publish_actions"], from: self) { (result, error) in
                     if error == nil {
-                        let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                        let fbloginresult : LoginManagerLoginResult = result!
                         if fbloginresult.grantedPermissions != nil {
                             if (fbloginresult.grantedPermissions.contains("publish_actions")) {
                                 onCompletionHandler(true)
@@ -163,9 +163,9 @@ class LiveStreamingConfigurationVC: UIViewController {
                 }
             }
         } else {
-            self.fbLoginManager.logIn(withPublishPermissions: ["publish_actions"], from: self) { (result, error) in
+            self.fbLoginManager.logIn(permissions: ["publish_actions"], from: self) { (result, error) in
                 if error == nil {
-                    let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                    let fbloginresult : LoginManagerLoginResult = result!
                     if fbloginresult.grantedPermissions != nil {
                         if (fbloginresult.grantedPermissions.contains("publish_actions")) {
                             onCompletionHandler(true)
@@ -188,7 +188,7 @@ class LiveStreamingConfigurationVC: UIViewController {
         Helper.showProgressBar()
         let parameter: [String:Any] = ["description":self.txtTellAboutStory.text == "" ? "" : self.txtTellAboutStory.text!]
         print("Parameter for Stream URL:  ",  parameter)
-        FBSDKGraphRequest.init(graphPath: "me/live_videos", parameters: parameter, httpMethod: "POST").start { (connection, result, error) in
+        GraphRequest(graphPath: "me/live_videos", parameters: parameter, httpMethod: "POST").start { (connection, result, error) in
             if error == nil {
                 if connection?.urlResponse.statusCode == 200 {
                     if let resultDict = result as? [String:Any] {
@@ -280,10 +280,6 @@ extension LiveStreamingConfigurationVC {
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.backgroundColor = .clear
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = .clear
-        statusBar.tintColor = .white
-        
         self.txtTellAboutStory.attributedPlaceholder  = NSAttributedString(string: "What would you like to say?", attributes: [NSAttributedString.Key.font: UIFontConst.POPPINS_LIGHT!, NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
@@ -370,13 +366,13 @@ extension LiveStreamingConfigurationVC {
     private func FBSignIn(onCompletionHandler: @escaping (_ isSucess:Bool) -> ()) {
         
         if UserDefaultHelper.getPREF(AppUserDefaults.fb_Token) == nil {
-            fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+            fbLoginManager.logIn(permissions: ["public_profile", "email"], from: self) { (result, error) in
                 if (error == nil){
-                    let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                    let fbloginresult : LoginManagerLoginResult = result!
                     if fbloginresult.grantedPermissions != nil {
                         if(fbloginresult.grantedPermissions.contains("email")) {
-                            if((FBSDKAccessToken.current()) != nil){
-                                FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                            if((AccessToken.current) != nil){
+                                GraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                                     if (error == nil){
                                         if connection?.urlResponse.statusCode == 200 {
                                             if let dictResult = result as? [String:Any] {
@@ -421,7 +417,7 @@ extension LiveStreamingConfigurationVC : SFSafariViewControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivityType] {
+    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivity.ActivityType] {
         
         return []
     }

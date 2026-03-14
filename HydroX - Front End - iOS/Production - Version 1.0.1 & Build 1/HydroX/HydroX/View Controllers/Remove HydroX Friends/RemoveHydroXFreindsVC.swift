@@ -75,10 +75,10 @@ class RemoveHydroXFreindsVC: UIViewController {
         self.title = ViewControllerTitle.searchGlobal.rawValue
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        let rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarSearchButton(_:)))
+        let rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarSearchButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarBackButton
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
     }
     

@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
-
 const deviceSchema = new mongoose.Schema({
   timeZone: {
     type: String,

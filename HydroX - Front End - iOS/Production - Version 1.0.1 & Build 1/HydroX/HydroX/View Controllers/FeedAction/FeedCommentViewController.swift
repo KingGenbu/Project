@@ -47,7 +47,7 @@ class FeedCommentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        IQKeyboardManager.sharedManager().enable = false //Disable IQKeyboardManager for current view controller.
+        IQKeyboardManager.shared.enable = false //Disable IQKeyboardManager for current view controller.
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
@@ -56,7 +56,7 @@ class FeedCommentViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        IQKeyboardManager.sharedManager().enable = true //Again enable IQKeyboardManager for other view
+        IQKeyboardManager.shared.enable = true //Again enable IQKeyboardManager for other view
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
@@ -67,7 +67,7 @@ class FeedCommentViewController: UIViewController {
         self.title =  ViewControllerTitle.commentsList.rawValue
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        let leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
         
         navigationController?.navigationBar.isTranslucent = true
@@ -75,11 +75,6 @@ class FeedCommentViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
-        
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
-        statusBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
-        statusBar.tintColor = .white
         
     }
     @objc func leftBarBackButton(_ sender:UIBarButtonItem)  {

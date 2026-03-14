@@ -61,15 +61,11 @@ class StoryCapture: SwiftyCamViewController, SwiftyCamViewControllerDelegate {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.view.backgroundColor = .clear
-        let rightBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "img_camera-flip"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.rightBarButtonAction))
+        let rightBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "img_camera-flip"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.rightBarButtonAction))
         self.navigationItem.rightBarButtonItem = rightBarButton
-        let leftBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "img_setting"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarButtonAction))
+        let leftBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "img_setting"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarButtonAction))
         self.navigationItem.leftBarButtonItem = leftBarButton
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
-        statusBar.backgroundColor = .clear
-        statusBar.tintColor = .white
     }
     @objc func rightBarButtonAction(){
         switchCamera()

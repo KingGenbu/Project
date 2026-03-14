@@ -14,13 +14,14 @@ const options = {
 
 const apnProvider = new apn.Provider(options);
 
-// const sendmailTransport = require('nodemailer-sendmail-transport');
-
-const user = process.env.SmtpUsername;
-const pass = process.env.SmtpPassword;
-const host = process.env.SmtpHost;
-const port = process.env.SmtpPort;
-const transporter = nodemailer.createTransport(`smtp://${user}:${pass}@${host}:${port}`);
+const transporter = nodemailer.createTransport({
+  host: process.env.SmtpHost,
+  port: parseInt(process.env.SmtpPort, 10),
+  auth: {
+    user: process.env.SmtpUsername,
+    pass: process.env.SmtpPassword,
+  },
+});
 
 const { EmailTemplate } = require('email-templates-v2');
 const path = require('path');
@@ -89,4 +90,3 @@ module.exports = {
   sendSms,
   sendPush,
 };
-

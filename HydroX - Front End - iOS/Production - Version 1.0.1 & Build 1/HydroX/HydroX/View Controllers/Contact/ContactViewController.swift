@@ -62,8 +62,8 @@ class ContactViewController: UIViewController {
                     Helper.showProgressBar()
                 }
             } else {
-                Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: "Allow access to contact from settings", button1Title: "OK", button1ActionStyle: UIAlertActionStyle.default, button2Title: "Settings", onButton1Click: nil, onButton2Click: {
-                    guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                Helper.showAlertDialogWith2Button(onVC: self, title: APP_NAME, message: "Allow access to contact from settings", button1Title: "OK", button1ActionStyle: UIAlertAction.Style.default, button2Title: "Settings", onButton1Click: nil, onButton2Click: {
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                         return
                     }
                     
@@ -179,10 +179,10 @@ class ContactViewController: UIViewController {
         self.title = "HydroX FRIENDS"
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarSearchButton(_:)))
+        rightBarBackButton = UIBarButtonItem(image: UIImage(named: "img_search"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarSearchButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarBackButton
         
-        leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarBackButton(_:)))
+        leftBarSearchButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarBackButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarSearchButton
         
         navigationController?.navigationBar.isTranslucent = true
@@ -191,10 +191,6 @@ class ContactViewController: UIViewController {
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
-        statusBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
-        statusBar.tintColor = .white
     }
     
     @objc func leftBarBackButton(_ sender:UIBarButtonItem)  {
@@ -494,15 +490,15 @@ extension ContactViewController: UITableViewDataSource, UIActivityItemSource{
         return ""
     }
     
-    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType?) -> Any? {
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         return URL.init(string: Helper.invitationLink)!
     }
     
-    func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivityType?) -> String {
+    func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
         return Helper.invitationLink
     }
     
-    func activityViewController(_ activityViewController: UIActivityViewController, thumbnailImageForActivityType activityType: UIActivityType?, suggestedSize size: CGSize) -> UIImage? {
+    func activityViewController(_ activityViewController: UIActivityViewController, thumbnailImageForActivityType activityType: UIActivity.ActivityType?, suggestedSize size: CGSize) -> UIImage? {
         return nil
     }
 }
