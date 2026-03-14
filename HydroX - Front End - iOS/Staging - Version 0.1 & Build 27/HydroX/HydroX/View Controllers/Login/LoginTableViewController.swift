@@ -16,7 +16,7 @@ class LoginTableViewController: UITableViewController {
     @IBOutlet var vwPassword: ILCustomViews!
     @IBOutlet var btnSignIn: UIButton!
     @IBOutlet var btnForgotPassword: UIButton!
-    @IBOutlet var btnFBLogin: FBSDKLoginButton!
+    @IBOutlet var btnFBLogin: FBLoginButton!
     @IBOutlet var btnCreateNewAccount: UIButton!
     @IBOutlet var vwForgetPassword: UIView!
     @IBOutlet var btnSubmit: UIButton!
@@ -32,7 +32,7 @@ class LoginTableViewController: UITableViewController {
         super.viewDidLoad()
  
         self.tableView.contentInsetAdjustmentBehavior = .never
-        btnFBLogin.readPermissions = ["public_profile", "email"]
+        btnFBLogin.permissions = ["public_profile", "email"]
         btnFBLogin.delegate = self
         btnFBLogin.setAttributedTitle(NSAttributedString(string: App.fbButtonTitle.rawValue, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]), for: .normal)
      }
@@ -114,7 +114,7 @@ class LoginTableViewController: UITableViewController {
      }
     
     @IBAction func btnLoginWithFbTapped(_ sender: UIButton) {
-       FBSDKLoginManager().logOut()
+       LoginManager().logOut()
     }
     
     @IBAction func btnCreateNewAccoutTapped(_ sender: UIButton) {
@@ -219,11 +219,6 @@ class LoginTableViewController: UITableViewController {
         
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 18.0) ?? UIFont.boldSystemFont(ofSize: 18.0), NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
-        statusBar.backgroundColor = .clear
-        statusBar.tintColor = .white
-       
         let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBackTapped(_:)))
         self.navigationItem.leftBarButtonItem = btnBackBarButton
         
@@ -337,8 +332,8 @@ extension LoginTableViewController: UIGestureRecognizerDelegate {
     }
  }
 
-extension LoginTableViewController: FBSDKLoginButtonDelegate {
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+extension LoginTableViewController: LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
         
         FBLoginManager.loginButton(loginButton, didCompleteWith: result, error: error) { (success, dictResult) in
             if success {
@@ -347,7 +342,7 @@ extension LoginTableViewController: FBSDKLoginButtonDelegate {
         }
     }
     
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton!) {
         FBLoginManager.loginButtonDidLogOut(loginButton)
     }
     

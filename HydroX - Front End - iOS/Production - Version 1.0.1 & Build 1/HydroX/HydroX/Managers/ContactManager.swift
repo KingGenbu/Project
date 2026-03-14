@@ -132,7 +132,8 @@ class ContactManager: NSObject {
     @objc func storeDidChange(_ notification: Notification) {
         if dbUpadting == nil {
             dbUpadting = true
-            let NavVccVar = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let NavVccVar = windowScene?.windows.first(where: { $0.isKeyWindow })?.rootViewController as! UINavigationController
             let ShnSrnVar = NavVccVar.visibleViewController
             if (ShnSrnVar?.isKind(of: ContactViewController.self))!{
                 

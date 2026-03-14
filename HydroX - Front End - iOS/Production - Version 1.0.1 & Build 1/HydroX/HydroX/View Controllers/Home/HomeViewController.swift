@@ -79,11 +79,11 @@ class HomeViewController: UIViewController {
     /// Setup Navigationbar
     func setupNavigationBar() {
         
-        let rightBarSettingButton = UIBarButtonItem(image: UIImage(named: "img_setting"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightBarSettingButton(_:)))
+        let rightBarSettingButton = UIBarButtonItem(image: UIImage(named: "img_setting"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightBarSettingButton(_:)))
         self.navigationItem.rightBarButtonItem = rightBarSettingButton
         
         
-        let leftBarNotificationButton = UIBarButtonItem(image: UIImage(named: "img_notification"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftBarNotificationButton(_:)))
+        let leftBarNotificationButton = UIBarButtonItem(image: UIImage(named: "img_notification"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(leftBarNotificationButton(_:)))
         self.navigationItem.leftBarButtonItem = leftBarNotificationButton
         
         navigationController?.navigationBar.isHidden = false
@@ -95,9 +95,6 @@ class HomeViewController: UIViewController {
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_splash")!)
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_splash")!)
-        statusBar.tintColor = .white
     }
     
     /// Navigaitn bar setting button icon action method

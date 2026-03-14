@@ -60,7 +60,7 @@ class NotificationViewController : UIViewController {
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
         
-        let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(btnBackBarButtonTapped(_:)))
+        let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBackBarButtonTapped(_:)))
         self.navigationItem.leftBarButtonItem = btnBackBarButton
         
         self.tblNotificationList.estimatedRowHeight = 80.0

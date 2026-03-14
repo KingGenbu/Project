@@ -1,11 +1,8 @@
 'use strict';
 
-// Mock the `request` library before loading auth.js
-jest.mock('request');
 // Suppress l10n key lookups – just return the key as-is
 jest.mock('jm-ez-l10n', () => ({ t: (key) => key }));
 
-const request = require('request');
 const auth = require('../../helper/auth');
 
 // ─── generateOtp ────────────────────────────────────────────────────────────
@@ -39,7 +36,7 @@ describe('auth.generateOtpEmail()', () => {
     expect(token.length).toBeGreaterThan(0);
   });
 
-  it('returns a UUID v1 format (8-4-4-4-12 hex groups)', () => {
+  it('returns a UUID format (8-4-4-4-12 hex groups)', () => {
     const uuid = auth.generateOtpEmail();
     expect(uuid).toMatch(
       /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
@@ -56,13 +53,16 @@ describe('auth.generateOtpEmail()', () => {
 // ─── fbCheck ────────────────────────────────────────────────────────────────
 
 describe('auth.fbCheck()', () => {
+  const originalFetch = global.fetch;
+
   afterEach(() => {
-    request.mockReset();
+    global.fetch = originalFetch;
   });
 
   it('resolves when Facebook returns status 200 and a matching id', async () => {
-    request.mockImplementation((url, cb) => {
-      cb(null, { statusCode: 200 }, JSON.stringify({ id: 'fb-user-123' }));
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ id: 'fb-user-123' }),
     });
 
     await expect(
@@ -71,8 +71,9 @@ describe('auth.fbCheck()', () => {
   });
 
   it('rejects when the returned Facebook id does not match', async () => {
-    request.mockImplementation((url, cb) => {
-      cb(null, { statusCode: 200 }, JSON.stringify({ id: 'different-id' }));
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ id: 'different-id' }),
     });
 
     await expect(
@@ -81,8 +82,9 @@ describe('auth.fbCheck()', () => {
   });
 
   it('rejects when Facebook returns a non-200 status code', async () => {
-    request.mockImplementation((url, cb) => {
-      cb(null, { statusCode: 401 }, JSON.stringify({ error: 'Invalid OAuth access token' }));
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+      status: 401,
     });
 
     await expect(
@@ -91,24 +93,22 @@ describe('auth.fbCheck()', () => {
   });
 
   it('rejects on network/transport error', async () => {
-    request.mockImplementation((url, cb) => {
-      cb(new Error('ECONNREFUSED'), null, null);
-    });
+    global.fetch = jest.fn().mockRejectedValue(new Error('ECONNREFUSED'));
 
     await expect(
       auth.fbCheck({ id: 'fb-user-123', accessToken: 'any-token' })
     ).rejects.toBeTruthy();
   });
 
-  it('passes the accessToken in the request URL', async () => {
-    request.mockImplementation((url, cb) => {
-      cb(null, { statusCode: 200 }, JSON.stringify({ id: 'fb-user-123' }));
+  it('passes the accessToken in the fetch URL', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ id: 'fb-user-123' }),
     });
 
     await auth.fbCheck({ id: 'fb-user-123', accessToken: 'my-secret-token' });
-    expect(request).toHaveBeenCalledWith(
-      expect.stringContaining('my-secret-token'),
-      expect.any(Function)
+    expect(global.fetch).toHaveBeenCalledWith(
+      expect.stringContaining('my-secret-token')
     );
   });
 });

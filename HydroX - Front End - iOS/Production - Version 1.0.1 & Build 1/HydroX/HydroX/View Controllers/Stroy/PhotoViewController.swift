@@ -23,7 +23,7 @@ class PhotoViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        IQKeyboardManager.sharedManager().enableAutoToolbar = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
         self.view.backgroundColor = UIColor.gray
         let backgroundImageView = UIImageView(frame: view.frame)
         backgroundImageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -52,16 +52,12 @@ class PhotoViewController: UIViewController, UITextFieldDelegate{
         navigationController?.view.backgroundColor = UIColor.clear
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        let rightBarSettingButton = UIBarButtonItem(image: UIImage(named: "img_setting"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(btnRightBarSettingTapped(_:)))
+        let rightBarSettingButton = UIBarButtonItem(image: UIImage(named: "img_setting"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnRightBarSettingTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarSettingButton
         
-        let leftBarCloseButton = UIBarButtonItem(image: UIImage(named: "img_close"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(btnLeftBarCloseTapped(_:)))
+        let leftBarCloseButton = UIBarButtonItem(image: UIImage(named: "img_close"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnLeftBarCloseTapped(_:)))
         self.navigationItem.leftBarButtonItem = leftBarCloseButton
         
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        
-        statusBar.backgroundColor = .clear
-        statusBar.tintColor = .white
     }
     
     @objc func btnRightBarSettingTapped(_ sender: UIBarButtonItem) {
