@@ -1,5 +1,7 @@
 // Environment variables
 require('dotenv').config();
+const validateEnv = require('./config/validateEnv');
+validateEnv();
 
 const http = require('http');
 const cors = require('cors');
@@ -7,12 +9,35 @@ const helmet = require('helmet');
 const l10n = require('jm-ez-l10n');
 const express = require('express');
 const app = express();
+const rateLimit = require('express-rate-limit');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const snsSubscriptionConfirmation = require('aws-sns-subscription-confirmation');
 
 // Security headers
 app.use(helmet());
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many requests, please try again later.' },
+});
+app.use('/api/', limiter);
+
+// Stricter rate limit for auth endpoints
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many authentication attempts, please try again later.' },
+});
+app.use('/api/v1/user/login', authLimiter);
+app.use('/api/v1/user/create', authLimiter);
+app.use('/api/v1/user/forget-password', authLimiter);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

@@ -14,7 +14,7 @@ staticUtils.getStaticContent = (templateName, data) => {
         resolve(html);
       } else {
         logger.error(err);
-        reject.error(err);
+        reject(err);
       }
     });
   });

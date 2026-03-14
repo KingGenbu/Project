@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const fs = require('fs');
-const moment = require('moment');
+// moment removed — using native Date arithmetic instead
 const path = require('path');
 
 const logger = require('../../helper/logger');
@@ -73,7 +73,7 @@ feedCtr.newStory = (req, res) => {
     },
     caption,
     lastActive: new Date(),
-    storyExpiration: new Date(moment().add(constants.story.expirationDays, 'days').format()),
+    storyExpiration: new Date(Date.now() + constants.story.expirationDays * 24 * 60 * 60 * 1000),
   });
 
   feed.save()
@@ -507,7 +507,7 @@ feedCtr.activateStory = (req, res) => {
   Feed.findOneAndUpdate({ _id: feedId }, {
     $set: {
       lastActive: now,
-      storyExpiration: new Date(moment().add(constants.story.expirationDays, 'days').format()),
+      storyExpiration: new Date(Date.now() + constants.story.expirationDays * 24 * 60 * 60 * 1000),
     },
   })
     .then((feed) => {
@@ -730,7 +730,7 @@ feedCtr.goLiveGetStreamId = (req, res) => {
     caption,
     streamStatus: 'Created',
     lastActive: new Date(),
-    storyExpiration: new Date(moment().add(constants.story.liveExpirationDays, 'days').format()),
+    storyExpiration: new Date(Date.now() + constants.story.liveExpirationDays * 24 * 60 * 60 * 1000),
   });
 
   feed.save()

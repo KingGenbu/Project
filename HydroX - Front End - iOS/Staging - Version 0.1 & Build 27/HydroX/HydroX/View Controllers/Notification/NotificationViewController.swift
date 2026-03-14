@@ -48,13 +48,17 @@ class NotificationViewController : UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.title = ViewControllerTitle.notification.rawValue
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFontConst.POPPINS_MEDIUM!, NSAttributedString.Key.foregroundColor: UIColor.white]
+        if let font = UIFontConst.POPPINS_MEDIUM {
+            navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
         
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.view.backgroundColor = .clear
-        navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "img_bg_plain")!)
+        if let bgImage = UIImage(named: "img_bg_plain") {
+            navigationController?.navigationBar.backgroundColor = UIColor(patternImage: bgImage)
+        }
         
         let btnBackBarButton = UIBarButtonItem(image: UIImage(named: "img_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(btnBackBarButtonTapped(_:)))
         self.navigationItem.leftBarButtonItem = btnBackBarButton
@@ -88,12 +92,12 @@ class NotificationViewController : UIViewController {
         Helper.showProgressBar()
         ApiManager.Instance.sendHttpGetWithHeader(path: WebserverPath.notificationList + "?page=" + "\(pageNumber)", onComplete: { (json, error, reponse) in
             if error == nil {
-                if (reponse as! HTTPURLResponse).statusCode == 200 {
+                if (reponse as? HTTPURLResponse)?.statusCode == 200 {
                     if let dict = json.dictionaryObject {
                         if let dictNotificationList = dict["notificationsList"] as? [String:Any] {
                             
                             if let page = dictNotificationList["page"] as? String {
-                                self.pageNumber = Int(page)!
+                                self.pageNumber = Int(page) ?? 0
                             }
                             if let totalPages = dictNotificationList["pages"] as? Int {
                                 self.totalCount = totalPages

@@ -16,12 +16,12 @@ class UserDefaultHelper: NSObject {
     //MARK:- set and get preferences for String
     class func getPREF(_ key:String)->String?
     {
-        return Foundation.UserDefaults.standard.value(forKey: key ) as? String
+        return Foundation.UserDefaults.standard.string(forKey: key)
     }
 
     class func setPREF(_ sValue:String, key:String)
     {
-        Foundation.UserDefaults.standard.setValue(sValue, forKey: key )
+        Foundation.UserDefaults.standard.set(sValue, forKey: key)
     }
 
     class func  delPREF(_ key:String)
@@ -37,7 +37,7 @@ class UserDefaultHelper: NSObject {
 
     class func setIntPREF(_ sValue:Int, key:String)
     {
-        Foundation.UserDefaults.standard.setValue(sValue, forKey: key )
+        Foundation.UserDefaults.standard.set(sValue, forKey: key)
     }
 
     class func  delIntPREF(_ key:String)
@@ -54,7 +54,7 @@ class UserDefaultHelper: NSObject {
 
     class func setDoublePREF(_ sValue:Double, key:String)
     {
-        Foundation.UserDefaults.standard.setValue(sValue, forKey: key )
+        Foundation.UserDefaults.standard.set(sValue, forKey: key)
     }
 
     //MARK:- set and get preferences for Array
@@ -98,19 +98,19 @@ class UserDefaultHelper: NSObject {
     {
         var _defaultData:[String:Any] = [:]
 
-        if let data = Foundation.UserDefaults.standard.object(forKey: key ) as? Data {
-            guard let object = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSDictionary.self, NSString.self, NSNumber.self, NSArray.self], from: data) as? [String: Any] else {
+        if let data = Foundation.UserDefaults.standard.object(forKey: key) as? Data {
+            guard let object = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
                 return _defaultData
             }
 
-            _defaultData = object ?? [:]
+            _defaultData = object
         }
         return _defaultData
     }
 
     class func setDicPREF(_ sValue:[String: Any], key:String)
     {
-        if let data = try? NSKeyedArchiver.archivedData(withRootObject: sValue, requiringSecureCoding: false) {
+        if let data = try? JSONSerialization.data(withJSONObject: sValue, options: []) {
             Foundation.UserDefaults.standard.set(data, forKey: key)
         }
     }

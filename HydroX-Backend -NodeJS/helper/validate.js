@@ -81,7 +81,7 @@ validator.isValidRex = (str, options) => {
 validator.isValidEnum = (str, options) => {
   const { aEnum } = options;
   if (!_.isEmpty(str)) {
-    if (!_.isEmpty(aEnum) && aEnum.indexOf(str) !== -1) {
+    if (!_.isEmpty(aEnum) && aEnum.includes(str)) {
       return true;
     }
     return false;
